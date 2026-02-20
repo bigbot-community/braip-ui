@@ -7,96 +7,96 @@
  * <BrTextarea v-model="description" :rows="6" resize="vertical" />
  */
 
-import { computed, ref } from 'vue'
-import type { TextareaProps } from './types'
+import { computed, ref } from "vue";
+import type { TextareaProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<TextareaProps>(), {
-  placeholder: '',
+  placeholder: "",
   disabled: false,
   readonly: false,
   error: false,
   rows: 4,
-  resize: 'vertical',
+  resize: "vertical",
   maxLength: undefined,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const model = defineModel<string>({ default: '' })
+const model = defineModel<string>({ default: "" });
 
 // ---------------------------------------------------------------------------
 // EMITS
 // ---------------------------------------------------------------------------
 
 const emit = defineEmits<{
-  (e: 'focus', value: string): void
-  (e: 'blur', value: string): void
-}>()
+  (e: "focus", value: string): void;
+  (e: "blur", value: string): void;
+}>();
 
 // ---------------------------------------------------------------------------
 // REFS
 // ---------------------------------------------------------------------------
 
-const textareaRef = ref<HTMLTextAreaElement | null>(null)
-const isFocused = ref(false)
+const textareaRef = ref<HTMLTextAreaElement | null>(null);
+const isFocused = ref(false);
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-textarea',
+  "br-textarea",
   {
-    'br-textarea--error': props.error,
-    'br-textarea--disabled': props.disabled,
-    'br-textarea--focused': isFocused.value,
+    "br-textarea--error": props.error,
+    "br-textarea--disabled": props.disabled,
+    "br-textarea--focused": isFocused.value,
   },
-])
+]);
 
 const styles = computed(() => ({
   resize: props.resize,
-}))
+}));
 
-const charCount = computed(() => model.value?.length || 0)
+const charCount = computed(() => model.value?.length || 0);
 
 // ---------------------------------------------------------------------------
 // METHODS
 // ---------------------------------------------------------------------------
 
 function handleInput(event: Event) {
-  const target = event.target as HTMLTextAreaElement
-  model.value = target.value
+  const target = event.target as HTMLTextAreaElement;
+  model.value = target.value;
 }
 
 function handleFocus() {
-  isFocused.value = true
-  emit('focus', model.value)
+  isFocused.value = true;
+  emit("focus", model.value);
 }
 
 function handleBlur() {
-  isFocused.value = false
-  emit('blur', model.value)
+  isFocused.value = false;
+  emit("blur", model.value);
 }
 
 function focus() {
-  textareaRef.value?.focus()
+  textareaRef.value?.focus();
 }
 
 function blur() {
-  textareaRef.value?.blur()
+  textareaRef.value?.blur();
 }
 
 // ---------------------------------------------------------------------------
 // EXPOSE
 // ---------------------------------------------------------------------------
 
-defineExpose({ focus, blur, textareaRef })
+defineExpose({ focus, blur, textareaRef });
 </script>
 
 <template>

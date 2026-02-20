@@ -2,138 +2,138 @@ export interface TabItem {
   /**
    * Unique identifier
    */
-  id: string | number
+  id: string | number;
 
   /**
    * Tab label
    */
-  label: string
+  label: string;
 
   /**
    * Tab icon
    */
-  icon?: string
+  icon?: string;
 
   /**
    * Tab content (for items prop usage)
    */
-  content?: string
+  content?: string;
 
   /**
    * Disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Badge count
    */
-  badge?: number | string
+  badge?: number | string;
 
   /**
    * Closable tab
    */
-  closable?: boolean
+  closable?: boolean;
 }
 
-export type TabsVariant = 'default' | 'pills' | 'underline' | 'enclosed'
-export type TabsSize = 'sm' | 'md' | 'lg'
+export type TabsVariant = "default" | "pills" | "underline" | "enclosed";
+export type TabsSize = "sm" | "md" | "lg";
 
 export interface TabsProps {
   /**
    * Tab items
    */
-  items?: TabItem[]
+  items?: TabItem[];
 
   /**
    * Variant style
    * @default 'default'
    */
-  variant?: TabsVariant
+  variant?: TabsVariant;
 
   /**
    * Size
    * @default 'md'
    */
-  size?: TabsSize
+  size?: TabsSize;
 
   /**
    * Full width tabs
    * @default false
    */
-  fullWidth?: boolean
+  fullWidth?: boolean;
 
   /**
    * Center tabs
    * @default false
    */
-  centered?: boolean
+  centered?: boolean;
 
   /**
    * Vertical tabs
    * @default false
    */
-  vertical?: boolean
+  vertical?: boolean;
 
   /**
    * Grow tabs to fill space
    * @default false
    */
-  grow?: boolean
+  grow?: boolean;
 
   /**
    * Show close button on tabs
    * @default false
    */
-  closable?: boolean
+  closable?: boolean;
 
   /**
    * Lazy load tab content
    * @default true
    */
-  lazy?: boolean
+  lazy?: boolean;
 }
 
 export interface TabProps {
   /**
    * Tab identifier
    */
-  id: string | number
+  id: string | number;
 
   /**
    * Tab label
    */
-  label: string
+  label: string;
 
   /**
    * Tab icon
    */
-  icon?: string
+  icon?: string;
 
   /**
    * Disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Badge count
    */
-  badge?: number | string
+  badge?: number | string;
 
   /**
    * Closable tab
    */
-  closable?: boolean
+  closable?: boolean;
 }
 
 export interface TabPanelProps {
   /**
    * Associated tab id
    */
-  tabId: string | number
+  tabId: string | number;
 
   /**
    * Lazy render content
    * @default true
    */
-  lazy?: boolean
+  lazy?: boolean;
 }

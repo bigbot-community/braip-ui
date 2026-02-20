@@ -1,24 +1,24 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { RadioGroupProps } from './types'
-import BrRadio from './BrRadio.vue'
+import { computed } from "vue";
+import type { RadioGroupProps } from "./types";
+import BrRadio from "./BrRadio.vue";
 
 const props = withDefaults(defineProps<RadioGroupProps>(), {
-  direction: 'vertical',
-  size: 'md',
+  direction: "vertical",
+  size: "md",
   disabled: false,
   error: false,
-})
+});
 
-const model = defineModel<string | number | boolean>()
+const model = defineModel<string | number | boolean>();
 
 const classes = computed(() => [
-  'br-radio-group',
+  "br-radio-group",
   `br-radio-group--${props.direction}`,
   {
-    'br-radio-group--error': props.error,
+    "br-radio-group--error": props.error,
   },
-])
+]);
 </script>
 
 <template>

@@ -4,11 +4,11 @@
   "private": false,
   "description": "Braip UI Component Library",
   "scripts": {
-    "dev": "pnpm -F @braiphub/ui dev",
-    "build": "pnpm -F @braiphub/ui build",
+    "dev": "pnpm -F @bigbot-community/bigbot-ui dev",
+    "build": "pnpm -F @bigbot-community/bigbot-ui build",
     "build:docs": "pnpm -F docs build",
     "docs:dev": "pnpm -F docs dev",
-    "test": "pnpm -F @braiphub/ui test",
+    "test": "pnpm -F @bigbot-community/bigbot-ui test",
     "lint": "eslint . --ext .ts,.vue",
     "typecheck": "pnpm -r typecheck",
     "playground": "pnpm -F playground dev",
@@ -16,12 +16,16 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.0",
+    "@eslint/js": "^8.57.1",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
-    "eslint": "^8.57.0",
-    "eslint-plugin-vue": "^9.21.0",
+    "eslint": "^8.57.1",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^17.3.0",
+    "jiti": "^2.6.1",
     "prettier": "^3.2.0",
-    "typescript": "^5.3.0"
+    "typescript": "^5.3.0",
+    "typescript-eslint": "^8.56.0"
   },
   "packageManager": "pnpm@9.0.0",
   "engines": {

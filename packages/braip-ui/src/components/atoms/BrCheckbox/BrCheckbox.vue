@@ -1,61 +1,61 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import type { CheckboxProps } from './types'
+import { computed, ref, watch } from "vue";
+import type { CheckboxProps } from "./types";
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
-  size: 'md',
+  size: "md",
   disabled: false,
   indeterminate: false,
   error: false,
   trueValue: true,
   falseValue: false,
-})
+});
 
-const model = defineModel<string | number | boolean | Array<string | number>>()
-const inputRef = ref<HTMLInputElement | null>(null)
+const model = defineModel<string | number | boolean | Array<string | number>>();
+const inputRef = ref<HTMLInputElement | null>(null);
 
 const isChecked = computed(() => {
   if (Array.isArray(model.value)) {
-    return model.value.includes(props.trueValue as never)
+    return model.value.includes(props.trueValue as never);
   }
-  return model.value === props.trueValue
-})
+  return model.value === props.trueValue;
+});
 
 const classes = computed(() => [
-  'br-checkbox',
+  "br-checkbox",
   `br-checkbox--${props.size}`,
   {
-    'br-checkbox--disabled': props.disabled,
-    'br-checkbox--error': props.error,
-    'br-checkbox--checked': isChecked.value,
-    'br-checkbox--indeterminate': props.indeterminate,
+    "br-checkbox--disabled": props.disabled,
+    "br-checkbox--error": props.error,
+    "br-checkbox--checked": isChecked.value,
+    "br-checkbox--indeterminate": props.indeterminate,
   },
-])
+]);
 
 watch(
   () => props.indeterminate,
   (val) => {
     if (inputRef.value) {
-      inputRef.value.indeterminate = val
+      inputRef.value.indeterminate = val;
     }
   },
-  { immediate: true }
-)
+  { immediate: true },
+);
 
 function handleChange() {
-  if (props.disabled) return
+  if (props.disabled) return;
 
   if (Array.isArray(model.value)) {
-    const newValue = [...model.value]
-    const index = newValue.indexOf(props.trueValue as never)
+    const newValue = [...model.value];
+    const index = newValue.indexOf(props.trueValue as never);
     if (index > -1) {
-      newValue.splice(index, 1)
+      newValue.splice(index, 1);
     } else {
-      newValue.push(props.trueValue as never)
+      newValue.push(props.trueValue as never);
     }
-    model.value = newValue
+    model.value = newValue;
   } else {
-    model.value = isChecked.value ? props.falseValue : props.trueValue
+    model.value = isChecked.value ? props.falseValue : props.trueValue;
   }
 }
 </script>
@@ -71,10 +71,21 @@ function handleChange() {
       @change="handleChange"
     />
     <span class="br-checkbox__control">
-      <svg v-if="isChecked && !indeterminate" viewBox="0 0 24 24" class="br-checkbox__icon">
-        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor" />
+      <svg
+        v-if="isChecked && !indeterminate"
+        viewBox="0 0 24 24"
+        class="br-checkbox__icon"
+      >
+        <path
+          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          fill="currentColor"
+        />
       </svg>
-      <svg v-else-if="indeterminate" viewBox="0 0 24 24" class="br-checkbox__icon">
+      <svg
+        v-else-if="indeterminate"
+        viewBox="0 0 24 24"
+        class="br-checkbox__icon"
+      >
         <path d="M19 13H5v-2h14v2z" fill="currentColor" />
       </svg>
     </span>

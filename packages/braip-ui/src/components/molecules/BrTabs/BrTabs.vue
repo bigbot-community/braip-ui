@@ -1,53 +1,53 @@
 <script setup lang="ts">
-import { computed, provide, reactive } from 'vue'
-import type { TabsProps } from './types'
+import { computed, provide, reactive } from "vue";
+import type { TabsProps } from "./types";
 
 const props = withDefaults(defineProps<TabsProps>(), {
-  variant: 'default',
-  size: 'md',
+  variant: "default",
+  size: "md",
   fullWidth: false,
   centered: false,
   vertical: false,
   grow: false,
   closable: false,
   lazy: true,
-})
+});
 
-const model = defineModel<string | number>()
+const model = defineModel<string | number>();
 
 const emit = defineEmits<{
-  (e: 'tab-close', id: string | number): void
-}>()
+  (e: "tab-close", id: string | number): void;
+}>();
 
 const classes = computed(() => [
-  'br-tabs',
+  "br-tabs",
   `br-tabs--${props.variant}`,
   `br-tabs--${props.size}`,
   {
-    'br-tabs--full-width': props.fullWidth,
-    'br-tabs--centered': props.centered,
-    'br-tabs--vertical': props.vertical,
-    'br-tabs--grow': props.grow,
+    "br-tabs--full-width": props.fullWidth,
+    "br-tabs--centered": props.centered,
+    "br-tabs--vertical": props.vertical,
+    "br-tabs--grow": props.grow,
   },
-])
+]);
 
 function selectTab(id: string | number) {
-  model.value = id
+  model.value = id;
 }
 
 function closeTab(id: string | number, event: Event) {
-  event.stopPropagation()
-  emit('tab-close', id)
+  event.stopPropagation();
+  emit("tab-close", id);
 }
 
 provide(
-  'tabs',
+  "tabs",
   reactive({
     activeTab: model,
     selectTab,
     lazy: computed(() => props.lazy),
-  })
-)
+  }),
+);
 </script>
 
 <template>
@@ -68,7 +68,9 @@ provide(
           :disabled="item.disabled"
           @click="selectTab(item.id)"
         >
-          <span v-if="item.icon" class="br-tabs__tab-icon">{{ item.icon }}</span>
+          <span v-if="item.icon" class="br-tabs__tab-icon">{{
+            item.icon
+          }}</span>
           <span class="br-tabs__tab-label">{{ item.label }}</span>
           <span v-if="item.badge !== undefined" class="br-tabs__tab-badge">
             {{ item.badge }}
@@ -80,7 +82,9 @@ provide(
             @click="closeTab(item.id, $event)"
           >
             <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+              <path
+                d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+              />
             </svg>
           </button>
         </button>
@@ -241,7 +245,7 @@ provide(
   // Variants
   &--default {
     .br-tabs__tab--active::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -1px;
       left: 0;
