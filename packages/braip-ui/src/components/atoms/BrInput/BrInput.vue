@@ -8,113 +8,121 @@
  * <BrInput type="number" :min="0" :max="100" />
  */
 
-import { computed, ref, watch } from 'vue'
-import type { InputProps } from './types'
+import { computed, ref, watch } from "vue";
+import type { InputProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<InputProps>(), {
-  type: 'text',
-  placeholder: '',
+  type: "text",
+  placeholder: "",
   disabled: false,
   readonly: false,
   error: false,
-  size: 'md',
+  size: "md",
   block: true,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const model = defineModel<string | number>()
+const model = defineModel<string | number>();
 
 // ---------------------------------------------------------------------------
 // EMITS
 // ---------------------------------------------------------------------------
 
 const emit = defineEmits<{
-  (e: 'focus', value: string | number | undefined): void
-  (e: 'blur', value: string | number | undefined): void
-  (e: 'enter', value: string | number | undefined): void
-  (e: 'keydown', event: KeyboardEvent): void
-}>()
+  (e: "focus", value: string | number | undefined): void;
+  (e: "blur", value: string | number | undefined): void;
+  (e: "enter", value: string | number | undefined): void;
+  (e: "keydown", event: KeyboardEvent): void;
+}>();
 
 // ---------------------------------------------------------------------------
 // REFS
 // ---------------------------------------------------------------------------
 
-const inputRef = ref<HTMLInputElement | null>(null)
-const isFocused = ref(false)
+const inputRef = ref<HTMLInputElement | null>(null);
+const isFocused = ref(false);
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-input',
+  "br-input",
   `br-input--${props.size}`,
   {
-    'br-input--block': props.block,
-    'br-input--error': props.error,
-    'br-input--disabled': props.disabled,
-    'br-input--focused': isFocused.value,
+    "br-input--block": props.block,
+    "br-input--error": props.error,
+    "br-input--disabled": props.disabled,
+    "br-input--focused": isFocused.value,
   },
-])
+]);
 
 // ---------------------------------------------------------------------------
 // METHODS
 // ---------------------------------------------------------------------------
 
 function handleInput(event: Event) {
-  const target = event.target as HTMLInputElement
-  const value = props.type === 'number' ? Number(target.value) : target.value
+  const target = event.target as HTMLInputElement;
+  const value = props.type === "number" ? Number(target.value) : target.value;
 
-  if (props.type === 'number' && props.min !== undefined && Number(value) < props.min) {
-    model.value = props.min
-    return
+  if (
+    props.type === "number" &&
+    props.min !== undefined &&
+    Number(value) < props.min
+  ) {
+    model.value = props.min;
+    return;
   }
 
-  if (props.type === 'number' && props.max !== undefined && Number(value) > props.max) {
-    model.value = props.max
-    return
+  if (
+    props.type === "number" &&
+    props.max !== undefined &&
+    Number(value) > props.max
+  ) {
+    model.value = props.max;
+    return;
   }
 
-  model.value = value
+  model.value = value;
 }
 
 function handleFocus() {
-  isFocused.value = true
-  emit('focus', model.value)
+  isFocused.value = true;
+  emit("focus", model.value);
 }
 
 function handleBlur() {
-  isFocused.value = false
-  emit('blur', model.value)
+  isFocused.value = false;
+  emit("blur", model.value);
 }
 
 function handleKeydown(event: KeyboardEvent) {
-  emit('keydown', event)
-  if (event.key === 'Enter') {
-    emit('enter', model.value)
+  emit("keydown", event);
+  if (event.key === "Enter") {
+    emit("enter", model.value);
   }
 }
 
 function focus() {
-  inputRef.value?.focus()
+  inputRef.value?.focus();
 }
 
 function blur() {
-  inputRef.value?.blur()
+  inputRef.value?.blur();
 }
 
 // ---------------------------------------------------------------------------
 // EXPOSE
 // ---------------------------------------------------------------------------
 
-defineExpose({ focus, blur, inputRef })
+defineExpose({ focus, blur, inputRef });
 </script>
 
 <template>
@@ -203,13 +211,13 @@ defineExpose({ focus, blur, inputRef })
 }
 
 // Remove number input spinners
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 </style>

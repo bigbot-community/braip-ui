@@ -1,154 +1,166 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
-import type { CalendarProps, CalendarView, CalendarRange } from './types'
+import { computed, ref, watch } from "vue";
+import type { CalendarProps, CalendarView, CalendarRange } from "./types";
 
 const props = withDefaults(defineProps<CalendarProps>(), {
-  view: 'day',
+  view: "day",
   firstDayOfWeek: 0,
   showWeekNumbers: false,
   multiple: false,
   range: false,
-  locale: 'pt-BR',
+  locale: "pt-BR",
   readonly: false,
   disabled: false,
-})
+});
 
-const model = defineModel<Date | Date[] | CalendarRange | null>()
+const model = defineModel<Date | Date[] | CalendarRange | null>();
 
-const currentView = ref<CalendarView>(props.view)
-const viewDate = ref(new Date())
+const currentView = ref<CalendarView>(props.view);
+const viewDate = ref(new Date());
 
 const weekDays = computed(() => {
-  const days = []
-  const baseDate = new Date(2024, 0, props.firstDayOfWeek)
+  const days = [];
+  const baseDate = new Date(2024, 0, props.firstDayOfWeek);
   for (let i = 0; i < 7; i++) {
-    const date = new Date(baseDate)
-    date.setDate(baseDate.getDate() + i)
-    days.push(date.toLocaleDateString(props.locale, { weekday: 'short' }))
+    const date = new Date(baseDate);
+    date.setDate(baseDate.getDate() + i);
+    days.push(date.toLocaleDateString(props.locale, { weekday: "short" }));
   }
-  return days
-})
+  return days;
+});
 
 const monthName = computed(() => {
-  return viewDate.value.toLocaleDateString(props.locale, { month: 'long', year: 'numeric' })
-})
+  return viewDate.value.toLocaleDateString(props.locale, {
+    month: "long",
+    year: "numeric",
+  });
+});
 
 const calendarDays = computed(() => {
-  const year = viewDate.value.getFullYear()
-  const month = viewDate.value.getMonth()
-  const firstDay = new Date(year, month, 1)
-  const lastDay = new Date(year, month + 1, 0)
+  const year = viewDate.value.getFullYear();
+  const month = viewDate.value.getMonth();
+  const firstDay = new Date(year, month, 1);
+  const lastDay = new Date(year, month + 1, 0);
 
-  const days = []
-  const startOffset = (firstDay.getDay() - props.firstDayOfWeek + 7) % 7
+  const days = [];
+  const startOffset = (firstDay.getDay() - props.firstDayOfWeek + 7) % 7;
 
   // Previous month days
   for (let i = startOffset - 1; i >= 0; i--) {
-    const date = new Date(year, month, -i)
-    days.push({ date, isCurrentMonth: false, isToday: false })
+    const date = new Date(year, month, -i);
+    days.push({ date, isCurrentMonth: false, isToday: false });
   }
 
   // Current month days
-  const today = new Date()
+  const today = new Date();
   for (let i = 1; i <= lastDay.getDate(); i++) {
-    const date = new Date(year, month, i)
+    const date = new Date(year, month, i);
     const isToday =
       date.getDate() === today.getDate() &&
       date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear()
-    days.push({ date, isCurrentMonth: true, isToday })
+      date.getFullYear() === today.getFullYear();
+    days.push({ date, isCurrentMonth: true, isToday });
   }
 
   // Next month days
-  const remaining = 42 - days.length
+  const remaining = 42 - days.length;
   for (let i = 1; i <= remaining; i++) {
-    const date = new Date(year, month + 1, i)
-    days.push({ date, isCurrentMonth: false, isToday: false })
+    const date = new Date(year, month + 1, i);
+    days.push({ date, isCurrentMonth: false, isToday: false });
   }
 
-  return days
-})
+  return days;
+});
 
 const months = computed(() => {
-  const months = []
+  const months = [];
   for (let i = 0; i < 12; i++) {
-    const date = new Date(viewDate.value.getFullYear(), i, 1)
+    const date = new Date(viewDate.value.getFullYear(), i, 1);
     months.push({
       index: i,
-      name: date.toLocaleDateString(props.locale, { month: 'short' }),
-    })
+      name: date.toLocaleDateString(props.locale, { month: "short" }),
+    });
   }
-  return months
-})
+  return months;
+});
 
 const years = computed(() => {
-  const currentYear = viewDate.value.getFullYear()
-  const startYear = Math.floor(currentYear / 10) * 10
-  const years = []
+  const currentYear = viewDate.value.getFullYear();
+  const startYear = Math.floor(currentYear / 10) * 10;
+  const years = [];
   for (let i = startYear - 1; i <= startYear + 10; i++) {
-    years.push(i)
+    years.push(i);
   }
-  return years
-})
+  return years;
+});
 
 function isDateDisabled(date: Date) {
-  if (props.disabled) return true
+  if (props.disabled) return true;
 
   if (props.minDate) {
-    const min = new Date(props.minDate)
-    min.setHours(0, 0, 0, 0)
-    if (date < min) return true
+    const min = new Date(props.minDate);
+    min.setHours(0, 0, 0, 0);
+    if (date < min) return true;
   }
 
   if (props.maxDate) {
-    const max = new Date(props.maxDate)
-    max.setHours(23, 59, 59, 999)
-    if (date > max) return true
+    const max = new Date(props.maxDate);
+    max.setHours(23, 59, 59, 999);
+    if (date > max) return true;
   }
 
   if (props.disabledDates) {
     return props.disabledDates.some((d) => {
-      const disabled = new Date(d)
+      const disabled = new Date(d);
       return (
         date.getDate() === disabled.getDate() &&
         date.getMonth() === disabled.getMonth() &&
         date.getFullYear() === disabled.getFullYear()
-      )
-    })
+      );
+    });
   }
 
-  return false
+  return false;
 }
 
 function isDateSelected(date: Date) {
-  if (!model.value) return false
+  if (!model.value) return false;
 
-  if (props.range && typeof model.value === 'object' && 'start' in model.value) {
-    const range = model.value as CalendarRange
-    if (range.start && isSameDay(date, range.start)) return true
-    if (range.end && isSameDay(date, range.end)) return true
-    return false
+  if (
+    props.range &&
+    typeof model.value === "object" &&
+    "start" in model.value
+  ) {
+    const range = model.value as CalendarRange;
+    if (range.start && isSameDay(date, range.start)) return true;
+    if (range.end && isSameDay(date, range.end)) return true;
+    return false;
   }
 
   if (props.multiple && Array.isArray(model.value)) {
-    return model.value.some((d) => isSameDay(date, d))
+    return model.value.some((d) => isSameDay(date, d));
   }
 
   if (model.value instanceof Date) {
-    return isSameDay(date, model.value)
+    return isSameDay(date, model.value);
   }
 
-  return false
+  return false;
 }
 
 function isInRange(date: Date) {
-  if (!props.range || !model.value || typeof model.value !== 'object' || !('start' in model.value))
-    return false
+  if (
+    !props.range ||
+    !model.value ||
+    typeof model.value !== "object" ||
+    !("start" in model.value)
+  )
+    return false;
 
-  const range = model.value as CalendarRange
-  if (!range.start || !range.end) return false
+  const range = model.value as CalendarRange;
+  if (!range.start || !range.end) return false;
 
-  return date > range.start && date < range.end
+  return date > range.start && date < range.end;
 }
 
 function isSameDay(date1: Date, date2: Date) {
@@ -156,77 +168,80 @@ function isSameDay(date1: Date, date2: Date) {
     date1.getDate() === date2.getDate() &&
     date1.getMonth() === date2.getMonth() &&
     date1.getFullYear() === date2.getFullYear()
-  )
+  );
 }
 
 function getHighlight(date: Date) {
-  if (!props.highlightedDates) return null
-  return props.highlightedDates.find((h) => isSameDay(date, new Date(h.date)))
+  if (!props.highlightedDates) return null;
+  return props.highlightedDates.find((h) => isSameDay(date, new Date(h.date)));
 }
 
 function selectDate(date: Date) {
-  if (props.readonly || props.disabled || isDateDisabled(date)) return
+  if (props.readonly || props.disabled || isDateDisabled(date)) return;
 
   if (props.range) {
-    const current = (model.value as CalendarRange) || { start: null, end: null }
+    const current = (model.value as CalendarRange) || {
+      start: null,
+      end: null,
+    };
     if (!current.start || current.end) {
-      model.value = { start: date, end: null }
+      model.value = { start: date, end: null };
     } else {
       if (date < current.start) {
-        model.value = { start: date, end: current.start }
+        model.value = { start: date, end: current.start };
       } else {
-        model.value = { start: current.start, end: date }
+        model.value = { start: current.start, end: date };
       }
     }
   } else if (props.multiple) {
-    const current = (model.value as Date[]) || []
-    const index = current.findIndex((d) => isSameDay(d, date))
+    const current = (model.value as Date[]) || [];
+    const index = current.findIndex((d) => isSameDay(d, date));
     if (index > -1) {
-      const newValue = [...current]
-      newValue.splice(index, 1)
-      model.value = newValue
+      const newValue = [...current];
+      newValue.splice(index, 1);
+      model.value = newValue;
     } else {
-      model.value = [...current, date]
+      model.value = [...current, date];
     }
   } else {
-    model.value = date
+    model.value = date;
   }
 }
 
 function selectMonth(month: number) {
-  viewDate.value = new Date(viewDate.value.getFullYear(), month, 1)
-  currentView.value = 'day'
+  viewDate.value = new Date(viewDate.value.getFullYear(), month, 1);
+  currentView.value = "day";
 }
 
 function selectYear(year: number) {
-  viewDate.value = new Date(year, viewDate.value.getMonth(), 1)
-  currentView.value = 'month'
+  viewDate.value = new Date(year, viewDate.value.getMonth(), 1);
+  currentView.value = "month";
 }
 
 function navigate(direction: number) {
-  const date = new Date(viewDate.value)
-  if (currentView.value === 'day') {
-    date.setMonth(date.getMonth() + direction)
-  } else if (currentView.value === 'month') {
-    date.setFullYear(date.getFullYear() + direction)
+  const date = new Date(viewDate.value);
+  if (currentView.value === "day") {
+    date.setMonth(date.getMonth() + direction);
+  } else if (currentView.value === "month") {
+    date.setFullYear(date.getFullYear() + direction);
   } else {
-    date.setFullYear(date.getFullYear() + direction * 10)
+    date.setFullYear(date.getFullYear() + direction * 10);
   }
-  viewDate.value = date
+  viewDate.value = date;
 }
 
 function goToToday() {
-  viewDate.value = new Date()
-  currentView.value = 'day'
+  viewDate.value = new Date();
+  currentView.value = "day";
 }
 
 const classes = computed(() => [
-  'br-calendar',
+  "br-calendar",
   {
-    'br-calendar--disabled': props.disabled,
-    'br-calendar--readonly': props.readonly,
+    "br-calendar--disabled": props.disabled,
+    "br-calendar--readonly": props.readonly,
   },
-])
+]);
 </script>
 
 <template>
@@ -292,7 +307,11 @@ const classes = computed(() => [
               'br-calendar__day--disabled': isDateDisabled(day.date),
               'br-calendar__day--highlighted': getHighlight(day.date),
             }"
-            :style="getHighlight(day.date) ? { '--highlight-color': getHighlight(day.date)?.color } : {}"
+            :style="
+              getHighlight(day.date)
+                ? { '--highlight-color': getHighlight(day.date)?.color }
+                : {}
+            "
             :disabled="isDateDisabled(day.date)"
             :title="getHighlight(day.date)?.label"
             @click="selectDate(day.date)"
@@ -311,7 +330,9 @@ const classes = computed(() => [
         type="button"
         class="br-calendar__month"
         :class="{
-          'br-calendar__month--current': month.index === new Date().getMonth() && viewDate.getFullYear() === new Date().getFullYear(),
+          'br-calendar__month--current':
+            month.index === new Date().getMonth() &&
+            viewDate.getFullYear() === new Date().getFullYear(),
         }"
         :disabled="disabled"
         @click="selectMonth(month.index)"
@@ -338,7 +359,12 @@ const classes = computed(() => [
     </div>
 
     <div class="br-calendar__footer">
-      <button type="button" class="br-calendar__today" :disabled="disabled" @click="goToToday">
+      <button
+        type="button"
+        class="br-calendar__today"
+        :disabled="disabled"
+        @click="goToToday"
+      >
         Hoje
       </button>
     </div>
@@ -488,7 +514,7 @@ const classes = computed(() => [
       position: relative;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         bottom: 4px;
         width: 4px;

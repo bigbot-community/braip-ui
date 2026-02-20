@@ -8,46 +8,46 @@
  * <BrButton variant="outline" loading>Loading...</BrButton>
  */
 
-import { computed } from 'vue'
-import type { ButtonProps, ButtonVariant, ButtonSize } from './types'
+import { computed } from "vue";
+import type { ButtonProps, ButtonVariant, ButtonSize } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<ButtonProps>(), {
-  variant: 'primary',
-  size: 'md',
-  type: 'button',
+  variant: "primary",
+  size: "md",
+  type: "button",
   disabled: false,
   loading: false,
   block: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // EMITS
 // ---------------------------------------------------------------------------
 
 const emit = defineEmits<{
-  (e: 'click', event: MouseEvent): void
-}>()
+  (e: "click", event: MouseEvent): void;
+}>();
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-button',
+  "br-button",
   `br-button--${props.variant}`,
   `br-button--${props.size}`,
   {
-    'br-button--block': props.block,
-    'br-button--loading': props.loading,
-    'br-button--disabled': props.disabled || props.loading,
+    "br-button--block": props.block,
+    "br-button--loading": props.loading,
+    "br-button--disabled": props.disabled || props.loading,
   },
-])
+]);
 
-const isDisabled = computed(() => props.disabled || props.loading)
+const isDisabled = computed(() => props.disabled || props.loading);
 
 // ---------------------------------------------------------------------------
 // METHODS
@@ -55,7 +55,7 @@ const isDisabled = computed(() => props.disabled || props.loading)
 
 function handleClick(event: MouseEvent) {
   if (!isDisabled.value) {
-    emit('click', event)
+    emit("click", event);
   }
 }
 </script>
@@ -86,7 +86,10 @@ function handleClick(event: MouseEvent) {
         />
       </svg>
     </span>
-    <span class="br-button__content" :class="{ 'br-button__content--hidden': loading }">
+    <span
+      class="br-button__content"
+      :class="{ 'br-button__content--hidden': loading }"
+    >
       <slot />
     </span>
   </button>

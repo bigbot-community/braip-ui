@@ -1,65 +1,74 @@
-export type InputSize = 'sm' | 'md' | 'lg'
-export type InputType = 'text' | 'email' | 'password' | 'number' | 'tel' | 'url' | 'search' | 'date' | 'time'
+export type InputSize = "sm" | "md" | "lg";
+export type InputType =
+  | "text"
+  | "email"
+  | "password"
+  | "number"
+  | "tel"
+  | "url"
+  | "search"
+  | "date"
+  | "time";
 
 export interface InputProps {
   /**
    * Input type
    * @default 'text'
    */
-  type?: InputType
+  type?: InputType;
 
   /**
    * Placeholder text
    */
-  placeholder?: string
+  placeholder?: string;
 
   /**
    * Disable the input
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Readonly state
    * @default false
    */
-  readonly?: boolean
+  readonly?: boolean;
 
   /**
    * Error state
    * @default false
    */
-  error?: boolean
+  error?: boolean;
 
   /**
    * Input size
    * @default 'md'
    */
-  size?: InputSize
+  size?: InputSize;
 
   /**
    * Full width input
    * @default true
    */
-  block?: boolean
+  block?: boolean;
 
   /**
    * Minimum value (for number type)
    */
-  min?: number
+  min?: number;
 
   /**
    * Maximum value (for number type)
    */
-  max?: number
+  max?: number;
 
   /**
    * Maximum length
    */
-  maxLength?: number
+  maxLength?: number;
 
   /**
    * Autocomplete attribute
    */
-  autocomplete?: string
+  autocomplete?: string;
 }
