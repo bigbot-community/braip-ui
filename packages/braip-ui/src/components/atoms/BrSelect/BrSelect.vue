@@ -7,7 +7,7 @@
  * <BrSelect v-model="value" :options="items" placeholder="Selecione..." />
  */
 
-import { computed, ref, watch, onMounted, onUnmounted } from "vue";
+import { computed, ref, onMounted, onUnmounted } from "vue";
 import type { SelectProps, SelectOption } from "./types";
 
 // ---------------------------------------------------------------------------

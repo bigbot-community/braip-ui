@@ -8,7 +8,7 @@
  * <BrInput type="number" :min="0" :max="100" />
  */
 
-import { computed, ref, watch } from "vue";
+import { computed, ref } from "vue";
 import type { InputProps } from "./types";
 
 // ---------------------------------------------------------------------------

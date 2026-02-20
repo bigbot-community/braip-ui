@@ -165,6 +165,6 @@ describe("BrTabs", () => {
     const visiblePanel =
       wrapper.find('.br-tabs__panel[style=""]') ||
       wrapper.find('.br-tabs__panel:not([style*="display: none"])');
-    expect(wrapper.text()).toContain("Content 1");
+    expect(visiblePanel.text()).toContain("Content 1");
   });
 });

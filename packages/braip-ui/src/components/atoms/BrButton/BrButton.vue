@@ -9,7 +9,7 @@
  */
 
 import { computed } from "vue";
-import type { ButtonProps, ButtonVariant, ButtonSize } from "./types";
+import type { ButtonProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
