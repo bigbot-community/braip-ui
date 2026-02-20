@@ -33,7 +33,7 @@ const components = [
         <router-link to="/components/button">
           <BrButton variant="primary" size="lg">Começar</BrButton>
         </router-link>
-        <a href="https://github.com/braip/braip-ui" target="_blank">
+        <a href="https://github.com/bigbot-community/braip-ui" target="_blank">
           <BrButton variant="outline" size="lg">GitHub</BrButton>
         </a>
       </div>
