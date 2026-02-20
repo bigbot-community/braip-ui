@@ -6,6 +6,9 @@
   "main": "./dist/braip-ui.cjs",
   "module": "./dist/braip-ui.js",
   "types": "./dist/types/index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
   "exports": {
     ".": {
       "import": "./dist/braip-ui.js",
