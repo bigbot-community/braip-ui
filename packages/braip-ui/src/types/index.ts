@@ -2,65 +2,62 @@
 // BRAIP UI - TYPE DEFINITIONS
 // =============================================================================
 
-import type { Ref } from 'vue'
+import type { Ref } from "vue";
 
 // Re-export component types
 export type {
   ButtonVariant,
   ButtonSize,
   ButtonProps,
-} from '../components/atoms/BrButton/types'
+} from "../components/atoms/BrButton/types";
 
 export type {
   InputSize,
   InputType,
   InputProps,
-} from '../components/atoms/BrInput/types'
+} from "../components/atoms/BrInput/types";
 
 export type {
   SelectSize,
   SelectOption,
   SelectProps,
-} from '../components/atoms/BrSelect/types'
+} from "../components/atoms/BrSelect/types";
 
 export type {
   BadgeVariant,
   BadgeSize,
   BadgeProps,
-} from '../components/atoms/BrBadge/types'
+} from "../components/atoms/BrBadge/types";
 
-export type {
-  IconName,
-  IconSize,
-  IconProps,
-} from '../components/atoms/BrIcon/types'
+// export type {
+//   IconName,
+//   IconSize,
+//   IconProps,
+// } from '../components/atoms/BrIcon/types'
 
 export type {
   SpinnerSize,
   SpinnerStatus,
   SpinnerProps,
-} from '../components/atoms/BrSpinner/types'
+} from "../components/atoms/BrSpinner/types";
 
-export type {
-  TitleLevel,
-  TitleProps,
-} from '../components/atoms/BrTitle/types'
+export type { TitleLevel, TitleProps } from "../components/atoms/BrTitle/types";
 
 export type {
   SwitchSize,
   SwitchProps,
-} from '../components/atoms/BrSwitch/types'
+} from "../components/atoms/BrSwitch/types";
 
 export type {
   TextareaResize,
   TextareaProps,
-} from '../components/atoms/BrTextarea/types'
+} from "../components/atoms/BrTextarea/types";
 
 export type {
   ModalVariant,
   ModalSize,
   ModalProps,
-} from '../components/molecules/BrModal/types'
+} from "../components/molecules/BrModal/types";
 
 // ---------------------------------------------------------------------------
 // PLUGIN OPTIONS
@@ -71,24 +68,24 @@ export interface BraipUIOptions {
    * Prefix for component names
    * @default 'Br'
    */
-  prefix?: string
+  prefix?: string;
 
   /**
    * Theme mode
    * @default 'light'
    */
-  theme?: 'light' | 'dark'
+  theme?: "light" | "dark";
 
   /**
    * Locale for i18n
    * @default 'pt-BR'
    */
-  locale?: 'pt-BR' | 'en-US' | 'es-ES'
+  locale?: "pt-BR" | "en-US" | "es-ES";
 
   /**
    * Default props for components
    */
-  defaults?: ComponentDefaults
+  defaults?: ComponentDefaults;
 }
 
 export interface ComponentDefaults {
@@ -100,24 +97,29 @@ export interface ComponentDefaults {
 // ---------------------------------------------------------------------------
 
 export interface UseModalReturn {
-  isOpen: Ref<boolean>
-  open: () => void
-  close: () => void
-  toggle: () => void
+  isOpen: Ref<boolean>;
+  open: () => void;
+  close: () => void;
+  toggle: () => void;
 }
 
 export interface UseThemeReturn {
-  theme: Ref<'light' | 'dark'>
-  toggleTheme: () => void
-  setTheme: (theme: 'light' | 'dark') => void
+  theme: Ref<"light" | "dark">;
+  toggleTheme: () => void;
+  setTheme: (theme: "light" | "dark") => void;
 }
 
 // ---------------------------------------------------------------------------
 // UTILITY TYPES
 // ---------------------------------------------------------------------------
 
-export type MaybeRef<T> = T | Ref<T>
+export type MaybeRef<T> = T | Ref<T>;
 
-export type ComponentSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+export type ComponentSize = "xs" | "sm" | "md" | "lg" | "xl";
 
-export type ComponentStatus = 'default' | 'success' | 'warning' | 'danger' | 'info'
+export type ComponentStatus =
+  | "default"
+  | "success"
+  | "warning"
+  | "danger"
+  | "info";

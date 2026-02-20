@@ -1,5 +1,5 @@
 {
-  "name": "bigbot-ui",
+  "name": "@bigbot-community/bigbot-ui",
   "version": "1.0.1",
   "description": "Biblioteca de componentes Vue3 com styleguide e documentação para o design system BigBot.",
   "type": "module",
