@@ -1,0 +1,14 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible"
+    style="display: block;" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="vector">
+        <path
+            d="M6.75732 7.46448L8.17154 6.05026L11 8.87869L13.8284 6.05029L15.2426 7.46451L11 11.7071L6.75732 7.46448Z"
+            fill="currentColor" />
+        <path
+            d="M8.17154 10.2929L6.75732 11.7071L10.9999 15.9498L15.2426 11.7071L13.8284 10.2929L11 13.1213L8.17154 10.2929Z"
+            fill="currentColor" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M22 11C22 17.0751 17.0751 22 11 22C4.92487 22 0 17.0751 0 11C0 4.92487 4.92487 0 11 0C17.0751 0 22 4.92487 22 11ZM20 11C20 15.9706 15.9706 20 11 20C6.02944 20 2 15.9706 2 11C2 6.02944 6.02944 2 11 2C15.9706 2 20 6.02944 20 11Z"
+            fill="currentColor" />
+    </g>
+</svg>

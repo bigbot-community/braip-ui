@@ -1,0 +1,187 @@
+// =============================================================================
+// BRAIP UI - ANIMATIONS
+// =============================================================================
+
+// ---------------------------------------------------------------------------
+// FADE ANIMATIONS
+// ---------------------------------------------------------------------------
+
+@keyframes br-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes br-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes br-fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes br-fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// SCALE ANIMATIONS
+// ---------------------------------------------------------------------------
+
+@keyframes br-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes br-scale-out {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// SLIDE ANIMATIONS
+// ---------------------------------------------------------------------------
+
+@keyframes br-slide-in-right {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes br-slide-out-right {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes br-slide-in-left {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+// ---------------------------------------------------------------------------
+// LOADING ANIMATIONS
+// ---------------------------------------------------------------------------
+
+@keyframes br-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes br-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes br-skeleton {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes br-loading-shimmer {
+  from {
+    background-position: 300% 0;
+  }
+  to {
+    background-position: 0% 0;
+  }
+}
+
+// ---------------------------------------------------------------------------
+// UTILITY CLASSES
+// ---------------------------------------------------------------------------
+
+.br-animate-fade-in {
+  animation: br-fade-in var(--br-transition-normal) forwards;
+}
+
+.br-animate-fade-in-down {
+  animation: br-fade-in-down var(--br-transition-normal) forwards;
+}
+
+.br-animate-fade-in-up {
+  animation: br-fade-in-up var(--br-transition-normal) forwards;
+}
+
+.br-animate-scale-in {
+  animation: br-scale-in var(--br-transition-fast) forwards;
+}
+
+.br-animate-spin {
+  animation: br-spin 1s linear infinite;
+}
+
+.br-animate-pulse {
+  animation: br-pulse 2s ease-in-out infinite;
+}
+
+// Skeleton loading effect
+.br-skeleton {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(
+    90deg,
+    var(--br-light-100) 25%,
+    var(--br-light-200) 50%,
+    var(--br-light-100) 75%
+  );
+  background-size: 400% 100%;
+  animation: br-skeleton 1.5s ease-in-out infinite;
+}

@@ -1,0 +1,88 @@
+// =============================================================================
+// BRAIP UI - SPACING & LAYOUT TOKENS
+// =============================================================================
+
+:root {
+  // ---------------------------------------------------------------------------
+  // SPACING SCALE
+  // ---------------------------------------------------------------------------
+  --br-space-0: 0;
+  --br-space-px: 1px;
+  --br-space-0-5: 2px;
+  --br-space-1: 4px;
+  --br-space-1-5: 6px;
+  --br-space-2: 8px;
+  --br-space-2-5: 10px;
+  --br-space-3: 12px;
+  --br-space-3-5: 14px;
+  --br-space-4: 16px;
+  --br-space-5: 20px;
+  --br-space-6: 24px;
+  --br-space-7: 28px;
+  --br-space-8: 32px;
+  --br-space-9: 36px;
+  --br-space-10: 40px;
+  --br-space-11: 44px;
+  --br-space-12: 48px;
+  --br-space-14: 56px;
+  --br-space-16: 64px;
+  --br-space-20: 80px;
+  --br-space-24: 96px;
+  --br-space-28: 112px;
+  --br-space-32: 128px;
+
+  // ---------------------------------------------------------------------------
+  // BORDER RADIUS
+  // ---------------------------------------------------------------------------
+  --br-radius-none: 0;
+  --br-radius-sm: 4px;
+  --br-radius-md: 8px;
+  --br-radius-lg: 12px;
+  --br-radius-xl: 16px;
+  --br-radius-2xl: 24px;
+  --br-radius-full: 9999px;
+
+  // ---------------------------------------------------------------------------
+  // SHADOWS
+  // ---------------------------------------------------------------------------
+  --br-shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --br-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --br-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --br-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --br-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+  // ---------------------------------------------------------------------------
+  // Z-INDEX
+  // ---------------------------------------------------------------------------
+  --br-z-dropdown: 1000;
+  --br-z-sticky: 1020;
+  --br-z-fixed: 1030;
+  --br-z-modal-backdrop: 1040;
+  --br-z-modal: 1050;
+  --br-z-popover: 1060;
+  --br-z-tooltip: 1070;
+  --br-z-toast: 1080;
+
+  // ---------------------------------------------------------------------------
+  // TRANSITIONS
+  // ---------------------------------------------------------------------------
+  --br-transition-fast: 150ms ease;
+  --br-transition-normal: 250ms ease;
+  --br-transition-slow: 350ms ease;
+  --br-transition-theme: background-color 0.5s ease;
+}
+
+// =============================================================================
+// SCSS VARIABLES
+// =============================================================================
+
+$br-space-1: var(--br-space-1);
+$br-space-2: var(--br-space-2);
+$br-space-3: var(--br-space-3);
+$br-space-4: var(--br-space-4);
+$br-space-6: var(--br-space-6);
+$br-space-8: var(--br-space-8);
+
+$br-radius-sm: var(--br-radius-sm);
+$br-radius-md: var(--br-radius-md);
+$br-radius-lg: var(--br-radius-lg);

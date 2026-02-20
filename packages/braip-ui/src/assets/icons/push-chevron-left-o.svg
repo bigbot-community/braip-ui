@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible"
+    style="display: block;" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g id="vector">
+        <path d="M9 15H7V7H9V15Z" fill="currentColor" />
+        <path
+            d="M14.2974 6.75732L15.7116 8.17153L12.8832 11L15.7116 13.8284L14.2974 15.2426L10.0547 10.9999L14.2974 6.75732Z"
+            fill="currentColor" />
+        <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M0 11C-2.65552e-07 17.0751 4.92487 22 11 22C17.0751 22 22 17.0751 22 11C22 4.92487 17.0751 2.65552e-07 11 0C4.92487 -2.65552e-07 2.65552e-07 4.92487 0 11ZM2 11C2 15.9706 6.02944 20 11 20C15.9706 20 20 15.9706 20 11C20 6.02944 15.9706 2 11 2C6.02944 2 2 6.02944 2 11Z"
+            fill="currentColor" />
+    </g>
+</svg>

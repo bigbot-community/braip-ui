@@ -1,0 +1,109 @@
+// =============================================================================
+// BRAIP UI - CSS RESET
+// =============================================================================
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  font-family: var(--br-font-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100vh;
+  color: var(--br-dark-0);
+  background-color: var(--br-light-0);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  font: inherit;
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: transparent;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: var(--br-dark-1100);
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid var(--br-light-300);
+}
+
+// Focus visible styles
+:focus-visible {
+  outline: 2px solid var(--br-primary-600);
+  outline-offset: 2px;
+}
+
+// Scrollbar customization
+:root {
+  --br-scrollbar-width: 12px;
+  --br-scrollbar-padding: 3px;
+  --br-scrollbar-color: rgba(0, 0, 0, 0.2);
+  --br-scrollbar-hover: var(--br-primary-600);
+  --br-scrollbar-bg: transparent;
+}
+
+*::-webkit-scrollbar {
+  width: var(--br-scrollbar-width);
+  height: var(--br-scrollbar-width);
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--br-scrollbar-bg);
+  border-radius: var(--br-scrollbar-width);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--br-scrollbar-color);
+  border-radius: var(--br-scrollbar-width);
+  border: var(--br-scrollbar-padding) solid transparent;
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: var(--br-scrollbar-hover);
+  background-clip: content-box;
+}

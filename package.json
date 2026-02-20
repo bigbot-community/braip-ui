@@ -1,0 +1,30 @@
+{
+  "name": "braip-ui",
+  "version": "1.0.1",
+  "private": false,
+  "description": "Braip UI Component Library",
+  "scripts": {
+    "dev": "pnpm -F @braiphub/ui dev",
+    "build": "pnpm -F @braiphub/ui build",
+    "build:docs": "pnpm -F docs build",
+    "docs:dev": "pnpm -F docs dev",
+    "test": "pnpm -F @braiphub/ui test",
+    "lint": "eslint . --ext .ts,.vue",
+    "typecheck": "pnpm -r typecheck",
+    "playground": "pnpm -F playground dev",
+    "release": "pnpm build && changeset publish"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-vue": "^9.21.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

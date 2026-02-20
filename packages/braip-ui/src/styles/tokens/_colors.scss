@@ -1,0 +1,185 @@
+// =============================================================================
+// BRAIP UI - COLOR TOKENS
+// Extracted from Braip Design System
+// =============================================================================
+
+:root {
+  // ---------------------------------------------------------------------------
+  // BRAND PRIMARY (Purple)
+  // ---------------------------------------------------------------------------
+  --br-primary-darkest: rgb(22, 11, 50);
+  --br-primary-900: rgb(44, 22, 100);
+  --br-primary-800: rgb(65, 32, 151);
+  --br-primary-700: rgb(87, 43, 201);
+  --br-primary-600: rgb(109, 54, 251);  // Main brand color
+  --br-primary-500: rgb(138, 94, 252);
+  --br-primary-400: rgb(167, 134, 253);
+  --br-primary-300: rgb(197, 175, 253);
+  --br-primary-200: rgb(226, 215, 254);
+  --br-primary-100: rgb(244, 240, 255);
+
+  // ---------------------------------------------------------------------------
+  // BRAND SECONDARY (Green/Lime)
+  // ---------------------------------------------------------------------------
+  --br-secondary-darkest: rgb(31, 51, 10);
+  --br-secondary-900: rgb(61, 102, 20);
+  --br-secondary-800: rgb(92, 153, 31);
+  --br-secondary-700: rgb(122, 204, 41);
+  --br-secondary-600: rgb(153, 255, 51);  // Main secondary color
+  --br-secondary-500: rgb(173, 255, 92);
+  --br-secondary-400: rgb(194, 255, 133);
+  --br-secondary-300: rgb(214, 255, 173);
+  --br-secondary-200: rgb(235, 255, 214);
+  --br-secondary-100: rgb(245, 255, 235);
+
+  // ---------------------------------------------------------------------------
+  // SEMANTIC - DANGER (Red)
+  // ---------------------------------------------------------------------------
+  --br-danger-darkest: rgb(78, 0, 0);
+  --br-danger-900: rgb(117, 0, 0);
+  --br-danger-800: rgb(158, 11, 11);
+  --br-danger-700: rgb(202, 21, 21);
+  --br-danger-600: rgb(255, 46, 46);
+  --br-danger-500: rgb(254, 95, 95);
+  --br-danger-400: rgb(255, 151, 151);
+  --br-danger-300: rgb(255, 184, 184);
+  --br-danger-200: rgb(255, 215, 215);
+  --br-danger-100: rgb(255, 239, 239);
+
+  // ---------------------------------------------------------------------------
+  // SEMANTIC - WARNING (Orange)
+  // ---------------------------------------------------------------------------
+  --br-warning-darkest: rgb(119, 71, 0);
+  --br-warning-900: rgb(156, 94, 0);
+  --br-warning-800: rgb(186, 112, 2);
+  --br-warning-700: rgb(216, 129, 0);
+  --br-warning-600: rgb(255, 153, 0);
+  --br-warning-500: rgb(255, 175, 54);
+  --br-warning-400: rgb(255, 196, 107);
+  --br-warning-300: rgb(255, 212, 147);
+  --br-warning-200: rgb(255, 226, 183);
+  --br-warning-100: rgb(255, 243, 224);
+
+  // ---------------------------------------------------------------------------
+  // SEMANTIC - ATTENTION (Yellow)
+  // ---------------------------------------------------------------------------
+  --br-attention-darkest: rgb(125, 106, 0);
+  --br-attention-900: rgb(161, 136, 3);
+  --br-attention-800: rgb(185, 156, 3);
+  --br-attention-700: rgb(222, 187, 0);
+  --br-attention-600: rgb(255, 214, 0);
+  --br-attention-500: rgb(255, 226, 77);
+  --br-attention-400: rgb(255, 232, 113);
+  --br-attention-300: rgb(255, 237, 140);
+  --br-attention-200: rgb(255, 243, 181);
+  --br-attention-100: rgb(255, 249, 222);
+
+  // ---------------------------------------------------------------------------
+  // SEMANTIC - INFO (Blue)
+  // ---------------------------------------------------------------------------
+  --br-info-darkest: rgb(9, 65, 121);
+  --br-info-900: rgb(10, 95, 180);
+  --br-info-800: rgb(21, 113, 205);
+  --br-info-700: rgb(29, 136, 243);
+  --br-info-600: rgb(51, 153, 255);
+  --br-info-500: rgb(107, 181, 255);
+  --br-info-400: rgb(150, 202, 255);
+  --br-info-300: rgb(173, 214, 255);
+  --br-info-200: rgb(194, 226, 255);
+  --br-info-100: rgb(233, 244, 255);
+
+  // ---------------------------------------------------------------------------
+  // SEMANTIC - SUCCESS (Green)
+  // ---------------------------------------------------------------------------
+  --br-success-darkest: rgb(27, 91, 16);
+  --br-success-900: rgb(41, 122, 27);
+  --br-success-800: rgb(57, 153, 41);
+  --br-success-700: rgb(75, 182, 57);
+  --br-success-600: rgb(94, 195, 77);
+  --br-success-500: rgb(114, 215, 97);
+  --br-success-400: rgb(139, 227, 124);
+  --br-success-300: rgb(164, 244, 151);
+  --br-success-200: rgb(191, 255, 180);
+  --br-success-100: rgb(229, 255, 225);
+
+  // ---------------------------------------------------------------------------
+  // ACCENT - PINK
+  // ---------------------------------------------------------------------------
+  --br-pink-darkest: rgb(121, 0, 91);
+  --br-pink-900: rgb(166, 19, 129);
+  --br-pink-800: rgb(194, 33, 153);
+  --br-pink-700: rgb(223, 50, 179);
+  --br-pink-600: rgb(255, 63, 206);
+  --br-pink-500: rgb(255, 104, 217);
+  --br-pink-400: rgb(255, 138, 225);
+  --br-pink-300: rgb(255, 160, 231);
+  --br-pink-200: rgb(255, 188, 238);
+  --br-pink-100: rgb(255, 229, 249);
+
+  // ---------------------------------------------------------------------------
+  // NEUTRAL - DARK
+  // ---------------------------------------------------------------------------
+  --br-dark-0: rgb(11, 11, 14);
+  --br-dark-100: rgb(13, 13, 18);
+  --br-dark-200: rgb(25, 25, 30);
+  --br-dark-300: rgb(37, 37, 41);
+  --br-dark-400: rgb(52, 52, 56);
+  --br-dark-500: rgb(65, 65, 70);
+  --br-dark-600: rgb(80, 80, 87);
+  --br-dark-700: rgb(91, 91, 97);
+  --br-dark-800: rgb(109, 109, 118);
+  --br-dark-900: rgb(121, 121, 131);
+  --br-dark-1000: rgb(139, 139, 152);
+  --br-dark-1100: rgb(157, 157, 171);
+
+  // ---------------------------------------------------------------------------
+  // NEUTRAL - LIGHT
+  // ---------------------------------------------------------------------------
+  --br-light-1100: rgb(40, 40, 59);
+  --br-light-1000: rgb(67, 67, 96);
+  --br-light-900: rgb(98, 98, 132);
+  --br-light-800: rgb(119, 119, 153);
+  --br-light-700: rgb(131, 131, 164);
+  --br-light-600: rgb(148, 148, 184);
+  --br-light-500: rgb(169, 169, 204);
+  --br-light-400: rgb(190, 190, 221);
+  --br-light-300: rgb(220, 220, 240);
+  --br-light-200: rgb(235, 235, 248);
+  --br-light-100: rgb(247, 247, 252);
+  --br-light-0: rgb(255, 255, 255);
+
+  // ---------------------------------------------------------------------------
+  // GRADIENTS
+  // ---------------------------------------------------------------------------
+  --br-gradient-primary: linear-gradient(135deg, rgb(244, 240, 255) 0%, rgba(244, 240, 255, 0) 100%);
+  --br-gradient-secondary: linear-gradient(135deg, rgb(229, 255, 225) 0%, rgba(229, 255, 225, 0) 100%);
+  --br-gradient-danger: linear-gradient(135deg, rgb(255, 239, 239) 0%, rgba(255, 239, 239, 0) 100%);
+  --br-gradient-pink: linear-gradient(135deg, rgb(255, 229, 249) 0%, rgba(255, 229, 249, 0) 100%);
+  --br-gradient-warning: linear-gradient(135deg, rgb(255, 243, 224) 0%, rgba(255, 243, 224, 0) 100%);
+  --br-gradient-attention: linear-gradient(135deg, rgb(255, 249, 222) 0%, rgba(255, 249, 222, 0) 100%);
+  --br-gradient-info: linear-gradient(135deg, rgb(233, 244, 255) 0%, rgba(233, 244, 255, 0) 100%);
+  --br-gradient-neutral: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+
+// =============================================================================
+// SCSS VARIABLES (for use in components)
+// =============================================================================
+
+$br-primary: var(--br-primary-600);
+$br-secondary: var(--br-secondary-600);
+$br-danger: var(--br-danger-600);
+$br-warning: var(--br-warning-600);
+$br-success: var(--br-success-600);
+$br-info: var(--br-info-600);
+
+$br-text-primary: var(--br-dark-0);
+$br-text-secondary: var(--br-dark-700);
+$br-text-muted: var(--br-dark-1100);
+$br-text-inverse: var(--br-light-0);
+
+$br-bg-primary: var(--br-light-0);
+$br-bg-secondary: var(--br-light-100);
+$br-bg-tertiary: var(--br-light-200);
+
+$br-border-color: var(--br-light-300);
+$br-border-color-hover: var(--br-primary-600);

@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm run build && pnpm --filter playground build",
+  "outputDirectory": "playground/dist",
+  "installCommand": "pnpm install",
+  "framework": "vite"
+}

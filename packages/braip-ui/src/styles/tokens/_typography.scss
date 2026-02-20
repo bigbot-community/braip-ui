@@ -1,0 +1,77 @@
+// =============================================================================
+// BRAIP UI - TYPOGRAPHY TOKENS
+// =============================================================================
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+
+:root {
+  // ---------------------------------------------------------------------------
+  // FONT FAMILIES
+  // ---------------------------------------------------------------------------
+  --br-font-primary: 'Poppins', 'Montserrat', sans-serif;
+  --br-font-secondary: 'Sora', 'Poppins', sans-serif;
+  --br-font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  // ---------------------------------------------------------------------------
+  // FONT SIZES - HEADINGS
+  // ---------------------------------------------------------------------------
+  --br-text-h1: 64px;
+  --br-text-h2: 56px;
+  --br-text-h3: 48px;
+  --br-text-h4: 40px;
+  --br-text-h5: 36px;
+  --br-text-h6: 32px;
+  --br-text-h7: 24px;
+
+  // ---------------------------------------------------------------------------
+  // FONT SIZES - BODY
+  // ---------------------------------------------------------------------------
+  --br-text-xl: 24px;
+  --br-text-lg: 20px;
+  --br-text-md: 18px;
+  --br-text-base: 16px;
+  --br-text-sm: 14px;
+  --br-text-xs: 12px;
+  --br-text-2xs: 11px;
+
+  // ---------------------------------------------------------------------------
+  // LINE HEIGHTS
+  // ---------------------------------------------------------------------------
+  --br-leading-none: 1;
+  --br-leading-tight: 1.25;
+  --br-leading-snug: 1.375;
+  --br-leading-normal: 1.5;
+  --br-leading-relaxed: 1.625;
+  --br-leading-loose: 2;
+
+  // ---------------------------------------------------------------------------
+  // FONT WEIGHTS
+  // ---------------------------------------------------------------------------
+  --br-font-light: 300;
+  --br-font-normal: 400;
+  --br-font-medium: 500;
+  --br-font-semibold: 600;
+  --br-font-bold: 700;
+
+  // ---------------------------------------------------------------------------
+  // LETTER SPACING
+  // ---------------------------------------------------------------------------
+  --br-tracking-tighter: -0.05em;
+  --br-tracking-tight: -0.025em;
+  --br-tracking-normal: 0;
+  --br-tracking-wide: 0.025em;
+  --br-tracking-wider: 0.05em;
+  --br-tracking-widest: 0.1em;
+}
+
+// =============================================================================
+// SCSS VARIABLES
+// =============================================================================
+
+$br-font-primary: var(--br-font-primary);
+$br-font-secondary: var(--br-font-secondary);
+
+$br-text-base: var(--br-text-base);
+$br-text-sm: var(--br-text-sm);
+$br-text-xs: var(--br-text-xs);
+$br-text-lg: var(--br-text-lg);

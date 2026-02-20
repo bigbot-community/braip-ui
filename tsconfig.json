@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "jsx": "preserve",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true,
+    "noEmit": true,
+    "paths": {
+      "@braiphub/ui": ["./packages/braip-ui/src"],
+      "@braiphub/ui/*": ["./packages/braip-ui/src/*"]
+    }
+  },
+  "references": [
+    { "path": "./packages/braip-ui" },
+    { "path": "./packages/docs" },
+    { "path": "./playground" }
+  ]
+}

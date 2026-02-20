@@ -1,0 +1,9 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible"
+    style="display: block;" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path
+        d="M10.9481 13.8285L9.5339 15.2427L5.29126 11L9.5339 6.7574L10.9481 8.17161L9.11968 10H16.6568V12H9.11969L10.9481 13.8285Z"
+        fill="currentColor" />
+    <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M22 18C22 20.2091 20.2091 22 18 22H4C1.79086 22 0 20.2091 0 18V4C0 1.79086 1.79086 0 4 0H18C20.2091 0 22 1.79086 22 4V18ZM18 20H4C2.89543 20 2 19.1046 2 18V4C2 2.89543 2.89543 2 4 2H18C19.1046 2 20 2.89543 20 4V18C20 19.1046 19.1046 20 18 20Z"
+        fill="currentColor" />
+</svg>

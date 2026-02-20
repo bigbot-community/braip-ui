@@ -1,0 +1,12 @@
+<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible"
+    style="display: block;" viewBox="0 0 11.3137 12.728" fill="none"
+    xmlns="http://www.w3.org/2000/svg">
+    <g id="vector">
+        <path
+            d="M1.41421 0L0 1.41421L5.65685 7.07107L11.3137 1.41424L9.89954 2.90871e-05L5.65689 4.24268L1.41421 0Z"
+            fill="currentColor" />
+        <path
+            d="M0 7.07107L1.41421 5.65686L5.65689 9.89954L9.89954 5.65689L11.3137 7.0711L5.65689 12.728L0 7.07107Z"
+            fill="currentColor" />
+    </g>
+</svg>
