@@ -1,139 +1,139 @@
-<script setup lang="ts">
-/**
- * BrInput - Text input component
- *
- * @example
- * <BrInput v-model="value" placeholder="Digite aqui" />
- * <BrInput type="password" v-model="password" />
- * <BrInput type="number" :min="0" :max="100" />
- */
+<script lang="ts">
+import { computed, defineComponent, ref, watch } from "vue";
 
-import { computed, ref, watch } from 'vue'
-import type { InputProps } from './types'
-
-// ---------------------------------------------------------------------------
-// PROPS
-// ---------------------------------------------------------------------------
-
-const props = withDefaults(defineProps<InputProps>(), {
-  type: 'text',
-  placeholder: '',
-  disabled: false,
-  readonly: false,
-  error: false,
-  size: 'md',
-  block: true,
-})
-
-// ---------------------------------------------------------------------------
-// MODEL
-// ---------------------------------------------------------------------------
-
-const model = defineModel<string | number>()
-
-// ---------------------------------------------------------------------------
-// EMITS
-// ---------------------------------------------------------------------------
-
-const emit = defineEmits<{
-  (e: 'focus', value: string | number | undefined): void
-  (e: 'blur', value: string | number | undefined): void
-  (e: 'enter', value: string | number | undefined): void
-  (e: 'keydown', event: KeyboardEvent): void
-}>()
-
-// ---------------------------------------------------------------------------
-// REFS
-// ---------------------------------------------------------------------------
-
-const inputRef = ref<HTMLInputElement | null>(null)
-const isFocused = ref(false)
-
-// ---------------------------------------------------------------------------
-// COMPUTED
-// ---------------------------------------------------------------------------
-
-const classes = computed(() => [
-  'br-input',
-  `br-input--${props.size}`,
-  {
-    'br-input--block': props.block,
-    'br-input--error': props.error,
-    'br-input--disabled': props.disabled,
-    'br-input--focused': isFocused.value,
+export default defineComponent({
+  name: "BrInput",
+  props: {
+    type: {
+      type: String,
+      default: "text",
+    },
+    value: {
+      type: [String, Number, Boolean],
+      default: null,
+    },
+    placeholder: {
+      type: String,
+      default: "",
+    },
+    min: {
+      type: Number,
+      default: null,
+    },
+    max: {
+      type: Number,
+      default: null,
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
+    maxLength: {
+      type: Number,
+      default: null,
+    },
+    readonly: {
+      type: Boolean,
+      default: false,
+    },
+    size: {
+      type: String,
+      default: "md",
+    },
+    block: {
+      type: Boolean,
+      default: true,
+    },
+    error: {
+      type: Boolean,
+      default: false,
+    },
   },
-])
+  emits: [
+    "input",
+    "focusout",
+    "keyup",
+    "keydown",
+    "focus",
+    "keypress",
+    "click",
+  ],
+  setup(props: any, { emit }) {
+    const inputValue = props.value;
+    const isFocused = ref(false);
 
-// ---------------------------------------------------------------------------
-// METHODS
-// ---------------------------------------------------------------------------
+    const classes = computed(() => [
+      "br-input",
+      `br-input--${props.size}`,
+      {
+        "br-input--block": props.block,
+        "br-input--error": props.error,
+        "br-input--disabled": props.disabled,
+        "br-input--focused": isFocused.value,
+      },
+    ]);
 
-function handleInput(event: Event) {
-  const target = event.target as HTMLInputElement
-  const value = props.type === 'number' ? Number(target.value) : target.value
+    watch(
+      () => props.value,
+      (newValue: any) => {
+        inputValue.value = newValue;
+      },
+    );
 
-  if (props.type === 'number' && props.min !== undefined && Number(value) < props.min) {
-    model.value = props.min
-    return
-  }
+    const onInput = (ev: any) => {
+      const value = (ev.target as HTMLInputElement).value;
 
-  if (props.type === 'number' && props.max !== undefined && Number(value) > props.max) {
-    model.value = props.max
-    return
-  }
+      if (props.type === "number") {
+        const valueNumber = Number(value);
 
-  model.value = value
-}
+        if (props.min !== null && valueNumber < props.min) {
+          emit("input", null);
+          return;
+        }
 
-function handleFocus() {
-  isFocused.value = true
-  emit('focus', model.value)
-}
+        emit("input", valueNumber);
+        return;
+      }
 
-function handleBlur() {
-  isFocused.value = false
-  emit('blur', model.value)
-}
+      if (props.type === "checkbox") {
+        const valueBoolean = (ev.target as HTMLInputElement).checked;
+        emit("input", valueBoolean);
+        return;
+      }
 
-function handleKeydown(event: KeyboardEvent) {
-  emit('keydown', event)
-  if (event.key === 'Enter') {
-    emit('enter', model.value)
-  }
-}
+      emit("input", value);
+    };
 
-function focus() {
-  inputRef.value?.focus()
-}
-
-function blur() {
-  inputRef.value?.blur()
-}
-
-// ---------------------------------------------------------------------------
-// EXPOSE
-// ---------------------------------------------------------------------------
-
-defineExpose({ focus, blur, inputRef })
+    return {
+      inputValue,
+      classes,
+      isFocused,
+      onInput,
+    };
+  },
+});
 </script>
 
 <template>
   <input
-    ref="inputRef"
+    ref="inputEl"
+    v-model="inputValue"
     :class="classes"
-    :type="type"
-    :value="model"
-    :placeholder="placeholder"
     :disabled="disabled"
-    :readonly="readonly"
+    :type="type"
+    :placeholder="placeholder"
     :min="min"
     :max="max"
+    :value="inputValue"
     :maxlength="maxLength"
-    :autocomplete="autocomplete"
-    @input="handleInput"
-    @focus="handleFocus"
-    @blur="handleBlur"
-    @keydown="handleKeydown"
+    :readonly="readonly"
+    @input="onInput($event)"
+    @focusout="$emit('focusout', $event)"
+    @keyup="$emit('keyup', $event)"
+    @keydown="$emit('keydown', $event)"
+    @focus="$emit('focus', $event)"
+    @keypress="$emit('keypress', $event)"
+    @click="$emit('click', $event)"
   />
 </template>
 
@@ -156,10 +156,6 @@ defineExpose({ focus, blur, inputRef })
     box-shadow: 0 0 0 3px rgba(109, 54, 251, 0.1);
   }
 
-  // ---------------------------------------------------------------------------
-  // SIZES
-  // ---------------------------------------------------------------------------
-
   &--sm {
     height: 36px;
     padding: 0 var(--br-space-3);
@@ -177,10 +173,6 @@ defineExpose({ focus, blur, inputRef })
     padding: 0 var(--br-space-4);
     font-size: var(--br-text-base);
   }
-
-  // ---------------------------------------------------------------------------
-  // STATES
-  // ---------------------------------------------------------------------------
 
   &--block {
     width: 100%;
@@ -202,14 +194,13 @@ defineExpose({ focus, blur, inputRef })
   }
 }
 
-// Remove number input spinners
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
 </style>
