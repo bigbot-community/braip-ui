@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue'
 import type { CalendarProps, CalendarView, CalendarRange } from './types'
 
 const props = withDefaults(defineProps<CalendarProps>(), {

@@ -8,7 +8,6 @@
  * <BrButton variant="outline" loading>Loading...</BrButton>
  */
 
-import { computed } from 'vue'
 import type { ButtonProps, ButtonVariant, ButtonSize } from './types'
 
 // ---------------------------------------------------------------------------

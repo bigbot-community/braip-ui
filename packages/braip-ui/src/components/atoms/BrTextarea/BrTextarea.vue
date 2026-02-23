@@ -7,7 +7,6 @@
  * <BrTextarea v-model="description" :rows="6" resize="vertical" />
  */
 
-import { computed, ref } from 'vue'
 import type { TextareaProps } from './types'
 
 // ---------------------------------------------------------------------------

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref, onMounted } from 'vue'
 import type { ImageProps } from './types'
 
 const props = withDefaults(defineProps<ImageProps>(), {

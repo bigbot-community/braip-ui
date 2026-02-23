@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, provide, reactive } from 'vue'
 import type { TabsProps } from './types'
 
 const props = withDefaults(defineProps<TabsProps>(), {

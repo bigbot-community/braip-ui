@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, inject, ref, watch } from 'vue'
 import type { TabPanelProps } from './types'
 
 const props = withDefaults(defineProps<TabPanelProps>(), {

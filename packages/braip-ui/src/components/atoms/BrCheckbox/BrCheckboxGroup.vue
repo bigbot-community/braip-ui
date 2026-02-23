@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { CheckboxGroupProps } from './types'
 import BrCheckbox from './BrCheckbox.vue'
 

@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
 import type { FormFieldProps } from './types'
 
 const props = withDefaults(defineProps<FormFieldProps>(), {

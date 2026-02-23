@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { computed, ref, provide } from 'vue'
 import type { SidebarProps, SidebarItem } from './types'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
