@@ -57,7 +57,6 @@ yarn add @braiphub/ui
 
 ```ts
 // main.ts
-import { createApp } from 'vue'
 import { BraipUI } from '@braiphub/ui'
 import '@braiphub/ui/styles'
 import App from './App.vue'

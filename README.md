@@ -41,7 +41,6 @@ pnpm add @braiphub/ui
 
 ```ts
 // main.ts
-import { createApp } from 'vue'
 import { BraipUI } from '@braiphub/ui'
 import '@braiphub/ui/styles'
 import App from './App.vue'
@@ -61,6 +60,35 @@ app.mount('#app')
 </template>
 ```
 
+## Importações Automáticas
+
+O projeto está configurado com `unplugin-auto-import` para importar automaticamente as APIs do Vue, Vue Router e VueUse. Não é necessário importar manualmente:
+
+- **Vue**: `ref`, `computed`, `watch`, `reactive`, `onMounted`, etc.
+- **Vue Router**: `useRoute`, `useRouter`, `onBeforeRouteLeave`, etc.
+- **VueUse**: `useClipboard`, `useMouse`, `useLocalStorage`, etc.
+
+### Antes
+```vue
+<script setup lang="ts">
+import { useClipboard } from '@vueuse/core'
+
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
+const { copy } = useClipboard()
+</script>
+```
+
+### Depois
+```vue
+<script setup lang="ts">
+const count = ref(0)
+const doubled = computed(() => count.value * 2)
+const { copy } = useClipboard()
+</script>
+```
+
+O arquivo `auto-imports.d.ts` é gerado automaticamente e fornece tipagem TypeScript para todas as importações globais.
 
 ## Design Tokens
 

@@ -4,11 +4,22 @@ import vue from '@vitejs/plugin-vue'
 import dts from 'vite-plugin-dts'
 import svgLoader from 'vite-svg-loader'
 import { resolve } from 'path'
+import AutoImport from 'unplugin-auto-import/vite'
 
 export default defineConfig({
   plugins: [
     vue(),
     svgLoader(),
+    AutoImport({
+      imports: [
+        'vue',
+        '@vueuse/core',
+      ],
+      dts: 'src/auto-imports.d.ts',
+      eslintrc: {
+        enabled: true,
+      },
+    }),
     dts({
       insertTypesEntry: true,
       copyDtsFiles: true,

@@ -79,7 +79,6 @@ Estrutura tipica:
 
 ```vue
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { NomeProps } from './types'
 
 const props = withDefaults(defineProps<NomeProps>(), {

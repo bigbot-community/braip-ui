@@ -33,7 +33,6 @@ Registre todos os componentes globalmente:
 
 ```ts
 // main.ts
-import { createApp } from 'vue'
 import { BraipUI } from '@braiphub/ui'
 import '@braiphub/ui/styles'
 import App from './App.vue'
