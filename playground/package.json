@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@braiphub/ui": "workspace:*",
+    "@bigbot-community/bigbot-ui": "workspace:*",
     "vue": "^3.4.0",
     "vue-router": "^4.3.0",
     "@vueuse/core": "^10.9.0"
