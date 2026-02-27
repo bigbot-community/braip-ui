@@ -18,6 +18,11 @@ const routes = [
     component: () => import('../views/components/InputPage.vue'),
   },
   {
+    path: '/components/line-division',
+    name: 'line-division',
+    component: () => import('../views/components/LineDivisionPage.vue'),
+  },
+  {
     path: '/components/select',
     name: 'select',
     component: () => import('../views/components/SelectPage.vue'),
