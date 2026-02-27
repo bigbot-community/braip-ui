@@ -1,4 +1,7 @@
 export type InputSize = "sm" | "md" | "lg";
+export interface InputRangeEmits {
+  (event: "input", value: number | boolean | string | null): void;
+}
 export type InputType =
   | "text"
   | "email"
@@ -8,6 +11,7 @@ export type InputType =
   | "url"
   | "search"
   | "date"
+  | "checkbox"
   | "time";
 
 export interface InputProps {
@@ -16,6 +20,11 @@ export interface InputProps {
    * @default 'text'
    */
   type?: InputType;
+
+  /**
+   * Input value
+   */
+  value: string | number | boolean;
 
   /**
    * Placeholder text
