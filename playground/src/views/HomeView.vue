@@ -4,6 +4,7 @@ import { computed } from 'vue'
 const components = [
   { name: 'Button', description: 'Botões interativos com múltiplas variantes', path: '/components/button', icon: '🔘' },
   { name: 'Input', description: 'Campos de entrada de texto', path: '/components/input', icon: '📝' },
+  { name: 'Input Range', description: 'Seleção de intervalo mínimo e máximo', path: '/components/input-range', icon: '🎚️' },
   { name: 'Select', description: 'Dropdown para seleção de opções', path: '/components/select', icon: '📋' },
   { name: 'Textarea', description: 'Área de texto multilinha', path: '/components/textarea', icon: '📄' },
   { name: 'Badge', description: 'Badges e tags de status', path: '/components/badge', icon: '🏷️' },
