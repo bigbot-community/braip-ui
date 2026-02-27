@@ -23,6 +23,11 @@ const routes = [
     component: () => import('../views/components/InputRangePage.vue'),
   },
   {
+    path: '/components/info-popper',
+    name: 'info-popper',
+    component: () => import('../views/components/InfoPopperPage.vue'),
+  },
+  {
     path: '/components/select',
     name: 'select',
     component: () => import('../views/components/SelectPage.vue'),
