@@ -9,10 +9,7 @@ import {
   useSlots,
   watch,
 } from "vue";
-import type {
-  InfoPopperPosition,
-  InfoPopperProps,
-} from "./types";
+import type { InfoPopperPosition, InfoPopperProps } from "./types";
 
 export default defineComponent({
   name: "BrInfoPopper",
@@ -56,7 +53,7 @@ export default defineComponent({
 
     const hasDefaultSlot = computed(() => Boolean(slots.default));
     const shouldShowIcon = computed(
-      () => !hasDefaultSlot.value && props.iconVisible,
+      () => !hasDefaultSlot.value && props.iconVisible
     );
 
     const cssVars = computed(() => {
@@ -96,14 +93,14 @@ export default defineComponent({
 
     watch(
       () => popperVisible.value,
-      async (visible) => {
+      async (visible: Boolean) => {
         if (!visible) {
           return;
         }
 
         await nextTick();
         adjustPopperPosition();
-      },
+      }
     );
 
     watch(
@@ -121,7 +118,7 @@ export default defineComponent({
 
         await nextTick();
         adjustPopperPosition();
-      },
+      }
     );
 
     onMounted(() => {
