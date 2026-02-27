@@ -90,7 +90,7 @@ const components = [
         <router-link to="/components/button">
           <BrButton variant="primary" size="lg">Começar</BrButton>
         </router-link>
-        <a href="https://github.com/braip/braip-ui" target="_blank">
+        <a href="https://github.com/bigbot-community/braip-ui" target="_blank">
           <BrButton variant="outline" size="lg">GitHub</BrButton>
         </a>
       </div>
@@ -149,7 +149,7 @@ const components = [
     <section class="installation">
       <h2 class="section-title">Instalação</h2>
       <div class="code-block">
-        <pre><code>npm i braip-ui</code></pre>
+        <pre><code>npm i @bigbot-community/bigbot-ui</code></pre>
       </div>
 
       <!-- Vue 3 -->
