@@ -18,6 +18,11 @@ const routes = [
     component: () => import('../views/components/InputPage.vue'),
   },
   {
+    path: '/components/input-range',
+    name: 'input-range',
+    component: () => import('../views/components/InputRangePage.vue'),
+  },
+  {
     path: '/components/select',
     name: 'select',
     component: () => import('../views/components/SelectPage.vue'),

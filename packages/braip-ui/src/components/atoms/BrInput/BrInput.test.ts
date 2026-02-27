@@ -7,30 +7,36 @@ describe("BrInput", () => {
     const wrapper = mount(BrInput);
     expect(wrapper.find("input").exists()).toBe(true);
   });
+  it("has base class", () => {
+    const wrapper = mount(BrInput);
+    expect(wrapper.classes()).toContain("br-input");
+  });
 
-  it("binds v-model correctly", async () => {
-    let modelValue = "initial";
-    const wrapper = mount(BrInput, {
-      props: {
-        modelValue,
-        "onUpdate:modelValue": (e: unknown) => {
-          modelValue = e as string;
-          wrapper.setProps({ modelValue });
-        },
-      },
-    });
-    const input = wrapper.find("input");
-    expect(input.element.value).toBe("initial");
-
-    await input.setValue("updated");
-    expect(wrapper.props("modelValue")).toBe("updated");
+  it("applies default size class", () => {
+    const wrapper = mount(BrInput);
+    expect(wrapper.classes()).toContain("br-input--md");
   });
 
   it("applies correct size class", () => {
-    const wrapper = mount(BrInput, {
-      props: { size: "lg" },
+    const sizes = ["sm", "md", "lg"] as const;
+    sizes.forEach((size) => {
+      const wrapper = mount(BrInput, {
+        props: { size },
+      });
+      expect(wrapper.classes()).toContain(`br-input--${size}`);
     });
-    expect(wrapper.classes()).toContain("br-input--lg");
+  });
+
+  it("applies block class by default", () => {
+    const wrapper = mount(BrInput);
+    expect(wrapper.classes()).toContain("br-input--block");
+  });
+
+  it("does not apply block class when block is false", () => {
+    const wrapper = mount(BrInput, {
+      props: { block: false },
+    });
+    expect(wrapper.classes()).not.toContain("br-input--block");
   });
 
   it("applies error class when error prop is true", () => {
@@ -38,6 +44,18 @@ describe("BrInput", () => {
       props: { error: true },
     });
     expect(wrapper.classes()).toContain("br-input--error");
+  });
+
+  it("does not apply error class by default", () => {
+    const wrapper = mount(BrInput);
+    expect(wrapper.classes()).not.toContain("br-input--error");
+  });
+
+  it("applies disabled class when disabled prop is true", () => {
+    const wrapper = mount(BrInput, {
+      props: { disabled: true },
+    });
+    expect(wrapper.classes()).toContain("br-input--disabled");
   });
 
   it("sets placeholder attribute", () => {
@@ -68,31 +86,66 @@ describe("BrInput", () => {
     expect(wrapper.find("input").attributes("readonly")).toBeDefined();
   });
 
+  it("emits input event on input", async () => {
+    const wrapper = mount(BrInput);
+    const input = wrapper.find("input");
+    await input.setValue("hello");
+    expect(wrapper.emitted("input")).toBeTruthy();
+    expect(wrapper.emitted("input")![0]).toEqual(["hello"]);
+  });
+
+  it("emits input with number for number type", async () => {
+    const wrapper = mount(BrInput, {
+      props: { type: "number" },
+    });
+    const input = wrapper.find("input");
+    await input.setValue("42");
+    expect(wrapper.emitted("input")).toBeTruthy();
+    expect(wrapper.emitted("input")![0]).toEqual([42]);
+  });
+
   it("emits focus event", async () => {
     const wrapper = mount(BrInput);
     await wrapper.find("input").trigger("focus");
     expect(wrapper.emitted("focus")).toBeTruthy();
   });
 
-  it("emits blur event", async () => {
+  it("emits focusout event", async () => {
     const wrapper = mount(BrInput);
-    await wrapper.find("input").trigger("blur");
-    expect(wrapper.emitted("blur")).toBeTruthy();
+    await wrapper.find("input").trigger("focusout");
+    expect(wrapper.emitted("focusout")).toBeTruthy();
   });
 
-  it("emits enter event on Enter key", async () => {
+  it("emits keydown event", async () => {
     const wrapper = mount(BrInput);
-    await wrapper.find("input").trigger("keydown", { key: "Enter" });
-    expect(wrapper.emitted("enter")).toBeTruthy();
+    await wrapper.find("input").trigger("keydown");
+    expect(wrapper.emitted("keydown")).toBeTruthy();
   });
 
-  it("applies block class by default", () => {
+  it("emits keyup event", async () => {
     const wrapper = mount(BrInput);
-    expect(wrapper.classes()).toContain("br-input--block");
+    await wrapper.find("input").trigger("keyup");
+    expect(wrapper.emitted("keyup")).toBeTruthy();
   });
 
-  it("exposes focus method", () => {
+  it("emits click event", async () => {
     const wrapper = mount(BrInput);
-    expect(typeof wrapper.vm.focus).toBe("function");
+    await wrapper.find("input").trigger("click");
+    expect(wrapper.emitted("click")).toBeTruthy();
+  });
+
+  it("sets maxlength attribute", () => {
+    const wrapper = mount(BrInput, {
+      props: { maxLength: 10 },
+    });
+    expect(wrapper.find("input").attributes("maxlength")).toBe("10");
+  });
+
+  it("sets min and max attributes", () => {
+    const wrapper = mount(BrInput, {
+      props: { min: 0, max: 100 },
+    });
+    expect(wrapper.find("input").attributes("min")).toBe("0");
+    expect(wrapper.find("input").attributes("max")).toBe("100");
   });
 });

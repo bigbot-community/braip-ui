@@ -33,8 +33,8 @@
   "scripts": {
     "dev": "vite build --watch",
     "build": "vite build && vue-tsc --emitDeclarationOnly --declaration --outDir dist/types",
-    "test": "vitest",
-    "test:coverage": "vitest run --coverage",
+    "test": "pnpm exec vitest",
+    "test:coverage": "pnpm exec vitest run --coverage",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint src --ext .ts,.vue",
     "lint:fix": "eslint . --ext .ts,.vue --fix"
@@ -55,7 +55,7 @@
     "eslint-plugin-vue": "^9.33.0",
     "globals": "^17.3.0",
     "jiti": "^2.6.1",
-    "jsdom": "^27.4.0",
+    "jsdom": "^26.1.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.0",
     "typescript-eslint": "^8.56.0",
