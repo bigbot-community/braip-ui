@@ -41,8 +41,6 @@ export type {
   SpinnerProps,
 } from "../components/atoms/BrSpinner/types";
 
-export type { TitleLevel, TitleProps } from "../components/atoms/BrTitle/types";
-
 export type {
   SwitchSize,
   SwitchProps,

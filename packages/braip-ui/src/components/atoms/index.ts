@@ -7,7 +7,7 @@ export * from "./BrInput";
 export * from "./BrSelect";
 export * from "./BrBadge";
 // export * from './BrIcon'
-export * from "./BrTitle";
+export * from "./BrText";
 export * from "./BrSpinner";
 export * from "./BrSwitch";
 export * from "./BrTextarea";
