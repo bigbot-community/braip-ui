@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const props = [
   { name: 'variant', type: "'elevated' | 'outlined' | 'filled'", default: "'elevated'", description: 'Variante visual do card' },

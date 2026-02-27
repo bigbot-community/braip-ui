@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const selectedValue = ref<string | number | null>(null)
 const options = [
