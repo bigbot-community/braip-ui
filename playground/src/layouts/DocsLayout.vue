@@ -43,6 +43,7 @@ const menuItems: MenuItem[] = [
           { label: 'Image', path: '/components/image' },
           { label: 'Input', path: '/components/input' },
           { label: 'Input Range', path: '/components/input-range' },
+          { label: 'Info Popper', path: '/components/info-popper' },
           { label: 'Progressbar', path: '/components/progressbar' },
           { label: 'Radio', path: '/components/radio' },
           { label: 'Rating', path: '/components/rating' },
