@@ -85,7 +85,7 @@ const components = [
     <section class="installation">
       <h2 class="section-title">Instalação</h2>
       <div class="code-block">
-        <pre><code>npm i braip-ui</code></pre>
+        <pre><code>npm i @bigbot-community/bigbot-ui</code></pre>
       </div>
 
       <!-- Vue 3 -->
