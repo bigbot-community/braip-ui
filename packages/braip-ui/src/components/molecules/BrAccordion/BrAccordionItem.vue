@@ -1,48 +1,48 @@
 <script setup lang="ts">
-import { computed, inject, ref, useId } from 'vue'
-import type { AccordionItemProps } from './types'
+import { computed, inject, ref, useId } from "vue";
+import type { AccordionItemProps } from "./types";
 
 const props = withDefaults(defineProps<AccordionItemProps>(), {
   disabled: false,
-})
+});
 
 const accordion = inject<{
-  iconPosition: { value: 'left' | 'right' }
-  disabled: { value: boolean }
-  toggleItem: (id: string | number) => void
-  isItemOpen: (id: string | number) => boolean
-}>('accordion')
+  iconPosition: { value: "left" | "right" };
+  disabled: { value: boolean };
+  toggleItem: (id: string | number) => void;
+  isItemOpen: (id: string | number) => boolean;
+}>("accordion");
 
 // useId() generates deterministic IDs that match between SSR and client hydration
-const itemId = ref(props.id ?? useId())
-const contentRef = ref<HTMLElement | null>(null)
+const itemId = ref(props.id ?? useId());
+const contentRef = ref<HTMLElement | null>(null);
 
 const isOpen = computed(() => {
-  if (props.open !== undefined) return props.open
-  return accordion?.isItemOpen(itemId.value) ?? false
-})
+  if (props.open !== undefined) return props.open;
+  return accordion?.isItemOpen(itemId.value) ?? false;
+});
 
-const isDisabled = computed(() => props.disabled || accordion?.disabled.value)
-const iconPosition = computed(() => accordion?.iconPosition.value ?? 'right')
+const isDisabled = computed(() => props.disabled || accordion?.disabled.value);
+const iconPosition = computed(() => accordion?.iconPosition.value ?? "right");
 
 const classes = computed(() => [
-  'br-accordion-item',
+  "br-accordion-item",
   {
-    'br-accordion-item--open': isOpen.value,
-    'br-accordion-item--disabled': isDisabled.value,
-    'br-accordion-item--icon-left': iconPosition.value === 'left',
+    "br-accordion-item--open": isOpen.value,
+    "br-accordion-item--disabled": isDisabled.value,
+    "br-accordion-item--icon-left": iconPosition.value === "left",
   },
-])
+]);
 
 function toggle() {
-  if (isDisabled.value) return
-  accordion?.toggleItem(itemId.value)
+  if (isDisabled.value) return;
+  accordion?.toggleItem(itemId.value);
 }
 
 const contentHeight = computed(() => {
-  if (!isOpen.value) return '0px'
-  return contentRef.value ? `${contentRef.value.scrollHeight}px` : 'auto'
-})
+  if (!isOpen.value) return "0px";
+  return contentRef.value ? `${contentRef.value.scrollHeight}px` : "auto";
+});
 </script>
 
 <template>
@@ -101,11 +101,11 @@ const contentHeight = computed(() => {
     text-align: left;
     font-size: var(--br-text-md);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     transition: background-color var(--br-transition-fast);
 
     &:hover:not(:disabled) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
 
     &:disabled {
@@ -118,7 +118,7 @@ const contentHeight = computed(() => {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
     transition: transform var(--br-transition-fast);
   }
 
@@ -137,7 +137,7 @@ const contentHeight = computed(() => {
 
   &__content {
     padding: 0 var(--br-space-4) var(--br-space-4);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     font-size: var(--br-text-sm);
     line-height: 1.6;
   }
@@ -162,7 +162,7 @@ const contentHeight = computed(() => {
 
   // Borders between items (for default variant)
   &:not(:last-child) {
-    border-bottom: 1px solid var(--br-light-300);
+    border-bottom: 1px solid var(--neutralLightGrey5);
   }
 }
 </style>

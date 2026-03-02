@@ -45,7 +45,7 @@ const props = [
       <CodeExample
         :code="`<BrNavbar brand='Minha App' :items='menuItems' />`"
       >
-        <div style="position: relative; border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden;">
+        <div style="position: relative; border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden;">
           <BrNavbar brand="Minha App" :items="menuItems" />
         </div>
       </CodeExample>
@@ -54,7 +54,7 @@ const props = [
       <CodeExample
         :code="`<BrNavbar brand='Minha App' :items='menuWithDropdown' />`"
       >
-        <div style="position: relative; border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden;">
+        <div style="position: relative; border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden;">
           <BrNavbar brand="Minha App" :items="menuWithDropdown" />
         </div>
       </CodeExample>
@@ -62,7 +62,7 @@ const props = [
       <h2>Variantes</h2>
       <CodeExample :code="`<BrNavbar variant='default' brand='Default' />\n<BrNavbar variant='transparent' brand='Transparent' />\n<BrNavbar variant='colored' brand='Colored' color='#1976d2' />`">
         <div style="display: flex; flex-direction: column; gap: 16px;">
-          <div style="border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden;">
+          <div style="border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden;">
             <BrNavbar variant="default" brand="Default" :items="menuItems" />
           </div>
           <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 8px; padding: 8px;">
@@ -76,14 +76,14 @@ const props = [
 
       <h2>Modo compacto</h2>
       <CodeExample :code="`<BrNavbar brand='Compacto' :items='menuItems' dense />`">
-        <div style="border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden;">
+        <div style="border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden;">
           <BrNavbar brand="Compacto" :items="menuItems" dense />
         </div>
       </CodeExample>
 
       <h2>Sem sombra</h2>
       <CodeExample :code="`<BrNavbar brand='Sem Sombra' :items='menuItems' :elevated='false' />`">
-        <div style="border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden;">
+        <div style="border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden;">
           <BrNavbar brand="Sem Sombra" :items="menuItems" :elevated="false" />
         </div>
       </CodeExample>

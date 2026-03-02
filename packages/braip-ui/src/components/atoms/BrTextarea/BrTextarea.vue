@@ -7,96 +7,96 @@
  * <BrTextarea v-model="description" :rows="6" resize="vertical" />
  */
 
-import { computed, ref } from 'vue'
-import type { TextareaProps } from './types'
+import { computed, ref } from "vue";
+import type { TextareaProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<TextareaProps>(), {
-  placeholder: '',
+  placeholder: "",
   disabled: false,
   readonly: false,
   error: false,
   rows: 4,
-  resize: 'vertical',
+  resize: "vertical",
   maxLength: undefined,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const model = defineModel<string>({ default: '' })
+const model = defineModel<string>({ default: "" });
 
 // ---------------------------------------------------------------------------
 // EMITS
 // ---------------------------------------------------------------------------
 
 const emit = defineEmits<{
-  (e: 'focus', value: string): void
-  (e: 'blur', value: string): void
-}>()
+  (e: "focus", value: string): void;
+  (e: "blur", value: string): void;
+}>();
 
 // ---------------------------------------------------------------------------
 // REFS
 // ---------------------------------------------------------------------------
 
-const textareaRef = ref<HTMLTextAreaElement | null>(null)
-const isFocused = ref(false)
+const textareaRef = ref<HTMLTextAreaElement | null>(null);
+const isFocused = ref(false);
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-textarea',
+  "br-textarea",
   {
-    'br-textarea--error': props.error,
-    'br-textarea--disabled': props.disabled,
-    'br-textarea--focused': isFocused.value,
+    "br-textarea--error": props.error,
+    "br-textarea--disabled": props.disabled,
+    "br-textarea--focused": isFocused.value,
   },
-])
+]);
 
 const styles = computed(() => ({
   resize: props.resize,
-}))
+}));
 
-const charCount = computed(() => model.value?.length || 0)
+const charCount = computed(() => model.value?.length || 0);
 
 // ---------------------------------------------------------------------------
 // METHODS
 // ---------------------------------------------------------------------------
 
 function handleInput(event: Event) {
-  const target = event.target as HTMLTextAreaElement
-  model.value = target.value
+  const target = event.target as HTMLTextAreaElement;
+  model.value = target.value;
 }
 
 function handleFocus() {
-  isFocused.value = true
-  emit('focus', model.value)
+  isFocused.value = true;
+  emit("focus", model.value);
 }
 
 function handleBlur() {
-  isFocused.value = false
-  emit('blur', model.value)
+  isFocused.value = false;
+  emit("blur", model.value);
 }
 
 function focus() {
-  textareaRef.value?.focus()
+  textareaRef.value?.focus();
 }
 
 function blur() {
-  textareaRef.value?.blur()
+  textareaRef.value?.blur();
 }
 
 // ---------------------------------------------------------------------------
 // EXPOSE
 // ---------------------------------------------------------------------------
 
-defineExpose({ focus, blur, textareaRef })
+defineExpose({ focus, blur, textareaRef });
 </script>
 
 <template>
@@ -133,19 +133,19 @@ defineExpose({ focus, blur, textareaRef })
   font-size: var(--br-text-sm);
   line-height: 1.5;
   padding: var(--br-space-3) var(--br-space-4);
-  border: 1px solid var(--br-light-300);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-md);
-  background: var(--br-light-0);
-  color: var(--br-dark-700);
+  background: var(--neutralLightGrey9);
+  color: var(--neutralDarkGrey7);
   transition: all var(--br-transition-fast);
 
   &::placeholder {
-    color: var(--br-dark-1100);
+    color: var(--neutralDarkGrey9);
   }
 
   &:focus {
     outline: none;
-    border-color: var(--br-primary-600);
+    border-color: var(--brandPrimary6);
     box-shadow: 0 0 0 3px rgba(109, 54, 251, 0.1);
   }
 
@@ -154,17 +154,17 @@ defineExpose({ focus, blur, textareaRef })
   // ---------------------------------------------------------------------------
 
   &--error {
-    border-color: var(--br-danger-600);
+    border-color: var(--auxiliaryRed6);
 
     &:focus {
-      border-color: var(--br-danger-600);
+      border-color: var(--auxiliaryRed6);
       box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.1);
     }
   }
 
   &--disabled {
-    background: var(--br-light-200);
-    color: var(--br-dark-1100);
+    background: var(--neutralLightGrey6);
+    color: var(--neutralDarkGrey9);
     cursor: not-allowed;
   }
 
@@ -173,7 +173,7 @@ defineExpose({ focus, blur, textareaRef })
     bottom: var(--br-space-2);
     right: var(--br-space-3);
     font-size: var(--br-text-xs);
-    color: var(--br-dark-1100);
+    color: var(--neutralDarkGrey9);
   }
 }
 </style>

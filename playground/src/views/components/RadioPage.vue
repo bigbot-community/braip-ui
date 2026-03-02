@@ -38,7 +38,7 @@ const props = [
           <BrRadio v-model="selected" value="option2" label="Opção 2" name="demo" />
           <BrRadio v-model="selected" value="option3" label="Opção 3" name="demo" />
         </div>
-        <p style="margin-top: 12px; color: var(--br-dark-500);">Selecionado: {{ selected }}</p>
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">Selecionado: {{ selected }}</p>
       </CodeExample>
 
       <h2>Radio Group</h2>
@@ -56,7 +56,7 @@ const props = [
           label="Framework favorito"
           :options="options"
         />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">Selecionado: {{ selectedGroup }}</p>
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">Selecionado: {{ selectedGroup }}</p>
       </CodeExample>
 
       <h2>Tamanhos</h2>

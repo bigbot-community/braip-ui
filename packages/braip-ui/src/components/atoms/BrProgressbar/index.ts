@@ -1,2 +1,2 @@
-export { default as BrProgressbar } from './BrProgressbar.vue'
-export * from './types'
+export { default as BrProgressbar } from "./BrProgressbar.vue";
+export * from "./types";

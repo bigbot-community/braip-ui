@@ -26,7 +26,7 @@ const props = [
       <h2>Uso básico</h2>
       <CodeExample :code="`<BrRating v-model='rating' />`">
         <BrRating v-model="rating" />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">Valor: {{ rating }}</p>
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">Valor: {{ rating }}</p>
       </CodeExample>
 
       <h2>Com valor exibido</h2>

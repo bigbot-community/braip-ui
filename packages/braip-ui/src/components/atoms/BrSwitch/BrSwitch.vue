@@ -8,36 +8,36 @@
  * <BrSwitch v-model="value" disabled />
  */
 
-import { computed } from 'vue'
-import type { SwitchProps } from './types'
+import { computed } from "vue";
+import type { SwitchProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<SwitchProps>(), {
-  size: 'md',
+  size: "md",
   disabled: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const model = defineModel<boolean>({ default: false })
+const model = defineModel<boolean>({ default: false });
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-switch',
+  "br-switch",
   `br-switch--${props.size}`,
   {
-    'br-switch--checked': model.value,
-    'br-switch--disabled': props.disabled,
+    "br-switch--checked": model.value,
+    "br-switch--disabled": props.disabled,
   },
-])
+]);
 
 // ---------------------------------------------------------------------------
 // METHODS
@@ -45,7 +45,7 @@ const classes = computed(() => [
 
 function toggle() {
   if (!props.disabled) {
-    model.value = !model.value
+    model.value = !model.value;
   }
 }
 </script>
@@ -79,14 +79,14 @@ function toggle() {
     position: relative;
     display: flex;
     align-items: center;
-    background: var(--br-dark-1100);
+    background: var(--neutralDarkGrey9);
     border-radius: var(--br-radius-full);
     transition: background var(--br-transition-fast);
   }
 
   &__thumb {
     position: absolute;
-    background: var(--br-light-0);
+    background: var(--neutralLightGrey9);
     border-radius: 50%;
     box-shadow: var(--br-shadow-sm);
     transition: transform var(--br-transition-fast);
@@ -153,7 +153,7 @@ function toggle() {
 
   &--checked {
     .br-switch__track {
-      background: var(--br-primary-600);
+      background: var(--brandPrimary6);
     }
   }
 
@@ -163,18 +163,18 @@ function toggle() {
   }
 
   &:focus-visible {
-    outline: 2px solid var(--br-primary-600);
+    outline: 2px solid var(--brandPrimary6);
     outline-offset: 2px;
     border-radius: var(--br-radius-full);
   }
 
   &:hover:not(&--disabled) {
     .br-switch__track {
-      background: var(--br-dark-900);
+      background: var(--neutralDarkGrey8);
     }
 
     &.br-switch--checked .br-switch__track {
-      background: var(--br-primary-700);
+      background: var(--brandPrimaryDark7);
     }
   }
 }

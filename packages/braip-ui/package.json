@@ -36,7 +36,8 @@
     "test": "pnpm exec vitest",
     "test:coverage": "pnpm exec vitest run --coverage",
     "typecheck": "vue-tsc --noEmit",
-    "lint": "eslint src --ext .ts,.vue"
+    "lint": "eslint src --ext .ts,.vue",
+    "lint:fix": "eslint . --ext .ts,.vue --fix"
   },
   "peerDependencies": {
     "vue": "^3.4.0"
@@ -45,11 +46,19 @@
     "@vueuse/core": "^10.7.0"
   },
   "devDependencies": {
+    "@eslint/js": "^8.57.1",
     "@vitejs/plugin-vue": "^5.0.0",
     "@vue/test-utils": "^2.4.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
+    "eslint-plugin-vue": "^9.33.0",
+    "globals": "^17.3.0",
+    "jiti": "^2.6.1",
     "jsdom": "^26.1.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.0",
+    "typescript-eslint": "^8.56.0",
     "vite": "^5.0.0",
     "vite-plugin-dts": "^3.7.0",
     "vite-svg-loader": "^5.1.0",

@@ -30,7 +30,7 @@ const switchProps = [
       >
         <div style="display: flex; align-items: center; gap: 12px;">
           <BrSwitch v-model="switchValue" />
-          <span style="font-size: 14px; color: var(--br-dark-700);">
+          <span style="font-size: 14px; color: var(--neutralDarkGrey7);">
             {{ switchValue ? 'Ligado' : 'Desligado' }}
           </span>
         </div>
@@ -87,13 +87,13 @@ const switchProps = [
   &__title {
     font-size: var(--br-text-h3);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: var(--br-space-4) 0;
   }
 
   &__description {
     font-size: var(--br-text-lg);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.6;
     margin: 0;
   }
@@ -104,16 +104,16 @@ const switchProps = [
     h2 {
       font-size: var(--br-text-h5);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: 0 0 var(--br-space-4);
       padding-bottom: var(--br-space-3);
-      border-bottom: 1px solid var(--br-light-300);
+      border-bottom: 1px solid var(--neutralLightGrey5);
     }
 
     h3 {
       font-size: var(--br-text-lg);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: var(--br-space-6) 0 var(--br-space-3);
     }
   }
