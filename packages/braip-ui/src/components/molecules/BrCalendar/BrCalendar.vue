@@ -351,7 +351,7 @@ const classes = computed(() => [
   flex-direction: column;
   padding: var(--br-space-3);
   background: var(--br-white);
-  border: 1px solid var(--br-light-300);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-lg);
   min-width: 280px;
 
@@ -377,7 +377,7 @@ const classes = computed(() => [
     border: none;
     border-radius: var(--br-radius-md);
     background: transparent;
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     cursor: pointer;
     transition: background var(--br-transition-fast);
 
@@ -387,7 +387,7 @@ const classes = computed(() => [
     }
 
     &:hover:not(:disabled) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
 
     &:disabled {
@@ -403,12 +403,12 @@ const classes = computed(() => [
     background: transparent;
     font-size: var(--br-text-md);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-800);
+    color: var(--neutralDarkGrey7);
     cursor: pointer;
     text-transform: capitalize;
 
     &:hover:not(:disabled) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
       border-radius: var(--br-radius-md);
     }
   }
@@ -423,7 +423,7 @@ const classes = computed(() => [
     text-align: center;
     font-size: var(--br-text-xs);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
     text-transform: uppercase;
   }
 
@@ -438,7 +438,7 @@ const classes = computed(() => [
     align-items: center;
     justify-content: center;
     font-size: var(--br-text-xs);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
   }
 
   &__day {
@@ -452,30 +452,30 @@ const classes = computed(() => [
     border-radius: var(--br-radius-md);
     background: transparent;
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
     &:hover:not(:disabled):not(&--selected) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
 
     &--other-month {
-      color: var(--br-dark-300);
+      color: var(--neutralDarkGrey3);
     }
 
     &--today {
       font-weight: var(--br-font-bold);
-      color: var(--br-primary-600);
+      color: var(--brandPrimary6);
     }
 
     &--selected {
-      background: var(--br-primary-500);
+      background: var(--brandPrimary5);
       color: var(--br-white);
     }
 
     &--in-range {
-      background: var(--br-primary-100);
+      background: var(--brandPrimaryLightest);
       border-radius: 0;
     }
 
@@ -494,7 +494,7 @@ const classes = computed(() => [
         width: 4px;
         height: 4px;
         border-radius: 50%;
-        background: var(--highlight-color, var(--br-primary-500));
+        background: var(--highlight-color, var(--brandPrimary5));
       }
     }
   }
@@ -513,17 +513,17 @@ const classes = computed(() => [
     border-radius: var(--br-radius-md);
     background: transparent;
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     cursor: pointer;
     text-transform: capitalize;
     transition: background var(--br-transition-fast);
 
     &:hover:not(:disabled) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
 
     &--current {
-      color: var(--br-primary-600);
+      color: var(--brandPrimary6);
       font-weight: var(--br-font-semibold);
     }
   }
@@ -533,7 +533,7 @@ const classes = computed(() => [
     justify-content: center;
     margin-top: var(--br-space-3);
     padding-top: var(--br-space-3);
-    border-top: 1px solid var(--br-light-200);
+    border-top: 1px solid var(--neutralLightGrey6);
   }
 
   &__today {
@@ -542,11 +542,11 @@ const classes = computed(() => [
     border-radius: var(--br-radius-md);
     background: transparent;
     font-size: var(--br-text-sm);
-    color: var(--br-primary-600);
+    color: var(--brandPrimary6);
     cursor: pointer;
 
     &:hover:not(:disabled) {
-      background: var(--br-primary-50);
+      background: var(--brandPrimaryLightest);
     }
   }
 }

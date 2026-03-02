@@ -5,7 +5,7 @@ import PropsTable from '../../components/PropsTable.vue'
 const props = [
   { name: 'width', type: 'string', default: "'100%'", description: 'Largura da linha divisora' },
   { name: 'height', type: 'string', default: "'1px'", description: 'Espessura da linha' },
-  { name: 'color', type: 'string', default: "'var(--br-dark-1100)'", description: 'Cor da linha' },
+  { name: 'color', type: 'string', default: "'var(--neutralDarkGrey9)'", description: 'Cor da linha' },
   { name: 'opacity', type: 'number', default: '0.5', description: 'Opacidade da linha (0 a 1)' },
   { name: 'borderRadius', type: 'string', default: "'none'", description: 'Raio da borda da linha' },
 ]
@@ -27,12 +27,12 @@ const props = [
 
     <h2>Espessura e cor</h2>
     <CodeExample
-      :code="`<BrLineDivision height='2px' color='var(--br-primary-600)' />
-<BrLineDivision height='4px' color='var(--br-success-600)' />`"
+      :code="`<BrLineDivision height='2px' color='var(--brandPrimary6)' />
+<BrLineDivision height='4px' color='var(--auxiliaryGreen6)' />`"
     >
       <div style="display: flex; flex-direction: column; gap: 16px; width: 100%;">
-        <BrLineDivision height="2px" color="var(--br-primary-600)" />
-        <BrLineDivision height="4px" color="var(--br-success-600)" />
+        <BrLineDivision height="2px" color="var(--brandPrimary6)" />
+        <BrLineDivision height="4px" color="var(--auxiliaryGreen6)" />
       </div>
     </CodeExample>
 
@@ -49,13 +49,13 @@ const props = [
 
     <h2>Borda arredondada</h2>
     <CodeExample
-      :code="`<BrLineDivision height='6px' borderRadius='999px' color='var(--br-warning-500)' />`"
+      :code="`<BrLineDivision height='6px' borderRadius='999px' color='var(--auxiliaryOrange5)' />`"
     >
       <div style="width: 100%;">
         <BrLineDivision
           height="6px"
           borderRadius="999px"
-          color="var(--br-warning-500)"
+          color="var(--auxiliaryOrange5)"
         />
       </div>
     </CodeExample>

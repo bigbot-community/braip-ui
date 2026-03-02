@@ -24,7 +24,7 @@ export interface TitleProps {
 
   /**
    * Text color
-   * @default 'var(--br-dark-0)'
+   * @default 'var(--neutralDarkGrey)'
    */
   color?: string
 

@@ -137,26 +137,26 @@ const iconProps = [
       <p>O ícone herda a cor do texto do elemento pai por padrão.</p>
       <CodeExample
         title="Ícones Coloridos"
-        code='<span style="color: var(--br-primary-600)">
+        code='<span style="color: var(--brandPrimary6)">
   <BrIcon name="check" />
 </span>
-<span style="color: var(--br-success-600)">
+<span style="color: var(--auxiliaryGreen6)">
   <BrIcon name="success" />
 </span>
-<span style="color: var(--br-danger-600)">
+<span style="color: var(--auxiliaryRed6)">
   <BrIcon name="error" />
 </span>'
       >
-        <span style="color: var(--br-primary-600)">
+        <span style="color: var(--brandPrimary6)">
           <BrIcon name="check" size="lg" />
         </span>
-        <span style="color: var(--br-success-600)">
+        <span style="color: var(--auxiliaryGreen6)">
           <BrIcon name="success" size="lg" />
         </span>
-        <span style="color: var(--br-danger-600)">
+        <span style="color: var(--auxiliaryRed6)">
           <BrIcon name="error" size="lg" />
         </span>
-        <span style="color: var(--br-warning-600)">
+        <span style="color: var(--auxiliaryOrange6)">
           <BrIcon name="warning" size="lg" />
         </span>
       </CodeExample>
@@ -180,13 +180,13 @@ const iconProps = [
   &__title {
     font-size: var(--br-text-h3);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: var(--br-space-4) 0;
   }
 
   &__description {
     font-size: var(--br-text-lg);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.6;
     margin: 0;
   }
@@ -197,21 +197,21 @@ const iconProps = [
     h2 {
       font-size: var(--br-text-h5);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: 0 0 var(--br-space-4);
       padding-bottom: var(--br-space-3);
-      border-bottom: 1px solid var(--br-light-300);
+      border-bottom: 1px solid var(--neutralLightGrey5);
     }
 
     h3 {
       font-size: var(--br-text-lg);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: var(--br-space-6) 0 var(--br-space-3);
     }
 
     p {
-      color: var(--br-dark-700);
+      color: var(--neutralDarkGrey7);
       margin: 0 0 var(--br-space-4);
       line-height: 1.6;
     }
@@ -231,19 +231,19 @@ const iconProps = [
   align-items: center;
   gap: var(--br-space-2);
   padding: var(--br-space-4);
-  background: var(--br-light-0);
-  border: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-lg);
   transition: all var(--br-transition-fast);
 
   &:hover {
-    border-color: var(--br-primary-400);
+    border-color: var(--brandPrimary4);
     box-shadow: var(--br-shadow-sm);
   }
 
   &__name {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     text-align: center;
   }
 }

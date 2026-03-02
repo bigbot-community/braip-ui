@@ -155,13 +155,13 @@ const buttonEvents = [
   &__title {
     font-size: var(--br-text-h3);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: var(--br-space-4) 0;
   }
 
   &__description {
     font-size: var(--br-text-lg);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.6;
     margin: 0;
   }
@@ -172,29 +172,29 @@ const buttonEvents = [
     h2 {
       font-size: var(--br-text-h5);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: 0 0 var(--br-space-4);
       padding-bottom: var(--br-space-3);
-      border-bottom: 1px solid var(--br-light-300);
+      border-bottom: 1px solid var(--neutralLightGrey5);
     }
 
     h3 {
       font-size: var(--br-text-lg);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: var(--br-space-6) 0 var(--br-space-3);
     }
 
     p {
-      color: var(--br-dark-700);
+      color: var(--neutralDarkGrey7);
       margin: 0 0 var(--br-space-4);
       line-height: 1.6;
 
       code {
         font-family: 'Fira Code', monospace;
         font-size: 0.9em;
-        background: var(--br-primary-100);
-        color: var(--br-primary-600);
+        background: var(--brandPrimaryLightest);
+        color: var(--brandPrimary6);
         padding: 2px 6px;
         border-radius: var(--br-radius-sm);
       }

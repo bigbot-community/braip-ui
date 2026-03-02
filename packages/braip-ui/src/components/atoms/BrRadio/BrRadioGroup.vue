@@ -52,7 +52,7 @@ const classes = computed(() => [
   &__label {
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__options {
@@ -71,7 +71,7 @@ const classes = computed(() => [
 
   &__error {
     font-size: var(--br-text-sm);
-    color: var(--br-danger-500);
+    color: var(--auxiliaryRed5);
   }
 }
 </style>

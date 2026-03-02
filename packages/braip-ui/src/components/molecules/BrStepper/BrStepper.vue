@@ -178,8 +178,8 @@ function handleStepClick(index: number) {
     width: 32px;
     height: 32px;
     border-radius: 50%;
-    background: var(--br-light-300);
-    color: var(--br-dark-500);
+    background: var(--neutralLightGrey5);
+    color: var(--neutralDarkGrey5);
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
     flex-shrink: 0;
@@ -192,7 +192,7 @@ function handleStepClick(index: number) {
   }
 
   &__connector {
-    background: var(--br-light-300);
+    background: var(--neutralLightGrey5);
     transition: background var(--br-transition-fast);
   }
 
@@ -205,55 +205,55 @@ function handleStepClick(index: number) {
   &__title {
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__optional {
     font-weight: var(--br-font-normal);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
   }
 
   &__description {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
   }
 
   // States
   &__step--completed {
     .br-stepper__icon {
-      background: var(--br-primary-500);
+      background: var(--brandPrimary5);
       color: var(--br-white);
     }
 
     .br-stepper__connector {
-      background: var(--br-primary-500);
+      background: var(--brandPrimary5);
     }
   }
 
   &__step--active {
     .br-stepper__icon {
-      background: var(--br-primary-500);
+      background: var(--brandPrimary5);
       color: var(--br-white);
-      box-shadow: 0 0 0 4px var(--br-primary-100);
+      box-shadow: 0 0 0 4px var(--brandPrimaryLightest);
     }
 
     .br-stepper__title {
-      color: var(--br-primary-600);
+      color: var(--brandPrimary6);
     }
   }
 
   &__step--error {
     .br-stepper__icon {
-      background: var(--br-danger-500);
+      background: var(--auxiliaryRed5);
       color: var(--br-white);
     }
 
     .br-stepper__title {
-      color: var(--br-danger-600);
+      color: var(--auxiliaryRed6);
     }
 
     .br-stepper__description {
-      color: var(--br-danger-500);
+      color: var(--auxiliaryRed5);
     }
   }
 
@@ -269,20 +269,20 @@ function handleStepClick(index: number) {
   &--outlined {
     .br-stepper__icon {
       background: transparent;
-      border: 2px solid var(--br-light-400);
+      border: 2px solid var(--neutralLightGrey5);
     }
 
     .br-stepper__step--completed .br-stepper__icon,
     .br-stepper__step--active .br-stepper__icon {
-      border-color: var(--br-primary-500);
+      border-color: var(--brandPrimary5);
       background: transparent;
-      color: var(--br-primary-500);
+      color: var(--brandPrimary5);
     }
 
     .br-stepper__step--error .br-stepper__icon {
-      border-color: var(--br-danger-500);
+      border-color: var(--auxiliaryRed5);
       background: transparent;
-      color: var(--br-danger-500);
+      color: var(--auxiliaryRed5);
     }
   }
 
@@ -295,7 +295,7 @@ function handleStepClick(index: number) {
 
     .br-stepper__step--completed .br-stepper__icon,
     .br-stepper__step--active .br-stepper__icon {
-      background: var(--br-primary-500);
+      background: var(--brandPrimary5);
     }
   }
 }

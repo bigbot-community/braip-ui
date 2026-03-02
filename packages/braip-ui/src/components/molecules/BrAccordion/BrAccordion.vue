@@ -75,14 +75,14 @@ provide(
   width: 100%;
 
   &--default {
-    border: 1px solid var(--br-light-300);
+    border: 1px solid var(--neutralLightGrey5);
     border-radius: var(--br-radius-md);
     overflow: hidden;
   }
 
   &--bordered {
     :deep(.br-accordion-item) {
-      border: 1px solid var(--br-light-300);
+      border: 1px solid var(--neutralLightGrey5);
       border-radius: var(--br-radius-md);
       margin-bottom: var(--br-space-2);
 
@@ -94,7 +94,7 @@ provide(
 
   &--separated {
     :deep(.br-accordion-item) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
       border-radius: var(--br-radius-md);
       margin-bottom: var(--br-space-2);
 

@@ -133,19 +133,19 @@ defineExpose({ focus, blur, textareaRef })
   font-size: var(--br-text-sm);
   line-height: 1.5;
   padding: var(--br-space-3) var(--br-space-4);
-  border: 1px solid var(--br-light-300);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-md);
-  background: var(--br-light-0);
-  color: var(--br-dark-700);
+  background: var(--neutralLightGrey9);
+  color: var(--neutralDarkGrey7);
   transition: all var(--br-transition-fast);
 
   &::placeholder {
-    color: var(--br-dark-1100);
+    color: var(--neutralDarkGrey9);
   }
 
   &:focus {
     outline: none;
-    border-color: var(--br-primary-600);
+    border-color: var(--brandPrimary6);
     box-shadow: 0 0 0 3px rgba(109, 54, 251, 0.1);
   }
 
@@ -154,17 +154,17 @@ defineExpose({ focus, blur, textareaRef })
   // ---------------------------------------------------------------------------
 
   &--error {
-    border-color: var(--br-danger-600);
+    border-color: var(--auxiliaryRed6);
 
     &:focus {
-      border-color: var(--br-danger-600);
+      border-color: var(--auxiliaryRed6);
       box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.1);
     }
   }
 
   &--disabled {
-    background: var(--br-light-200);
-    color: var(--br-dark-1100);
+    background: var(--neutralLightGrey6);
+    color: var(--neutralDarkGrey9);
     cursor: not-allowed;
   }
 
@@ -173,7 +173,7 @@ defineExpose({ focus, blur, textareaRef })
     bottom: var(--br-space-2);
     right: var(--br-space-3);
     font-size: var(--br-text-xs);
-    color: var(--br-dark-1100);
+    color: var(--neutralDarkGrey9);
   }
 }
 </style>

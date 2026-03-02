@@ -159,7 +159,7 @@ provide('sidebar', {
   flex-direction: column;
   height: 100%;
   background: var(--br-white);
-  border-right: 1px solid var(--br-light-200);
+  border-right: 1px solid var(--neutralLightGrey6);
   transition: width var(--br-transition-normal);
   overflow: hidden;
 
@@ -181,7 +181,7 @@ provide('sidebar', {
     align-items: center;
     gap: var(--br-space-3);
     padding: var(--br-space-4);
-    border-bottom: 1px solid var(--br-light-200);
+    border-bottom: 1px solid var(--neutralLightGrey6);
     min-height: 64px;
   }
 
@@ -195,7 +195,7 @@ provide('sidebar', {
   &__brand-text {
     font-size: var(--br-text-lg);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-800);
+    color: var(--neutralDarkGrey7);
     white-space: nowrap;
     overflow: hidden;
   }
@@ -216,7 +216,7 @@ provide('sidebar', {
     padding: var(--br-space-3) var(--br-space-3) var(--br-space-2);
     font-size: var(--br-text-xs);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
     text-transform: uppercase;
     letter-spacing: 0.05em;
   }
@@ -239,7 +239,7 @@ provide('sidebar', {
     width: 20px;
     height: 20px;
     margin-left: auto;
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
     transition: transform var(--br-transition-fast);
   }
 
@@ -258,15 +258,15 @@ provide('sidebar', {
     background: transparent;
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     text-decoration: none;
     cursor: pointer;
     transition: all var(--br-transition-fast);
     white-space: nowrap;
 
     &:hover:not(:disabled) {
-      background: var(--br-light-100);
-      color: var(--br-dark-800);
+      background: var(--neutralLightGrey7);
+      color: var(--neutralDarkGrey7);
     }
 
     &:disabled {
@@ -275,11 +275,11 @@ provide('sidebar', {
     }
 
     &.router-link-active {
-      background: var(--br-primary-50);
-      color: var(--br-primary-600);
+      background: var(--brandPrimaryLightest);
+      color: var(--brandPrimary6);
 
       .br-sidebar__item-icon {
-        color: var(--br-primary-500);
+        color: var(--brandPrimary5);
       }
     }
 
@@ -296,7 +296,7 @@ provide('sidebar', {
   &__item-icon {
     font-size: 1.25em;
     flex-shrink: 0;
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
   }
 
   &__item-label {
@@ -318,29 +318,29 @@ provide('sidebar', {
     font-weight: var(--br-font-semibold);
 
     &--primary {
-      background: var(--br-primary-100);
-      color: var(--br-primary-700);
+      background: var(--brandPrimaryLightest);
+      color: var(--brandPrimaryDark7);
     }
 
     &--success {
-      background: var(--br-success-100);
-      color: var(--br-success-700);
+      background: var(--auxiliaryGreenLightest);
+      color: var(--auxiliaryGreenDark7);
     }
 
     &--warning {
-      background: var(--br-warning-100);
-      color: var(--br-warning-700);
+      background: var(--auxiliaryOrangeLightest);
+      color: var(--auxiliaryOrangeDark7);
     }
 
     &--danger {
-      background: var(--br-danger-100);
-      color: var(--br-danger-700);
+      background: var(--auxiliaryRedLightest);
+      color: var(--auxiliaryRedDark7);
     }
   }
 
   &__footer {
     padding: var(--br-space-3);
-    border-top: 1px solid var(--br-light-200);
+    border-top: 1px solid var(--neutralLightGrey6);
   }
 
   &__toggle {
@@ -351,8 +351,8 @@ provide('sidebar', {
     padding: var(--br-space-2);
     border: none;
     border-radius: var(--br-radius-md);
-    background: var(--br-light-100);
-    color: var(--br-dark-500);
+    background: var(--neutralLightGrey7);
+    color: var(--neutralDarkGrey5);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
@@ -362,8 +362,8 @@ provide('sidebar', {
     }
 
     &:hover {
-      background: var(--br-light-200);
-      color: var(--br-dark-700);
+      background: var(--neutralLightGrey6);
+      color: var(--neutralDarkGrey7);
     }
   }
 

@@ -4,7 +4,7 @@
  *
  * @example
  * <BrSpinner />
- * <BrSpinner size="lg" color="var(--br-primary-600)" />
+ * <BrSpinner size="lg" color="var(--brandPrimary6)" />
  * <BrSpinner status="success" />
  */
 
@@ -17,7 +17,7 @@ import type { SpinnerProps } from './types'
 
 const props = withDefaults(defineProps<SpinnerProps>(), {
   size: 'md',
-  color: 'var(--br-primary-600)',
+  color: 'var(--brandPrimary6)',
   status: 'loading',
 })
 
@@ -95,11 +95,11 @@ const styles = computed(() => ({
   }
 
   &__check {
-    color: var(--br-success-600);
+    color: var(--auxiliaryGreen6);
   }
 
   &__error {
-    color: var(--br-danger-600);
+    color: var(--auxiliaryRed6);
   }
 }
 

@@ -255,7 +255,7 @@ onUnmounted(() => {
     flex-direction: column;
     width: 100%;
     max-height: 90vh;
-    background: var(--br-light-0);
+    background: var(--neutralLightGrey9);
     border-radius: var(--br-radius-lg);
     box-shadow: var(--br-shadow-xl);
     overflow: hidden;
@@ -277,7 +277,7 @@ onUnmounted(() => {
     justify-content: space-between;
     gap: var(--br-space-4);
     padding: var(--br-space-6);
-    border-bottom: 1px solid var(--br-light-300);
+    border-bottom: 1px solid var(--neutralLightGrey5);
   }
 
   &__title {
@@ -286,7 +286,7 @@ onUnmounted(() => {
     font-family: var(--br-font-primary);
     font-size: var(--br-text-lg);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 
   &__close {
@@ -299,7 +299,7 @@ onUnmounted(() => {
     border: none;
     border-radius: var(--br-radius-sm);
     background: transparent;
-    color: var(--br-dark-900);
+    color: var(--neutralDarkGrey8);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
@@ -309,8 +309,8 @@ onUnmounted(() => {
     }
 
     &:hover {
-      background: var(--br-light-200);
-      color: var(--br-dark-700);
+      background: var(--neutralLightGrey6);
+      color: var(--neutralDarkGrey7);
     }
   }
 
@@ -334,7 +334,7 @@ onUnmounted(() => {
     justify-content: flex-end;
     gap: var(--br-space-3);
     padding: var(--br-space-6);
-    border-top: 1px solid var(--br-light-300);
+    border-top: 1px solid var(--neutralLightGrey5);
   }
 
   &__btn {
@@ -348,20 +348,20 @@ onUnmounted(() => {
     transition: all var(--br-transition-fast);
 
     &--cancel {
-      background: var(--br-primary-100);
-      color: var(--br-primary-600);
+      background: var(--brandPrimaryLightest);
+      color: var(--brandPrimary6);
 
       &:hover {
-        background: var(--br-primary-200);
+        background: var(--brandPrimaryLight2);
       }
     }
 
     &--confirm {
-      background: var(--br-primary-600);
-      color: var(--br-light-0);
+      background: var(--brandPrimary6);
+      color: var(--neutralLightGrey9);
 
       &:hover {
-        background: var(--br-primary-700);
+        background: var(--brandPrimaryDark7);
       }
     }
   }
