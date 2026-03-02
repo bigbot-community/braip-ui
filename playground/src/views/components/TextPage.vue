@@ -18,7 +18,7 @@ const singleLineExampleCode = `<BrText
 const customExampleCode = `<BrText
   type="title-h6"
   text="Texto personalizado"
-  color="var(--br-primary-600)"
+  color="var(--brandPrimary6)"
   font-family="Sora"
   text-align="center"
 />`;
@@ -45,7 +45,7 @@ const textProps = [
   {
     name: "color",
     type: "string",
-    default: "'var(--br-dark-0)'",
+    default: "'var(--neutralDarkGrey)'",
     description: "Cor do texto",
   },
   {
@@ -75,7 +75,8 @@ const textProps = [
       <BrBadge variant="primary">Atom</BrBadge>
       <h1 class="component-page__title">Text</h1>
       <p class="component-page__description">
-        Componente tipográfico para títulos e textos com variações de tamanho, peso e alinhamento.
+        Componente tipográfico para títulos e textos com variações de tamanho,
+        peso e alinhamento.
       </p>
     </header>
 
@@ -102,7 +103,10 @@ const textProps = [
 
     <section class="component-page__section">
       <h2>Texto em Linha Única</h2>
-      <CodeExample title="Truncamento com reticências" :code="singleLineExampleCode">
+      <CodeExample
+        title="Truncamento com reticências"
+        :code="singleLineExampleCode"
+      >
         <BrText
           type="text-p4"
           :single-line="true"
@@ -117,7 +121,7 @@ const textProps = [
         <BrText
           type="title-h6"
           text="Texto personalizado"
-          color="var(--br-primary-600)"
+          color="var(--brandPrimary6)"
           font-family="Sora"
           text-align="center"
         />
@@ -141,13 +145,13 @@ const textProps = [
   &__title {
     font-size: var(--br-text-h3);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: var(--br-space-4) 0;
   }
 
   &__description {
     font-size: var(--br-text-lg);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey5);
     line-height: 1.6;
     margin: 0;
   }
@@ -158,16 +162,16 @@ const textProps = [
     h2 {
       font-size: var(--br-text-h5);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: 0 0 var(--br-space-4);
       padding-bottom: var(--br-space-3);
-      border-bottom: 1px solid var(--br-light-300);
+      border-bottom: 1px solid var(--neutralLightGrey3);
     }
 
     h3 {
       font-size: var(--br-text-lg);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: var(--br-space-6) 0 var(--br-space-3);
     }
   }
