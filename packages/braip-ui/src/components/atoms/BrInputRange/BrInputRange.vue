@@ -1,6 +1,6 @@
 <script lang="ts">
 import { computed, defineComponent, onMounted, ref, watch } from "vue";
-import type { InputRangeProps, InputRangeEmits } from "./types";
+import type { InputRangeProps } from "./types";
 
 export default defineComponent({
   name: "BrInputRange",
@@ -55,7 +55,10 @@ export default defineComponent({
     },
   },
   emits: ["input"],
-  setup(props: InputRangeProps, { emit }: { emit: InputRangeEmits }) {
+  setup(
+    props: InputRangeProps,
+    { emit }: { emit: (event: "input", value: [number, number]) => void },
+  ) {
     const internalValue = ref<[number, number]>([
       props.value[0],
       props.value[1],
