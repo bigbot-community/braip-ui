@@ -6,7 +6,6 @@ const routes = [
     name: 'home',
     component: () => import('../views/HomeView.vue'),
   },
-  // Atoms
   {
     path: '/components/button',
     name: 'button',
@@ -97,7 +96,11 @@ const routes = [
     name: 'rating',
     component: () => import('../views/components/RatingPage.vue'),
   },
-  // Molecules
+  {
+    path: '/components/dropdown-item',
+    name: 'dropdown-item',
+    component: () => import('../views/components/DropdownItemPage.vue'),
+  },
   {
     path: '/components/modal',
     name: 'modal',
@@ -133,7 +136,11 @@ const routes = [
     name: 'tabs',
     component: () => import('../views/components/TabsPage.vue'),
   },
-  // Organisms
+  {
+    path: '/components/form-select',
+    name: 'form-select',
+    component: () => import('../views/components/FormSelectPage.vue'),
+  },
   {
     path: '/components/navbar',
     name: 'navbar',
@@ -144,7 +151,6 @@ const routes = [
     name: 'sidebar',
     component: () => import('../views/components/SidebarPage.vue'),
   },
-  // Tokens
   {
     path: '/tokens/colors',
     name: 'colors',

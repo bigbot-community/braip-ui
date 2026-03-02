@@ -6,6 +6,7 @@ const components = [
   { name: 'Input', description: 'Campos de entrada de texto', path: '/components/input', icon: '📝' },
   { name: 'Input Range', description: 'Seleção de intervalo mínimo e máximo', path: '/components/input-range', icon: '🎚️' },
   { name: 'Select', description: 'Dropdown para seleção de opções', path: '/components/select', icon: '📋' },
+  { name: 'Dropdown Item', description: 'Item individual de dropdown com estados', path: '/components/dropdown-item', icon: '☑️' },
   { name: 'Textarea', description: 'Área de texto multilinha', path: '/components/textarea', icon: '📄' },
   { name: 'Badge', description: 'Badges e tags de status', path: '/components/badge', icon: '🏷️' },
   { name: 'Icon', description: 'Biblioteca de ícones SVG', path: '/components/icon', icon: '⭐' },
@@ -13,12 +14,12 @@ const components = [
   { name: 'Title', description: 'Tipografia de títulos', path: '/components/title', icon: '📰' },
   { name: 'Switch', description: 'Toggle on/off', path: '/components/switch', icon: '🔀' },
   { name: 'Modal', description: 'Diálogos e painéis laterais', path: '/components/modal', icon: '🪟' },
+  { name: 'Form Select', description: 'Select customizado com dropdown flutuante', path: '/components/form-select', icon: '🎛️' },
 ]
 </script>
 
 <template>
   <div class="home">
-    <!-- Hero -->
     <section class="hero">
       <div class="hero__badge">
         <BrBadge variant="primary">v0.1.0</BrBadge>
@@ -40,7 +41,6 @@ const components = [
       </div>
     </section>
 
-    <!-- Features -->
     <section class="features">
       <div class="feature">
         <div class="feature__icon">🎨</div>
@@ -64,16 +64,10 @@ const components = [
       </div>
     </section>
 
-    <!-- Components Grid -->
     <section class="components-section">
       <h2 class="section-title">Componentes</h2>
       <div class="components-grid">
-        <router-link
-          v-for="component in components"
-          :key="component.name"
-          :to="component.path"
-          class="component-card"
-        >
+        <router-link v-for="component in components" :key="component.name" :to="component.path" class="component-card">
           <span class="component-card__icon">{{ component.icon }}</span>
           <h3 class="component-card__title">{{ component.name }}</h3>
           <p class="component-card__description">{{ component.description }}</p>
@@ -81,14 +75,12 @@ const components = [
       </div>
     </section>
 
-    <!-- Installation -->
     <section class="installation">
       <h2 class="section-title">Instalação</h2>
       <div class="code-block">
         <pre><code>npm i @bigbot-community/bigbot-ui</code></pre>
       </div>
 
-      <!-- Vue 3 -->
       <div class="install-section">
         <h3 class="install-section__title">
           <span class="install-section__icon">⚡</span>
@@ -110,7 +102,6 @@ app.mount('#app')</code></pre>
         </div>
       </div>
 
-      <!-- Nuxt 3 -->
       <div class="install-section">
         <h3 class="install-section__title">
           <span class="install-section__icon">💚</span>
@@ -136,7 +127,6 @@ export default defineNuxtPlugin((nuxtApp) => {
         </div>
       </div>
 
-      <!-- Usage -->
       <div class="install-section">
         <h3 class="install-section__title">
           <span class="install-section__icon">🚀</span>
@@ -160,10 +150,6 @@ export default defineNuxtPlugin((nuxtApp) => {
 .home {
   padding-bottom: var(--br-space-16);
 }
-
-// =============================================================================
-// HERO
-// =============================================================================
 
 .hero {
   text-align: center;
@@ -210,10 +196,6 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 }
 
-// =============================================================================
-// FEATURES
-// =============================================================================
-
 .features {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -253,10 +235,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     line-height: 1.6;
   }
 }
-
-// =============================================================================
-// COMPONENTS GRID
-// =============================================================================
 
 .section-title {
   font-size: var(--br-text-h5);
@@ -309,10 +287,6 @@ export default defineNuxtPlugin((nuxtApp) => {
     color: var(--neutralDarkGrey7);
   }
 }
-
-// =============================================================================
-// INSTALLATION
-// =============================================================================
 
 .installation {
   max-width: 700px;
