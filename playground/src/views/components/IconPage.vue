@@ -1,81 +1,103 @@
 <script setup lang="ts">
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
+import CodeExample from "../../components/CodeExample.vue";
+import PropsTable from "../../components/PropsTable.vue";
 
 const icons = [
-  'airplane',
-  'anchor',
-  'arrow-bottom-right-o',
-  'arrow-bottom-right-r',
-  'arrow-bottom-right',
-  'arrow-down-o',
-  'arrow-down-r',
-  'arrow-down',
-  'arrow-left-o',
-  'arrow-left-r',
-  'arrow-left',
-  'arrow-long-up',
-  'arrow-right-o',
-  'arrow-right-r',
-  'arrow-right',
-  'arrow-top-left-o',
-  'arrow-top-left-r',
-  'arrow-top-left',
-  'arrow-top-right-o',
-  'arrow-top-right-r',
-  'arrow-top-right',
-  'arrow-up-o',
-  'arrow-up-r',
-  'arrow-up',
-  'awards',
-  'band-aid',
-  'bee',
-  'bitbucket',
-  'block',
-  'bowl',
-  'boy',
-  'briefcase',
-  'browse',
-  'brush',
-  'calibrate',
-  'cap',
-  'card-clubs',
-  'card-diamonds',
-  'card-hearts',
-  'card-spades',
-  'check-o',
-  'check-r',
-  'check',
-  'chevron-double-down-o',
-  'chevron-double-down-r',
-  'chevron-double-down',
-  'chevron-double-left-o',
-  'chevron-double-left-r',
-  'chevron-double-left',
-  'chevron-double-right-o',
-  'chevron-double-right-r',
-  'chevron-double-right',
-  'pix',
-  'push-chevron-left-o',
-  'push-chevron-left-r',
-  'push-chevron-left',
-  'push-chevron-right-o',
-  'push-chevron-right-r',
-  'push-chevron-right',
-  'push-chevron-up-o',
-  'push-chevron-up-r',
-  'push-chevron-up',
-  'sync',
-  'trending-down',
-  'trending'
-]
+  "airplane",
+  "anchor",
+  "arrow-bottom-right-o",
+  "arrow-bottom-right-r",
+  "arrow-bottom-right",
+  "arrow-down-o",
+  "arrow-down-r",
+  "arrow-down",
+  "arrow-left-o",
+  "arrow-left-r",
+  "arrow-left",
+  "arrow-long-up",
+  "arrow-right-o",
+  "arrow-right-r",
+  "arrow-right",
+  "arrow-top-left-o",
+  "arrow-top-left-r",
+  "arrow-top-left",
+  "arrow-top-right-o",
+  "arrow-top-right-r",
+  "arrow-top-right",
+  "arrow-up-o",
+  "arrow-up-r",
+  "arrow-up",
+  "awards",
+  "band-aid",
+  "bee",
+  "bitbucket",
+  "block",
+  "bowl",
+  "boy",
+  "briefcase",
+  "browse",
+  "brush",
+  "calibrate",
+  "cap",
+  "card-clubs",
+  "card-diamonds",
+  "card-hearts",
+  "card-spades",
+  "check-o",
+  "check-r",
+  "check",
+  "chevron-double-down-o",
+  "chevron-double-down-r",
+  "chevron-double-down",
+  "chevron-double-left-o",
+  "chevron-double-left-r",
+  "chevron-double-left",
+  "chevron-double-right-o",
+  "chevron-double-right-r",
+  "chevron-double-right",
+  "pix",
+  "push-chevron-left-o",
+  "push-chevron-left-r",
+  "push-chevron-left",
+  "push-chevron-right-o",
+  "push-chevron-right-r",
+  "push-chevron-right",
+  "push-chevron-up-o",
+  "push-chevron-up-r",
+  "push-chevron-up",
+  "sync",
+  "trending-down",
+  "trending",
+];
 
 const iconProps = [
-  { name: 'name', type: 'string', default: '-', description: 'Nome do arquivo do ícone (sem extensão) localizado em assets/icons', required: true },
-  { name: 'size', type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'", default: "'md'", description: 'Tamanho do ícone' },
-  { name: 'color', type: 'string', default: "'currentColor'", description: 'Cor do ícone (herda cor do texto)' },
-  { name: 'spin', type: 'boolean', default: 'false', description: 'Aplica animação de rotação' },
-]
+  {
+    name: "name",
+    type: "string",
+    default: "-",
+    description:
+      "Nome do arquivo do ícone (sem extensão) localizado em assets/icons",
+    required: true,
+  },
+  {
+    name: "size",
+    type: "'xs' | 'sm' | 'md' | 'lg' | 'xl'",
+    default: "'md'",
+    description: "Tamanho do ícone",
+  },
+  {
+    name: "color",
+    type: "string",
+    default: "'currentColor'",
+    description: "Cor do ícone (herda cor do texto)",
+  },
+  {
+    name: "spin",
+    type: "boolean",
+    default: "false",
+    description: "Aplica animação de rotação",
+  },
+];
 </script>
 
 <template>
@@ -84,7 +106,8 @@ const iconProps = [
       <BrBadge variant="primary">Atom</BrBadge>
       <h1 class="component-page__title">Icon</h1>
       <p class="component-page__description">
-        Biblioteca de ícones SVG otimizados para uso consistente em toda a interface.
+        Biblioteca de ícones SVG otimizados para uso consistente em toda a
+        interface.
       </p>
     </header>
 
@@ -119,15 +142,15 @@ const iconProps = [
       <h2>Tamanhos</h2>
       <CodeExample
         title="Todos os Tamanhos"
-        code='<BrIcon name="user" size="sm" />
-<BrIcon name="user" size="md" />
-<BrIcon name="user" size="lg" />
-<BrIcon name="user" size="xl" />'
+        code='<BrIcon name="edit" size="sm" />
+<BrIcon name="edit" size="md" />
+<BrIcon name="edit" size="lg" />
+<BrIcon name="edit" size="xl" />'
       >
-        <BrIcon name="user" size="sm" />
-        <BrIcon name="user" size="md" />
-        <BrIcon name="user" size="lg" />
-        <BrIcon name="user" size="xl" />
+        <BrIcon name="edit" size="sm" />
+        <BrIcon name="edit" size="md" />
+        <BrIcon name="edit" size="lg" />
+        <BrIcon name="edit" size="xl" />
       </CodeExample>
     </section>
 
