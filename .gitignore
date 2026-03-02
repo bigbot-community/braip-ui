@@ -35,6 +35,10 @@ packages/docs/.vitepress/cache/
 # TypeScript
 *.tsbuildinfo
 
+# Auto-imports
+**/auto-imports.d.ts
+**/.eslintrc-auto-import.json
+
 # Environment
 .env
 .env.local

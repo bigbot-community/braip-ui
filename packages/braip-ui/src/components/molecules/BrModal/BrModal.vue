@@ -12,8 +12,7 @@
  * </BrModal>
  */
 
-import { computed, watch, onMounted, onUnmounted, ref } from "vue";
-import type { ModalProps } from "./types";
+import type { ModalProps } from './types'
 
 // ---------------------------------------------------------------------------
 // PROPS

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-
 const components = [
   { name: 'Button', description: 'Botões interativos com múltiplas variantes', path: '/components/button', icon: '🔘' },
   { name: 'Input', description: 'Campos de entrada de texto', path: '/components/input', icon: '📝' },
@@ -96,7 +94,6 @@ const components = [
         </h3>
         <div class="code-block">
           <pre><code>// main.ts
-import { createApp } from 'vue'
 import App from './App.vue'
 import { BraipUI } from 'braip-ui'
 import 'braip-ui/styles'

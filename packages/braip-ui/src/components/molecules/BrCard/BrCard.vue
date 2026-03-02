@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { CardProps } from "./types";
+import type { CardProps } from './types'
 
 const props = withDefaults(defineProps<CardProps>(), {
   variant: "elevated",

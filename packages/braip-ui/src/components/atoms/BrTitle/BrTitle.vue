@@ -8,8 +8,7 @@
  * <BrTitle level="6" weight="semibold">Small Title</BrTitle>
  */
 
-import { computed } from "vue";
-import type { TitleProps } from "./types";
+import type { TitleProps } from './types'
 
 // ---------------------------------------------------------------------------
 // PROPS

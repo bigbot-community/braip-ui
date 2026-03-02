@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { RadioProps } from "./types";
+import type { RadioProps } from './types'
 
 const props = withDefaults(defineProps<RadioProps>(), {
   size: "md",

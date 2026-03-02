@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { ProgressbarProps } from "./types";
+import type { ProgressbarProps } from './types'
 
 const props = withDefaults(defineProps<ProgressbarProps>(), {
   value: 0,

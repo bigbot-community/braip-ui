@@ -8,8 +8,7 @@
  * <BrBadge variant="danger" size="lg">Erro</BrBadge>
  */
 
-import { computed } from "vue";
-import type { BadgeProps } from "./types";
+import type { BadgeProps } from './types'
 
 // ---------------------------------------------------------------------------
 // PROPS

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import type { VideoProps } from "./types";
+import type { VideoProps } from './types'
 
 const props = withDefaults(defineProps<VideoProps>(), {
   autoplay: false,

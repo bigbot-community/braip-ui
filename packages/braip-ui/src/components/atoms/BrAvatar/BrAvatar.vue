@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import type { AvatarProps } from "./types";
+import type { AvatarProps } from './types'
 
 const props = withDefaults(defineProps<AvatarProps>(), {
   size: "md",

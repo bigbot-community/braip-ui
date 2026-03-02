@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed, provide, ref, reactive } from "vue";
-import type { AccordionProps } from "./types";
-import BrAccordionItem from "./BrAccordionItem.vue";
+import type { AccordionProps } from './types'
+import BrAccordionItem from './BrAccordionItem.vue'
 
 const props = withDefaults(defineProps<AccordionProps>(), {
   multiple: false,

@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import type { RatingProps } from "./types";
+import type { RatingProps } from './types'
 
 const props = withDefaults(defineProps<RatingProps>(), {
   max: 5,

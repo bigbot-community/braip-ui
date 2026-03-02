@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, inject } from "vue";
-import type { TabProps } from "./types";
+import type { TabProps } from './types'
 
 const props = withDefaults(defineProps<TabProps>(), {
   disabled: false,

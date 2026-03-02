@@ -8,8 +8,7 @@
  * <BrSpinner status="success" />
  */
 
-import { computed } from "vue";
-import type { SpinnerProps } from "./types";
+import type { SpinnerProps } from './types'
 
 // ---------------------------------------------------------------------------
 // PROPS

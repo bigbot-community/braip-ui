@@ -1,6 +1,4 @@
 <script lang="ts">
-import { computed, defineComponent, ref, watch } from "vue";
-import { InputProps, InputRangeEmits } from "./types";
 
 export default defineComponent({
   name: "BrInput",

@@ -1,4 +1,3 @@
-import { createApp } from 'vue'
 import { BraipUI } from '@braiphub/ui'
 import '@braiphub/ui/styles/main.scss'
 import router from './router'

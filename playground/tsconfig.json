@@ -16,6 +16,6 @@
       "@braiphub/ui/*": ["../packages/braip-ui/src/*"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.vue"],
+  "include": ["src/**/*.ts", "src/**/*.vue", "src/auto-imports.d.ts"],
   "exclude": ["node_modules"]
 }

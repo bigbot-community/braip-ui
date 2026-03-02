@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref, useId } from "vue";
-import type { AccordionItemProps } from "./types";
+import type { AccordionItemProps } from './types'
 
 const props = withDefaults(defineProps<AccordionItemProps>(), {
   disabled: false,

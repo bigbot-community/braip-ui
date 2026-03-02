@@ -8,8 +8,7 @@
  * <BrSwitch v-model="value" disabled />
  */
 
-import { computed } from "vue";
-import type { SwitchProps } from "./types";
+import type { SwitchProps } from './types'
 
 // ---------------------------------------------------------------------------
 // PROPS

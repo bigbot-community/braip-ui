@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, ref } from "vue";
-import type { NavbarProps } from "./types";
+import type { NavbarProps } from './types'
 
 const props = withDefaults(defineProps<NavbarProps>(), {
   variant: "default",

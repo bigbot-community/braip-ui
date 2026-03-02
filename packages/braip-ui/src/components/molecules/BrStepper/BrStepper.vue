@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { StepperProps } from "./types";
+import type { StepperProps } from './types'
 
 const props = withDefaults(defineProps<StepperProps>(), {
   orientation: "horizontal",

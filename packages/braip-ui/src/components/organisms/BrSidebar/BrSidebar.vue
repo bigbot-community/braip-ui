@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import { computed, ref, provide } from "vue";
-import type { SidebarProps } from "./types";
+import type { SidebarProps, SidebarItem } from './types'
 
 const props = withDefaults(defineProps<SidebarProps>(), {
   variant: "default",

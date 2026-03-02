@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { computed } from "vue";
-import type { RadioGroupProps } from "./types";
-import BrRadio from "./BrRadio.vue";
+import type { RadioGroupProps } from './types'
+import BrRadio from './BrRadio.vue'
 
 const props = withDefaults(defineProps<RadioGroupProps>(), {
   direction: "vertical",
