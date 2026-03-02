@@ -1,7 +1,5 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const selectedDate = ref<Date | null>(new Date())
 const selectedDates = ref<Date[]>([])

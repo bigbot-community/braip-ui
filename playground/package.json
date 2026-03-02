@@ -9,14 +9,15 @@
   },
   "dependencies": {
     "@bigbot-community/bigbot-ui": "workspace:*",
+    "@vueuse/core": "^10.9.0",
     "vue": "^3.4.0",
-    "vue-router": "^4.3.0",
-    "@vueuse/core": "^10.9.0"
+    "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.0",
     "sass": "^1.70.0",
     "typescript": "^5.3.0",
+    "unplugin-vue-components": "^0.27.5",
     "vite": "^5.0.0"
   }
 }
