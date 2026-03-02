@@ -1,51 +1,51 @@
-export type ImageFit = 'cover' | 'contain' | 'fill' | 'none' | 'scale-down'
+export type ImageFit = "cover" | "contain" | "fill" | "none" | "scale-down";
 
 export interface ImageProps {
   /**
    * Image source URL
    */
-  src: string
+  src: string;
 
   /**
    * Alt text for accessibility
    */
-  alt: string
+  alt: string;
 
   /**
    * Image width
    */
-  width?: string | number
+  width?: string | number;
 
   /**
    * Image height
    */
-  height?: string | number
+  height?: string | number;
 
   /**
    * Object fit property
    * @default 'cover'
    */
-  fit?: ImageFit
+  fit?: ImageFit;
 
   /**
    * Lazy loading
    * @default true
    */
-  lazy?: boolean
+  lazy?: boolean;
 
   /**
    * Show loading placeholder
    * @default true
    */
-  showPlaceholder?: boolean
+  showPlaceholder?: boolean;
 
   /**
    * Border radius
    */
-  rounded?: boolean | 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  rounded?: boolean | "sm" | "md" | "lg" | "xl" | "full";
 
   /**
    * Fallback image URL
    */
-  fallback?: string
+  fallback?: string;
 }

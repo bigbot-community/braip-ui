@@ -1,45 +1,48 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { CardProps } from './types'
+import { computed } from "vue";
+import type { CardProps } from "./types";
 
 const props = withDefaults(defineProps<CardProps>(), {
-  variant: 'elevated',
-  size: 'md',
+  variant: "elevated",
+  size: "md",
   clickable: false,
-  imagePosition: 'top',
+  imagePosition: "top",
   disabled: false,
   loading: false,
-  rounded: 'md',
+  rounded: "md",
   fullWidth: false,
-})
+});
 
 const emit = defineEmits<{
-  (e: 'click', event: MouseEvent): void
-}>()
+  (e: "click", event: MouseEvent): void;
+}>();
 
 const classes = computed(() => [
-  'br-card',
+  "br-card",
   `br-card--${props.variant}`,
   `br-card--${props.size}`,
   `br-card--rounded-${props.rounded}`,
   `br-card--image-${props.imagePosition}`,
   {
-    'br-card--clickable': props.clickable,
-    'br-card--disabled': props.disabled,
-    'br-card--loading': props.loading,
-    'br-card--full-width': props.fullWidth,
+    "br-card--clickable": props.clickable,
+    "br-card--disabled": props.disabled,
+    "br-card--loading": props.loading,
+    "br-card--full-width": props.fullWidth,
   },
-])
+]);
 
 const imageStyle = computed(() => {
-  if (!props.imageHeight) return {}
-  const height = typeof props.imageHeight === 'number' ? `${props.imageHeight}px` : props.imageHeight
-  return { height }
-})
+  if (!props.imageHeight) return {};
+  const height =
+    typeof props.imageHeight === "number"
+      ? `${props.imageHeight}px`
+      : props.imageHeight;
+  return { height };
+});
 
 function handleClick(event: MouseEvent) {
-  if (props.disabled || props.loading) return
-  emit('click', event)
+  if (props.disabled || props.loading) return;
+  emit("click", event);
 }
 </script>
 
@@ -49,13 +52,19 @@ function handleClick(event: MouseEvent) {
     :role="clickable ? 'button' : undefined"
     :tabindex="clickable && !disabled ? 0 : undefined"
     @click="clickable ? handleClick($event) : undefined"
-    @keydown.enter="clickable ? handleClick($event as unknown as MouseEvent) : undefined"
+    @keydown.enter="
+      clickable ? handleClick($event as unknown as MouseEvent) : undefined
+    "
   >
     <div v-if="loading" class="br-card__loader">
       <div class="br-card__loader-spinner" />
     </div>
 
-    <div v-if="image && (imagePosition === 'top' || imagePosition === 'left')" class="br-card__image" :style="imageStyle">
+    <div
+      v-if="image && (imagePosition === 'top' || imagePosition === 'left')"
+      class="br-card__image"
+      :style="imageStyle"
+    >
       <slot name="image">
         <img :src="image" alt="" />
       </slot>
@@ -78,7 +87,11 @@ function handleClick(event: MouseEvent) {
       </div>
     </div>
 
-    <div v-if="image && (imagePosition === 'bottom' || imagePosition === 'right')" class="br-card__image" :style="imageStyle">
+    <div
+      v-if="image && (imagePosition === 'bottom' || imagePosition === 'right')"
+      class="br-card__image"
+      :style="imageStyle"
+    >
       <slot name="image">
         <img :src="image" alt="" />
       </slot>
@@ -161,7 +174,9 @@ function handleClick(event: MouseEvent) {
   // States
   &--clickable {
     cursor: pointer;
-    transition: transform var(--br-transition-fast), box-shadow var(--br-transition-fast);
+    transition:
+      transform var(--br-transition-fast),
+      box-shadow var(--br-transition-fast);
 
     &:hover:not(.br-card--disabled) {
       transform: translateY(-2px);

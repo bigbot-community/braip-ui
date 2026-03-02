@@ -1,2 +1,2 @@
-export { default as BrNavbar } from './BrNavbar.vue'
-export * from './types'
+export { default as BrNavbar } from "./BrNavbar.vue";
+export * from "./types";
