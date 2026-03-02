@@ -8,36 +8,36 @@
  * <BrSwitch v-model="value" disabled />
  */
 
-import { computed } from 'vue'
-import type { SwitchProps } from './types'
+import { computed } from "vue";
+import type { SwitchProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<SwitchProps>(), {
-  size: 'md',
+  size: "md",
   disabled: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const model = defineModel<boolean>({ default: false })
+const model = defineModel<boolean>({ default: false });
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-switch',
+  "br-switch",
   `br-switch--${props.size}`,
   {
-    'br-switch--checked': model.value,
-    'br-switch--disabled': props.disabled,
+    "br-switch--checked": model.value,
+    "br-switch--disabled": props.disabled,
   },
-])
+]);
 
 // ---------------------------------------------------------------------------
 // METHODS
@@ -45,7 +45,7 @@ const classes = computed(() => [
 
 function toggle() {
   if (!props.disabled) {
-    model.value = !model.value
+    model.value = !model.value;
   }
 }
 </script>

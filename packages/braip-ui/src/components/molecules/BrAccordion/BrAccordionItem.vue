@@ -1,48 +1,48 @@
 <script setup lang="ts">
-import { computed, inject, ref, useId } from 'vue'
-import type { AccordionItemProps } from './types'
+import { computed, inject, ref, useId } from "vue";
+import type { AccordionItemProps } from "./types";
 
 const props = withDefaults(defineProps<AccordionItemProps>(), {
   disabled: false,
-})
+});
 
 const accordion = inject<{
-  iconPosition: { value: 'left' | 'right' }
-  disabled: { value: boolean }
-  toggleItem: (id: string | number) => void
-  isItemOpen: (id: string | number) => boolean
-}>('accordion')
+  iconPosition: { value: "left" | "right" };
+  disabled: { value: boolean };
+  toggleItem: (id: string | number) => void;
+  isItemOpen: (id: string | number) => boolean;
+}>("accordion");
 
 // useId() generates deterministic IDs that match between SSR and client hydration
-const itemId = ref(props.id ?? useId())
-const contentRef = ref<HTMLElement | null>(null)
+const itemId = ref(props.id ?? useId());
+const contentRef = ref<HTMLElement | null>(null);
 
 const isOpen = computed(() => {
-  if (props.open !== undefined) return props.open
-  return accordion?.isItemOpen(itemId.value) ?? false
-})
+  if (props.open !== undefined) return props.open;
+  return accordion?.isItemOpen(itemId.value) ?? false;
+});
 
-const isDisabled = computed(() => props.disabled || accordion?.disabled.value)
-const iconPosition = computed(() => accordion?.iconPosition.value ?? 'right')
+const isDisabled = computed(() => props.disabled || accordion?.disabled.value);
+const iconPosition = computed(() => accordion?.iconPosition.value ?? "right");
 
 const classes = computed(() => [
-  'br-accordion-item',
+  "br-accordion-item",
   {
-    'br-accordion-item--open': isOpen.value,
-    'br-accordion-item--disabled': isDisabled.value,
-    'br-accordion-item--icon-left': iconPosition.value === 'left',
+    "br-accordion-item--open": isOpen.value,
+    "br-accordion-item--disabled": isDisabled.value,
+    "br-accordion-item--icon-left": iconPosition.value === "left",
   },
-])
+]);
 
 function toggle() {
-  if (isDisabled.value) return
-  accordion?.toggleItem(itemId.value)
+  if (isDisabled.value) return;
+  accordion?.toggleItem(itemId.value);
 }
 
 const contentHeight = computed(() => {
-  if (!isOpen.value) return '0px'
-  return contentRef.value ? `${contentRef.value.scrollHeight}px` : 'auto'
-})
+  if (!isOpen.value) return "0px";
+  return contentRef.value ? `${contentRef.value.scrollHeight}px` : "auto";
+});
 </script>
 
 <template>

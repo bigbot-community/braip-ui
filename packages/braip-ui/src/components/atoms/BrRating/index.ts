@@ -1,2 +1,2 @@
-export { default as BrRating } from './BrRating.vue'
-export * from './types'
+export { default as BrRating } from "./BrRating.vue";
+export * from "./types";

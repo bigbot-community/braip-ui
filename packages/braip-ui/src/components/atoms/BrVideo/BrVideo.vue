@@ -1,72 +1,72 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { VideoProps } from './types'
+import { computed, ref } from "vue";
+import type { VideoProps } from "./types";
 
 const props = withDefaults(defineProps<VideoProps>(), {
   autoplay: false,
   loop: false,
   muted: false,
   controls: true,
-  preload: 'metadata',
+  preload: "metadata",
   rounded: false,
-})
+});
 
 const emit = defineEmits<{
-  (e: 'play'): void
-  (e: 'pause'): void
-  (e: 'ended'): void
-  (e: 'error', error: Event): void
-}>()
+  (e: "play"): void;
+  (e: "pause"): void;
+  (e: "ended"): void;
+  (e: "error", error: Event): void;
+}>();
 
-const videoRef = ref<HTMLVideoElement | null>(null)
-const isPlaying = ref(false)
+const videoRef = ref<HTMLVideoElement | null>(null);
+const isPlaying = ref(false);
 
 const classes = computed(() => [
-  'br-video',
+  "br-video",
   {
-    'br-video--rounded': props.rounded === true,
-    [`br-video--rounded-${props.rounded}`]: typeof props.rounded === 'string',
+    "br-video--rounded": props.rounded === true,
+    [`br-video--rounded-${props.rounded}`]: typeof props.rounded === "string",
   },
-])
+]);
 
 const videoStyles = computed(() => ({
-  width: typeof props.width === 'number' ? `${props.width}px` : props.width,
-  height: typeof props.height === 'number' ? `${props.height}px` : props.height,
-}))
+  width: typeof props.width === "number" ? `${props.width}px` : props.width,
+  height: typeof props.height === "number" ? `${props.height}px` : props.height,
+}));
 
 function play() {
-  videoRef.value?.play()
+  videoRef.value?.play();
 }
 
 function pause() {
-  videoRef.value?.pause()
+  videoRef.value?.pause();
 }
 
 function toggle() {
   if (isPlaying.value) {
-    pause()
+    pause();
   } else {
-    play()
+    play();
   }
 }
 
 function handlePlay() {
-  isPlaying.value = true
-  emit('play')
+  isPlaying.value = true;
+  emit("play");
 }
 
 function handlePause() {
-  isPlaying.value = false
-  emit('pause')
+  isPlaying.value = false;
+  emit("pause");
 }
 
 function handleEnded() {
-  isPlaying.value = false
-  emit('ended')
+  isPlaying.value = false;
+  emit("ended");
 }
 
 function handleError(event: Event) {
-  emit('error', event)
+  emit("error", event);
 }
 
 defineExpose({
@@ -74,7 +74,7 @@ defineExpose({
   pause,
   toggle,
   videoRef,
-})
+});
 </script>
 
 <template>

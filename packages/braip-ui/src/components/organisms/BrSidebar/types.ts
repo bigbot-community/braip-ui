@@ -2,120 +2,120 @@ export interface SidebarItem {
   /**
    * Unique identifier
    */
-  id: string | number
+  id: string | number;
 
   /**
    * Item label
    */
-  label: string
+  label: string;
 
   /**
    * Item icon
    */
-  icon?: string
+  icon?: string;
 
   /**
    * Link href
    */
-  href?: string
+  href?: string;
 
   /**
    * Vue router to
    */
-  to?: string | object
+  to?: string | object;
 
   /**
    * Disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Children items (for nested navigation)
    */
-  children?: SidebarItem[]
+  children?: SidebarItem[];
 
   /**
    * Badge content
    */
-  badge?: string | number
+  badge?: string | number;
 
   /**
    * Badge variant
    */
-  badgeVariant?: 'primary' | 'success' | 'warning' | 'danger'
+  badgeVariant?: "primary" | "success" | "warning" | "danger";
 
   /**
    * Click handler
    */
-  onClick?: () => void
+  onClick?: () => void;
 
   /**
    * Section divider (render as section header)
    */
-  divider?: boolean
+  divider?: boolean;
 }
 
-export type SidebarVariant = 'default' | 'compact' | 'mini'
+export type SidebarVariant = "default" | "compact" | "mini";
 
 export interface SidebarProps {
   /**
    * Navigation items
    */
-  items?: SidebarItem[]
+  items?: SidebarItem[];
 
   /**
    * Sidebar variant
    * @default 'default'
    */
-  variant?: SidebarVariant
+  variant?: SidebarVariant;
 
   /**
    * Collapsed state (mini mode)
    * @default false
    */
-  collapsed?: boolean
+  collapsed?: boolean;
 
   /**
    * Show collapse toggle
    * @default true
    */
-  showToggle?: boolean
+  showToggle?: boolean;
 
   /**
    * Elevated (shadow)
    * @default true
    */
-  elevated?: boolean
+  elevated?: boolean;
 
   /**
    * Fixed position
    * @default false
    */
-  fixed?: boolean
+  fixed?: boolean;
 
   /**
    * Sidebar width
    */
-  width?: string | number
+  width?: string | number;
 
   /**
    * Collapsed width
    */
-  collapsedWidth?: string | number
+  collapsedWidth?: string | number;
 
   /**
    * Show logo/brand area
    * @default true
    */
-  showBrand?: boolean
+  showBrand?: boolean;
 
   /**
    * Brand/logo text
    */
-  brand?: string
+  brand?: string;
 
   /**
    * Brand logo URL
    */
-  logo?: string
+  logo?: string;
 }

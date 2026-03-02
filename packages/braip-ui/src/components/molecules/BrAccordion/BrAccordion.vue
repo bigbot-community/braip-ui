@@ -1,52 +1,52 @@
 <script setup lang="ts">
-import { computed, provide, ref, reactive } from 'vue'
-import type { AccordionProps } from './types'
-import BrAccordionItem from './BrAccordionItem.vue'
+import { computed, provide, ref, reactive } from "vue";
+import type { AccordionProps } from "./types";
+import BrAccordionItem from "./BrAccordionItem.vue";
 
 const props = withDefaults(defineProps<AccordionProps>(), {
   multiple: false,
-  variant: 'default',
-  iconPosition: 'right',
+  variant: "default",
+  iconPosition: "right",
   disabled: false,
-})
+});
 
-const openItems = ref<Set<string | number>>(new Set())
+const openItems = ref<Set<string | number>>(new Set());
 
 const classes = computed(() => [
-  'br-accordion',
+  "br-accordion",
   `br-accordion--${props.variant}`,
   {
-    'br-accordion--disabled': props.disabled,
+    "br-accordion--disabled": props.disabled,
   },
-])
+]);
 
 function toggleItem(id: string | number) {
-  if (props.disabled) return
+  if (props.disabled) return;
 
   if (openItems.value.has(id)) {
-    openItems.value.delete(id)
+    openItems.value.delete(id);
   } else {
     if (!props.multiple) {
-      openItems.value.clear()
+      openItems.value.clear();
     }
-    openItems.value.add(id)
+    openItems.value.add(id);
   }
-  openItems.value = new Set(openItems.value)
+  openItems.value = new Set(openItems.value);
 }
 
 function isItemOpen(id: string | number) {
-  return openItems.value.has(id)
+  return openItems.value.has(id);
 }
 
 provide(
-  'accordion',
+  "accordion",
   reactive({
     iconPosition: computed(() => props.iconPosition),
     disabled: computed(() => props.disabled),
     toggleItem,
     isItemOpen,
-  })
-)
+  }),
+);
 </script>
 
 <template>
@@ -54,8 +54,8 @@ provide(
     <template v-if="items && items.length">
       <BrAccordionItem
         v-for="item in items"
-        :key="item.id"
         :id="item.id"
+        :key="item.id"
         :title="item.title"
         :icon="item.icon"
         :disabled="item.disabled"

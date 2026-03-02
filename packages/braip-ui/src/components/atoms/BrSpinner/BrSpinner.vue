@@ -8,18 +8,18 @@
  * <BrSpinner status="success" />
  */
 
-import { computed } from 'vue'
-import type { SpinnerProps } from './types'
+import { computed } from "vue";
+import type { SpinnerProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<SpinnerProps>(), {
-  size: 'md',
-  color: 'var(--br-primary-600)',
-  status: 'loading',
-})
+  size: "md",
+  color: "var(--br-primary-600)",
+  status: "loading",
+});
 
 // ---------------------------------------------------------------------------
 // COMPUTED
@@ -30,14 +30,14 @@ const sizeMap = {
   md: 24,
   lg: 32,
   xl: 48,
-}
+};
 
-const spinnerSize = computed(() => sizeMap[props.size])
+const spinnerSize = computed(() => sizeMap[props.size]);
 
 const styles = computed(() => ({
-  '--spinner-size': `${spinnerSize.value}px`,
-  '--spinner-color': props.color,
-}))
+  "--spinner-size": `${spinnerSize.value}px`,
+  "--spinner-color": props.color,
+}));
 </script>
 
 <template>
@@ -80,9 +80,21 @@ const styles = computed(() => ({
     width: var(--spinner-size);
     height: var(--spinner-size);
     border-radius: 50%;
-    background: conic-gradient(from 0deg, transparent 0%, var(--spinner-color) 100%);
-    mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
-    -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    background: conic-gradient(
+      from 0deg,
+      transparent 0%,
+      var(--spinner-color) 100%
+    );
+    mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 3px),
+      #000 calc(100% - 3px)
+    );
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      transparent calc(100% - 3px),
+      #000 calc(100% - 3px)
+    );
     animation: br-spin 1s linear infinite;
   }
 
