@@ -24,24 +24,17 @@ function copyCode() {
 
 <template>
   <div class="code-example">
-    <!-- Header -->
     <div v-if="title || description" class="code-example__header">
       <h3 v-if="title" class="code-example__title">{{ title }}</h3>
       <p v-if="description" class="code-example__description">{{ description }}</p>
     </div>
 
-    <!-- Preview -->
     <div class="code-example__preview">
       <slot />
     </div>
 
-    <!-- Actions -->
     <div class="code-example__actions">
-      <button
-        class="code-example__btn"
-        :class="{ 'code-example__btn--active': showCode }"
-        @click="showCode = !showCode"
-      >
+      <button class="code-example__btn" :class="{ 'code-example__btn--active': showCode }" @click="showCode = !showCode">
         <BrIcon :name="showCode ? 'close' : 'eye'" size="sm" />
         <span>{{ showCode ? 'Ocultar' : 'Código' }}</span>
       </button>
@@ -51,7 +44,6 @@ function copyCode() {
       </button>
     </div>
 
-    <!-- Code -->
     <Transition name="slide">
       <div v-if="showCode" class="code-example__code">
         <pre><code>{{ formattedCode }}</code></pre>
@@ -65,7 +57,6 @@ function copyCode() {
   background: var(--br-light-0);
   border: 1px solid var(--br-light-300);
   border-radius: var(--br-radius-lg);
-  overflow: hidden;
   margin-bottom: var(--br-space-6);
 
   &__header {

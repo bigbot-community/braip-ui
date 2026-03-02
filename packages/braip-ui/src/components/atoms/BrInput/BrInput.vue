@@ -1,6 +1,6 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from "vue";
-import { InputProps, InputRangeEmits } from "./types";
+import { InputProps, InputEmits } from "./types";
 
 export default defineComponent({
   name: "BrInput",
@@ -59,7 +59,7 @@ export default defineComponent({
     "keypress",
     "click",
   ],
-  setup(props: InputProps, { emit }: { emit: InputRangeEmits }) {
+  setup(props: InputProps, { emit }: { emit: InputEmits }) {
     const inputValue = ref(props.value);
     const isFocused = ref(false);
 
