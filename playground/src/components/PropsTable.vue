@@ -49,9 +49,9 @@ defineProps<Props>()
 .props-table {
   overflow-x: auto;
   margin: var(--br-space-6) 0;
-  border: 1px solid var(--br-light-300);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-lg);
-  background: var(--br-light-0);
+  background: var(--neutralLightGrey9);
 
   table {
     width: 100%;
@@ -60,25 +60,25 @@ defineProps<Props>()
   }
 
   thead {
-    background: var(--br-light-100);
+    background: var(--neutralLightGrey7);
 
     th {
       padding: var(--br-space-4);
       text-align: left;
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-700);
-      border-bottom: 1px solid var(--br-light-300);
+      color: var(--neutralDarkGrey7);
+      border-bottom: 1px solid var(--neutralLightGrey5);
     }
   }
 
   tbody {
     tr {
       &:not(:last-child) {
-        border-bottom: 1px solid var(--br-light-200);
+        border-bottom: 1px solid var(--neutralLightGrey6);
       }
 
       &:hover {
-        background: var(--br-light-50);
+        background: var(--neutralLightGrey8);
       }
     }
 
@@ -92,15 +92,15 @@ defineProps<Props>()
     code {
       font-family: 'Fira Code', monospace;
       font-size: var(--br-text-sm);
-      color: var(--br-primary-600);
-      background: var(--br-primary-100);
+      color: var(--brandPrimary6);
+      background: var(--brandPrimaryLightest);
       padding: var(--br-space-1) var(--br-space-2);
       border-radius: var(--br-radius-sm);
     }
   }
 
   &__required {
-    color: var(--br-danger-600);
+    color: var(--auxiliaryRed6);
     margin-left: var(--br-space-1);
   }
 
@@ -108,8 +108,8 @@ defineProps<Props>()
     code {
       font-family: 'Fira Code', monospace;
       font-size: var(--br-text-xs);
-      color: var(--br-info-600);
-      background: var(--br-info-100);
+      color: var(--auxiliaryBlue6);
+      background: var(--auxiliaryBlueLightest);
       padding: var(--br-space-1) var(--br-space-2);
       border-radius: var(--br-radius-sm);
     }
@@ -119,19 +119,19 @@ defineProps<Props>()
     code {
       font-family: 'Fira Code', monospace;
       font-size: var(--br-text-xs);
-      color: var(--br-dark-700);
-      background: var(--br-light-200);
+      color: var(--neutralDarkGrey7);
+      background: var(--neutralLightGrey6);
       padding: var(--br-space-1) var(--br-space-2);
       border-radius: var(--br-radius-sm);
     }
   }
 
   &__none {
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
   }
 
   &__description {
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.5;
   }
 }

@@ -6,10 +6,10 @@
 // =============================================================================
 
 // Plugin
-export { BraipUI, default } from './plugin'
+export { BraipUI, default } from "./plugin";
 
 // Components
-export * from './components'
+export * from "./components";
 
 // Plugin Types (non-component types)
 export type {
@@ -20,7 +20,7 @@ export type {
   MaybeRef,
   ComponentSize,
   ComponentStatus,
-} from './types'
+} from "./types";
 
 // Composables (future)
 // export * from './composables'
@@ -29,4 +29,4 @@ export type {
 // export * from './directives'
 
 // Version
-export const version = '0.1.0'
+export const version = "0.1.0";

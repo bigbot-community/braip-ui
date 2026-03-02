@@ -31,11 +31,11 @@ export default defineComponent({
     },
     colorInput: {
       type: String,
-      default: "var(--br-primary-600)",
+      default: "var(--brandPrimary6)",
     },
     borderColor: {
       type: String,
-      default: "var(--br-light-200)",
+      default: "var(--neutralLightGrey6)",
     },
     text: {
       type: String,
@@ -43,7 +43,7 @@ export default defineComponent({
     },
     textColor: {
       type: String,
-      default: "var(--br-light-600)",
+      default: "var(--neutralLightGrey4)",
     },
     textFontSize: {
       type: String,

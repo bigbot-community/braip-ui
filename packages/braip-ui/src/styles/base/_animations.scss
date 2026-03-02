@@ -10,6 +10,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -19,6 +20,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -29,6 +31,7 @@
     opacity: 0;
     transform: translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -40,6 +43,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -55,6 +59,7 @@
     opacity: 0;
     transform: scale(0.95);
   }
+
   to {
     opacity: 1;
     transform: scale(1);
@@ -66,6 +71,7 @@
     opacity: 1;
     transform: scale(1);
   }
+
   to {
     opacity: 0;
     transform: scale(0.95);
@@ -80,6 +86,7 @@
   from {
     transform: translateX(100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -89,6 +96,7 @@
   from {
     transform: translateX(0);
   }
+
   to {
     transform: translateX(100%);
   }
@@ -98,6 +106,7 @@
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(0);
   }
@@ -111,16 +120,19 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
 @keyframes br-pulse {
+
   0%,
   100% {
     opacity: 1;
   }
+
   50% {
     opacity: 0.5;
   }
@@ -130,6 +142,7 @@
   from {
     background-position: 200% 0;
   }
+
   to {
     background-position: -200% 0;
   }
@@ -139,6 +152,7 @@
   from {
     background-position: 300% 0;
   }
+
   to {
     background-position: 0% 0;
   }
@@ -176,12 +190,10 @@
 .br-skeleton {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(
-    90deg,
-    var(--br-light-100) 25%,
-    var(--br-light-200) 50%,
-    var(--br-light-100) 75%
-  );
+  background: linear-gradient(90deg,
+      var(--neutralLightGrey7) 25%,
+      var(--neutralLightGrey6) 50%,
+      var(--neutralLightGrey7) 75%);
   background-size: 400% 100%;
   animation: br-skeleton 1.5s ease-in-out infinite;
 }

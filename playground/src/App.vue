@@ -17,14 +17,14 @@ html {
   font-family: var(--br-font-primary);
   font-size: 16px;
   line-height: 1.5;
-  color: var(--br-dark-0);
+  color: var(--neutralDarkGrey);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
   min-height: 100vh;
-  background: var(--br-light-100);
+  background: var(--neutralLightGrey7);
 }
 
 a {

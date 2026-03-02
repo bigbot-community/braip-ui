@@ -2,5 +2,5 @@
 // BRAIP UI - ORGANISMS INDEX
 // =============================================================================
 
-export * from './BrNavbar'
-export * from './BrSidebar'
+export * from "./BrNavbar";
+export * from "./BrSidebar";

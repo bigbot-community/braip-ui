@@ -1,2 +1,2 @@
-export { default as BrVideo } from './BrVideo.vue'
-export * from './types'
+export { default as BrVideo } from "./BrVideo.vue";
+export * from "./types";

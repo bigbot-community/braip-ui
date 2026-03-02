@@ -1,2 +1,2 @@
-export { default as BrButton } from './BrButton.vue'
-export * from './types'
+export { default as BrButton } from "./BrButton.vue";
+export * from "./types";

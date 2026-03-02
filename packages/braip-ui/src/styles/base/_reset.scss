@@ -24,8 +24,8 @@ html {
 
 body {
   min-height: 100vh;
-  color: var(--br-dark-0);
-  background-color: var(--br-light-0);
+  color: var(--neutralDarkGrey);
+  background-color: var(--neutralLightGrey9);
 }
 
 a {
@@ -57,7 +57,7 @@ select {
 
 input::placeholder,
 textarea::placeholder {
-  color: var(--br-dark-1100);
+  color: var(--neutralDarkGrey9);
 }
 
 img,
@@ -68,12 +68,12 @@ svg {
 
 hr {
   border: 0;
-  border-top: 1px solid var(--br-light-300);
+  border-top: 1px solid var(--neutralLightGrey5);
 }
 
 // Focus visible styles
 :focus-visible {
-  outline: 2px solid var(--br-primary-600);
+  outline: 2px solid var(--brandPrimary6);
   outline-offset: 2px;
 }
 
@@ -82,7 +82,7 @@ hr {
   --br-scrollbar-width: 12px;
   --br-scrollbar-padding: 3px;
   --br-scrollbar-color: rgba(0, 0, 0, 0.2);
-  --br-scrollbar-hover: var(--br-primary-600);
+  --br-scrollbar-hover: var(--brandPrimary6);
   --br-scrollbar-bg: transparent;
 }
 

@@ -7,7 +7,6 @@ describe("BrInput", () => {
     const wrapper = mount(BrInput);
     expect(wrapper.find("input").exists()).toBe(true);
   });
-
   it("has base class", () => {
     const wrapper = mount(BrInput);
     expect(wrapper.classes()).toContain("br-input");

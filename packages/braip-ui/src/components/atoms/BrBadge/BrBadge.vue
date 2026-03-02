@@ -8,31 +8,31 @@
  * <BrBadge variant="danger" size="lg">Erro</BrBadge>
  */
 
-import { computed } from 'vue'
-import type { BadgeProps } from './types'
+import { computed } from "vue";
+import type { BadgeProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<BadgeProps>(), {
-  variant: 'default',
-  size: 'md',
+  variant: "default",
+  size: "md",
   rounded: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-badge',
+  "br-badge",
   `br-badge--${props.variant}`,
   `br-badge--${props.size}`,
   {
-    'br-badge--rounded': props.rounded,
+    "br-badge--rounded": props.rounded,
   },
-])
+]);
 </script>
 
 <template>
@@ -80,38 +80,38 @@ const classes = computed(() => [
   // ---------------------------------------------------------------------------
 
   &--default {
-    background: var(--br-light-200);
-    color: var(--br-dark-700);
+    background: var(--neutralLightGrey6);
+    color: var(--neutralDarkGrey7);
   }
 
   &--primary {
-    background: var(--br-primary-100);
-    color: var(--br-primary-700);
+    background: var(--brandPrimaryLightest);
+    color: var(--brandPrimaryDark7);
   }
 
   &--secondary {
-    background: var(--br-secondary-100);
-    color: var(--br-secondary-900);
+    background: var(--brandSecondaryLightest);
+    color: var(--brandSecondaryDark9);
   }
 
   &--success {
-    background: var(--br-success-100);
-    color: var(--br-success-800);
+    background: var(--auxiliaryGreenLightest);
+    color: var(--auxiliaryGreenDark8);
   }
 
   &--danger {
-    background: var(--br-danger-100);
-    color: var(--br-danger-700);
+    background: var(--auxiliaryRedLightest);
+    color: var(--auxiliaryRedDark7);
   }
 
   &--warning {
-    background: var(--br-warning-100);
-    color: var(--br-warning-800);
+    background: var(--auxiliaryOrangeLightest);
+    color: var(--auxiliaryOrangeDark8);
   }
 
   &--info {
-    background: var(--br-info-100);
-    color: var(--br-info-800);
+    background: var(--auxiliaryBlueLightest);
+    color: var(--auxiliaryBlueDark8);
   }
 
   // ---------------------------------------------------------------------------

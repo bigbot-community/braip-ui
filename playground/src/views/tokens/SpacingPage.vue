@@ -115,13 +115,13 @@ const shadows = [
   &__title {
     font-size: var(--br-text-h3);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: var(--br-space-4) 0;
   }
 
   &__description {
     font-size: var(--br-text-lg);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.6;
     margin: 0;
   }
@@ -133,13 +133,13 @@ const shadows = [
   h2 {
     font-size: var(--br-text-h5);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: 0 0 var(--br-space-2);
   }
 
   p {
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     margin: 0 0 var(--br-space-4);
   }
 }
@@ -155,8 +155,8 @@ const shadows = [
   align-items: center;
   gap: var(--br-space-4);
   padding: var(--br-space-3);
-  background: var(--br-light-0);
-  border: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-md);
 
   &__visual {
@@ -167,7 +167,7 @@ const shadows = [
 
   &__bar {
     height: 16px;
-    background: var(--br-primary-600);
+    background: var(--brandPrimary6);
     border-radius: var(--br-radius-sm);
   }
 
@@ -179,15 +179,15 @@ const shadows = [
     code {
       font-family: 'Fira Code', monospace;
       font-size: var(--br-text-xs);
-      color: var(--br-primary-600);
-      background: var(--br-primary-100);
+      color: var(--brandPrimary6);
+      background: var(--brandPrimaryLightest);
       padding: var(--br-space-1) var(--br-space-2);
       border-radius: var(--br-radius-sm);
     }
 
     span {
       font-size: var(--br-text-sm);
-      color: var(--br-dark-700);
+      color: var(--neutralDarkGrey7);
     }
   }
 }
@@ -199,8 +199,8 @@ const shadows = [
 }
 
 .radius-card {
-  background: var(--br-light-0);
-  border: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-lg);
   padding: var(--br-space-4);
   text-align: center;
@@ -208,7 +208,7 @@ const shadows = [
   &__preview {
     width: 60px;
     height: 60px;
-    background: var(--br-primary-600);
+    background: var(--brandPrimary6);
     margin: 0 auto var(--br-space-3);
   }
 
@@ -216,13 +216,13 @@ const shadows = [
     display: block;
     font-family: 'Fira Code', monospace;
     font-size: var(--br-text-xs);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin-bottom: var(--br-space-1);
   }
 
   span {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 }
 
@@ -238,7 +238,7 @@ const shadows = [
   &__preview {
     width: 100%;
     height: 80px;
-    background: var(--br-light-0);
+    background: var(--neutralLightGrey9);
     border-radius: var(--br-radius-lg);
     margin-bottom: var(--br-space-3);
   }
@@ -246,7 +246,7 @@ const shadows = [
   code {
     font-family: 'Fira Code', monospace;
     font-size: var(--br-text-xs);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 }
 
@@ -256,13 +256,13 @@ const shadows = [
   h2 {
     font-size: var(--br-text-h5);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: 0 0 var(--br-space-4);
   }
 }
 
 .code-block {
-  background: var(--br-dark-0);
+  background: var(--neutralDarkGrey);
   border-radius: var(--br-radius-lg);
   padding: var(--br-space-4) var(--br-space-6);
   overflow-x: auto;
@@ -274,7 +274,7 @@ const shadows = [
   code {
     font-family: 'Fira Code', monospace;
     font-size: var(--br-text-sm);
-    color: var(--br-light-200);
+    color: var(--neutralLightGrey6);
     line-height: 1.6;
   }
 }

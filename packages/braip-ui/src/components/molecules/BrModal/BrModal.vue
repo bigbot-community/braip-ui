@@ -12,53 +12,53 @@
  * </BrModal>
  */
 
-import { computed, watch, onMounted, onUnmounted, ref } from 'vue'
-import type { ModalProps } from './types'
+import { computed, watch, onMounted, onUnmounted, ref } from "vue";
+import type { ModalProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<ModalProps>(), {
-  title: '',
-  variant: 'center',
-  size: 'md',
+  title: "",
+  variant: "center",
+  size: "md",
   closable: true,
   closeOnClickOutside: true,
   closeOnEscape: true,
   showHeader: true,
   showFooter: false,
   persistent: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const isOpen = defineModel<boolean>({ default: false })
+const isOpen = defineModel<boolean>({ default: false });
 
 // ---------------------------------------------------------------------------
 // EMITS
 // ---------------------------------------------------------------------------
 
 const emit = defineEmits<{
-  (e: 'close'): void
-  (e: 'confirm'): void
-  (e: 'cancel'): void
-}>()
+  (e: "close"): void;
+  (e: "confirm"): void;
+  (e: "cancel"): void;
+}>();
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-modal',
+  "br-modal",
   `br-modal--${props.variant}`,
   `br-modal--${props.size}`,
   {
-    'br-modal--open': isOpen.value,
+    "br-modal--open": isOpen.value,
   },
-])
+]);
 
 // ---------------------------------------------------------------------------
 // METHODS
@@ -66,30 +66,30 @@ const classes = computed(() => [
 
 function close() {
   if (!props.persistent) {
-    isOpen.value = false
-    emit('close')
+    isOpen.value = false;
+    emit("close");
   }
 }
 
 function handleBackdropClick() {
   if (props.closeOnClickOutside) {
-    close()
+    close();
   }
 }
 
 function handleEscape(event: KeyboardEvent) {
-  if (event.key === 'Escape' && props.closeOnEscape && isOpen.value) {
-    close()
+  if (event.key === "Escape" && props.closeOnEscape && isOpen.value) {
+    close();
   }
 }
 
 function handleConfirm() {
-  emit('confirm')
+  emit("confirm");
 }
 
 function handleCancel() {
-  emit('cancel')
-  close()
+  emit("cancel");
+  close();
 }
 
 // ---------------------------------------------------------------------------
@@ -98,30 +98,30 @@ function handleCancel() {
 
 watch(isOpen, (value) => {
   // SSR guard: document is undefined on server
-  if (typeof document === 'undefined') return
-  document.body.style.overflow = value ? 'hidden' : ''
-})
+  if (typeof document === "undefined") return;
+  document.body.style.overflow = value ? "hidden" : "";
+});
 
 // ---------------------------------------------------------------------------
 // SSR-SAFE TELEPORT
 // ---------------------------------------------------------------------------
 
 // Teleport is disabled during SSR and enabled after client hydration
-const isMounted = ref(false)
+const isMounted = ref(false);
 
 // ---------------------------------------------------------------------------
 // LIFECYCLE
 // ---------------------------------------------------------------------------
 
 onMounted(() => {
-  isMounted.value = true
-  document.addEventListener('keydown', handleEscape)
-})
+  isMounted.value = true;
+  document.addEventListener("keydown", handleEscape);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('keydown', handleEscape)
-  document.body.style.overflow = ''
-})
+  document.removeEventListener("keydown", handleEscape);
+  document.body.style.overflow = "";
+});
 </script>
 
 <template>
@@ -133,7 +133,9 @@ onUnmounted(() => {
         <div class="br-modal__backdrop" @click="handleBackdropClick" />
 
         <!-- Modal Content -->
-        <Transition :name="variant === 'aside' ? 'br-modal-slide' : 'br-modal-scale'">
+        <Transition
+          :name="variant === 'aside' ? 'br-modal-slide' : 'br-modal-scale'"
+        >
           <div v-if="isOpen" class="br-modal__container">
             <!-- Header -->
             <header v-if="showHeader" class="br-modal__header">
@@ -148,7 +150,9 @@ onUnmounted(() => {
                 @click="close"
               >
                 <svg viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+                  <path
+                    d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+                  />
                 </svg>
               </button>
             </header>
@@ -161,10 +165,18 @@ onUnmounted(() => {
             <!-- Footer -->
             <footer v-if="showFooter || $slots.footer" class="br-modal__footer">
               <slot name="footer">
-                <button type="button" class="br-modal__btn br-modal__btn--cancel" @click="handleCancel">
+                <button
+                  type="button"
+                  class="br-modal__btn br-modal__btn--cancel"
+                  @click="handleCancel"
+                >
                   Cancelar
                 </button>
-                <button type="button" class="br-modal__btn br-modal__btn--confirm" @click="handleConfirm">
+                <button
+                  type="button"
+                  class="br-modal__btn br-modal__btn--confirm"
+                  @click="handleConfirm"
+                >
                   Confirmar
                 </button>
               </slot>
@@ -255,7 +267,7 @@ onUnmounted(() => {
     flex-direction: column;
     width: 100%;
     max-height: 90vh;
-    background: var(--br-light-0);
+    background: var(--neutralLightGrey9);
     border-radius: var(--br-radius-lg);
     box-shadow: var(--br-shadow-xl);
     overflow: hidden;
@@ -277,7 +289,7 @@ onUnmounted(() => {
     justify-content: space-between;
     gap: var(--br-space-4);
     padding: var(--br-space-6);
-    border-bottom: 1px solid var(--br-light-300);
+    border-bottom: 1px solid var(--neutralLightGrey5);
   }
 
   &__title {
@@ -286,7 +298,7 @@ onUnmounted(() => {
     font-family: var(--br-font-primary);
     font-size: var(--br-text-lg);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 
   &__close {
@@ -299,7 +311,7 @@ onUnmounted(() => {
     border: none;
     border-radius: var(--br-radius-sm);
     background: transparent;
-    color: var(--br-dark-900);
+    color: var(--neutralDarkGrey8);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
@@ -309,8 +321,8 @@ onUnmounted(() => {
     }
 
     &:hover {
-      background: var(--br-light-200);
-      color: var(--br-dark-700);
+      background: var(--neutralLightGrey6);
+      color: var(--neutralDarkGrey7);
     }
   }
 
@@ -334,7 +346,7 @@ onUnmounted(() => {
     justify-content: flex-end;
     gap: var(--br-space-3);
     padding: var(--br-space-6);
-    border-top: 1px solid var(--br-light-300);
+    border-top: 1px solid var(--neutralLightGrey5);
   }
 
   &__btn {
@@ -348,20 +360,20 @@ onUnmounted(() => {
     transition: all var(--br-transition-fast);
 
     &--cancel {
-      background: var(--br-primary-100);
-      color: var(--br-primary-600);
+      background: var(--brandPrimaryLightest);
+      color: var(--brandPrimary6);
 
       &:hover {
-        background: var(--br-primary-200);
+        background: var(--brandPrimaryLight2);
       }
     }
 
     &--confirm {
-      background: var(--br-primary-600);
-      color: var(--br-light-0);
+      background: var(--brandPrimary6);
+      color: var(--neutralLightGrey9);
 
       &:hover {
-        background: var(--br-primary-700);
+        background: var(--brandPrimaryDark7);
       }
     }
   }
@@ -383,7 +395,9 @@ onUnmounted(() => {
 
 .br-modal-scale-enter-active,
 .br-modal-scale-leave-active {
-  transition: opacity 0.3s ease, transform 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
 }
 
 .br-modal-scale-enter-from,
