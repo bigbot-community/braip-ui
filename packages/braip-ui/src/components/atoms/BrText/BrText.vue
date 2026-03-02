@@ -40,7 +40,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: "var(--br-dark-0)",
+      default: "var(--neutralDarkGrey)",
     },
     singleLine: {
       type: Boolean,
@@ -60,7 +60,7 @@ export default defineComponent({
   },
   setup(props) {
     const typographyColor = computed(() => {
-      return props.color?.trim() || "var(--br-dark-0)";
+      return props.color?.trim() || "var(--neutralDarkGrey)";
     });
 
     const typographyFontFamily = computed(() => {
