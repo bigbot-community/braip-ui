@@ -173,7 +173,7 @@ const modalEvents = [
       @cancel="showFooterModal = false"
     >
       <p>Você tem certeza que deseja continuar com esta ação?</p>
-      <p style="color: var(--br-dark-700); font-size: 14px;">Esta ação não pode ser desfeita.</p>
+      <p style="color: var(--neutralDarkGrey7); font-size: 14px;">Esta ação não pode ser desfeita.</p>
     </BrModal>
   </div>
 </template>
@@ -187,13 +187,13 @@ const modalEvents = [
   &__title {
     font-size: var(--br-text-h3);
     font-weight: var(--br-font-bold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
     margin: var(--br-space-4) 0;
   }
 
   &__description {
     font-size: var(--br-text-lg);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.6;
     margin: 0;
   }
@@ -204,16 +204,16 @@ const modalEvents = [
     h2 {
       font-size: var(--br-text-h5);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: 0 0 var(--br-space-4);
       padding-bottom: var(--br-space-3);
-      border-bottom: 1px solid var(--br-light-300);
+      border-bottom: 1px solid var(--neutralLightGrey5);
     }
 
     h3 {
       font-size: var(--br-text-lg);
       font-weight: var(--br-font-semibold);
-      color: var(--br-dark-0);
+      color: var(--neutralDarkGrey);
       margin: var(--br-space-6) 0 var(--br-space-3);
     }
   }
@@ -230,21 +230,21 @@ const modalEvents = [
   align-items: center;
   gap: var(--br-space-4);
   padding: var(--br-space-3) var(--br-space-4);
-  background: var(--br-light-100);
+  background: var(--neutralLightGrey7);
   border-radius: var(--br-radius-md);
 
   code {
     font-family: 'Fira Code', monospace;
     font-size: var(--br-text-sm);
-    color: var(--br-primary-600);
-    background: var(--br-primary-100);
+    color: var(--brandPrimary6);
+    background: var(--brandPrimaryLightest);
     padding: var(--br-space-1) var(--br-space-2);
     border-radius: var(--br-radius-sm);
   }
 
   span {
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 }
 </style>

@@ -114,7 +114,7 @@ function handleClick(event: MouseEvent) {
   user-select: none;
 
   &:focus-visible {
-    outline: 2px solid var(--br-primary-600);
+    outline: 2px solid var(--brandPrimary6);
     outline-offset: 2px;
   }
 
@@ -145,94 +145,94 @@ function handleClick(event: MouseEvent) {
   // ---------------------------------------------------------------------------
 
   &--primary {
-    background-color: var(--br-primary-600);
-    color: var(--br-light-0);
-    border-color: var(--br-primary-600);
+    background-color: var(--brandPrimary6);
+    color: var(--neutralLightGrey9);
+    border-color: var(--brandPrimary6);
 
     &:hover:not(:disabled) {
-      background-color: var(--br-primary-700);
-      border-color: var(--br-primary-700);
+      background-color: var(--brandPrimaryDark7);
+      border-color: var(--brandPrimaryDark7);
     }
 
     &:active:not(:disabled) {
-      background-color: var(--br-primary-800);
-      border-color: var(--br-primary-800);
+      background-color: var(--brandPrimaryDark8);
+      border-color: var(--brandPrimaryDark8);
     }
   }
 
   &--secondary {
-    background-color: var(--br-secondary-600);
-    color: var(--br-dark-0);
-    border-color: var(--br-secondary-600);
+    background-color: var(--brandSecondary6);
+    color: var(--neutralDarkGrey);
+    border-color: var(--brandSecondary6);
 
     &:hover:not(:disabled) {
-      background-color: var(--br-secondary-700);
-      border-color: var(--br-secondary-700);
+      background-color: var(--brandSecondaryDark7);
+      border-color: var(--brandSecondaryDark7);
     }
 
     &:active:not(:disabled) {
-      background-color: var(--br-secondary-800);
-      border-color: var(--br-secondary-800);
+      background-color: var(--brandSecondaryDark8);
+      border-color: var(--brandSecondaryDark8);
     }
   }
 
   &--outline {
     background-color: transparent;
-    color: var(--br-primary-600);
-    border-color: var(--br-primary-600);
+    color: var(--brandPrimary6);
+    border-color: var(--brandPrimary6);
 
     &:hover:not(:disabled) {
-      background-color: var(--br-primary-100);
+      background-color: var(--brandPrimaryLightest);
     }
 
     &:active:not(:disabled) {
-      background-color: var(--br-primary-200);
+      background-color: var(--brandPrimaryLight2);
     }
   }
 
   &--ghost {
     background-color: transparent;
-    color: var(--br-primary-600);
+    color: var(--brandPrimary6);
     border-color: transparent;
 
     &:hover:not(:disabled) {
-      background-color: var(--br-primary-100);
+      background-color: var(--brandPrimaryLightest);
     }
 
     &:active:not(:disabled) {
-      background-color: var(--br-primary-200);
+      background-color: var(--brandPrimaryLight2);
     }
   }
 
   &--danger {
-    background-color: var(--br-danger-600);
-    color: var(--br-light-0);
-    border-color: var(--br-danger-600);
+    background-color: var(--auxiliaryRed6);
+    color: var(--neutralLightGrey9);
+    border-color: var(--auxiliaryRed6);
 
     &:hover:not(:disabled) {
-      background-color: var(--br-danger-700);
-      border-color: var(--br-danger-700);
+      background-color: var(--auxiliaryRedDark7);
+      border-color: var(--auxiliaryRedDark7);
     }
 
     &:active:not(:disabled) {
-      background-color: var(--br-danger-800);
-      border-color: var(--br-danger-800);
+      background-color: var(--auxiliaryRedDark8);
+      border-color: var(--auxiliaryRedDark8);
     }
   }
 
   &--success {
-    background-color: var(--br-success-600);
-    color: var(--br-light-0);
-    border-color: var(--br-success-600);
+    background-color: var(--auxiliaryGreen6);
+    color: var(--neutralLightGrey9);
+    border-color: var(--auxiliaryGreen6);
 
     &:hover:not(:disabled) {
-      background-color: var(--br-success-700);
-      border-color: var(--br-success-700);
+      background-color: var(--auxiliaryGreenDark7);
+      border-color: var(--auxiliaryGreenDark7);
     }
 
     &:active:not(:disabled) {
-      background-color: var(--br-success-800);
-      border-color: var(--br-success-800);
+      background-color: var(--auxiliaryGreenDark8);
+      border-color: var(--auxiliaryGreenDark8);
     }
   }
 

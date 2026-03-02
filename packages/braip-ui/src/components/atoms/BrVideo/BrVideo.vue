@@ -104,7 +104,7 @@ defineExpose({
   position: relative;
   display: inline-block;
   overflow: hidden;
-  background: var(--br-dark-0);
+  background: var(--neutralDarkGrey);
 
   &--rounded {
     border-radius: var(--br-radius-md);

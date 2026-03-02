@@ -79,7 +79,7 @@ const barStyle = computed(() => ({
 
   &__track {
     flex: 1;
-    background: var(--br-light-300);
+    background: var(--neutralLightGrey5);
     overflow: hidden;
   }
 
@@ -94,7 +94,7 @@ const barStyle = computed(() => ({
   &__label {
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     white-space: nowrap;
   }
 
@@ -138,23 +138,23 @@ const barStyle = computed(() => ({
 
   // Variants
   &--primary .br-progressbar__bar {
-    background: var(--br-primary-500);
+    background: var(--brandPrimary5);
   }
 
   &--success .br-progressbar__bar {
-    background: var(--br-success-500);
+    background: var(--auxiliaryGreen5);
   }
 
   &--warning .br-progressbar__bar {
-    background: var(--br-warning-500);
+    background: var(--auxiliaryOrange5);
   }
 
   &--danger .br-progressbar__bar {
-    background: var(--br-danger-500);
+    background: var(--auxiliaryRed5);
   }
 
   &--info .br-progressbar__bar {
-    background: var(--br-info-500);
+    background: var(--auxiliaryBlue5);
   }
 
   // Inside label

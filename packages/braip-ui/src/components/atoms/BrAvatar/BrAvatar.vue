@@ -61,8 +61,8 @@ function handleImageError() {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: var(--br-primary-100);
-  color: var(--br-primary-600);
+  background: var(--brandPrimaryLightest);
+  color: var(--brandPrimary6);
   font-weight: var(--br-font-semibold);
   overflow: hidden;
   flex-shrink: 0;
@@ -132,22 +132,22 @@ function handleImageError() {
     min-width: 8px;
     min-height: 8px;
     border-radius: var(--br-radius-full);
-    border: 2px solid var(--br-light-0);
+    border: 2px solid var(--neutralLightGrey9);
 
     &--online {
-      background: var(--br-success-600);
+      background: var(--auxiliaryGreen6);
     }
 
     &--offline {
-      background: var(--br-dark-500);
+      background: var(--neutralDarkGrey5);
     }
 
     &--away {
-      background: var(--br-warning-600);
+      background: var(--auxiliaryOrange6);
     }
 
     &--busy {
-      background: var(--br-danger-600);
+      background: var(--auxiliaryRed6);
     }
   }
 }

@@ -49,7 +49,7 @@ const props = [
             Próximo
           </BrButton>
         </div>
-        <p style="margin-top: 12px; color: var(--br-dark-500);">Passo atual: {{ currentStep + 1 }}</p>
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">Passo atual: {{ currentStep + 1 }}</p>
       </CodeExample>
 
       <h2>Vertical</h2>

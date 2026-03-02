@@ -1,1 +1,1 @@
-export {default as BrLineDivision} from "./BrLineDivision.vue"
+export { default as BrLineDivision } from "./BrLineDivision.vue";

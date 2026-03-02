@@ -13,7 +13,7 @@ export default defineComponent({
     },
     color: {
       type: String,
-      default: "var(--br-dark-1100)",
+      default: "var(--neutralDarkGrey9)",
     },
     opacity: {
       type: Number,
