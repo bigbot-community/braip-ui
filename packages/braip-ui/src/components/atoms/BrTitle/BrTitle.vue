@@ -19,7 +19,7 @@ const props = withDefaults(defineProps<TitleProps>(), {
   tag: "h1",
   level: "4",
   weight: "semibold",
-  color: "var(--br-dark-0)",
+  color: "var(--neutralDarkGrey)",
   align: "left",
   truncate: false,
   maxLines: undefined,

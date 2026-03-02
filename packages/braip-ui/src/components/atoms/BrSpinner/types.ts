@@ -10,7 +10,7 @@ export interface SpinnerProps {
 
   /**
    * Spinner color
-   * @default 'var(--br-primary-600)'
+   * @default 'var(--brandPrimary6)'
    */
   color?: string;
 

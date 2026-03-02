@@ -75,7 +75,7 @@ function isDisabled(option: (typeof props.options)[0]) {
   &__label {
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__options {
@@ -94,7 +94,7 @@ function isDisabled(option: (typeof props.options)[0]) {
 
   &__error {
     font-size: var(--br-text-sm);
-    color: var(--br-danger-500);
+    color: var(--auxiliaryRed5);
   }
 }
 </style>

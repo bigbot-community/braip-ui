@@ -112,11 +112,11 @@ function handleClick(event: MouseEvent) {
   }
 
   &--outlined {
-    border: 1px solid var(--br-light-300);
+    border: 1px solid var(--neutralLightGrey5);
   }
 
   &--filled {
-    background: var(--br-light-100);
+    background: var(--neutralLightGrey7);
   }
 
   // Sizes
@@ -214,8 +214,8 @@ function handleClick(event: MouseEvent) {
   &__loader-spinner {
     width: 32px;
     height: 32px;
-    border: 3px solid var(--br-light-300);
-    border-top-color: var(--br-primary-500);
+    border: 3px solid var(--neutralLightGrey5);
+    border-top-color: var(--brandPrimary5);
     border-radius: 50%;
     animation: spin 0.8s linear infinite;
   }
@@ -245,19 +245,19 @@ function handleClick(event: MouseEvent) {
     margin: 0;
     font-size: var(--br-text-lg);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-800);
+    color: var(--neutralDarkGrey7);
     line-height: 1.3;
   }
 
   &__subtitle {
     margin: var(--br-space-1) 0 0;
     font-size: var(--br-text-sm);
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
   }
 
   &__body {
     flex: 1;
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     font-size: var(--br-text-md);
     line-height: 1.5;
   }
@@ -265,7 +265,7 @@ function handleClick(event: MouseEvent) {
   &__footer {
     margin-top: var(--br-space-4);
     padding-top: var(--br-space-3);
-    border-top: 1px solid var(--br-light-200);
+    border-top: 1px solid var(--neutralLightGrey6);
   }
 }
 

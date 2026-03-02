@@ -141,19 +141,19 @@ export default defineComponent({
 <style lang="scss" scoped>
 .br-input {
   font-family: var(--br-font-primary);
-  border: 1px solid var(--br-light-300);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-sm);
-  background: var(--br-light-0);
-  color: var(--br-dark-700);
+  background: var(--neutralLightGrey9);
+  color: var(--neutralDarkGrey7);
   transition: all var(--br-transition-fast);
 
   &::placeholder {
-    color: var(--br-dark-1100);
+    color: var(--neutralDarkGrey9);
   }
 
   &:focus {
     outline: none;
-    border-color: var(--br-primary-600);
+    border-color: var(--brandPrimary6);
     box-shadow: 0 0 0 3px rgba(109, 54, 251, 0.1);
   }
 
@@ -180,17 +180,17 @@ export default defineComponent({
   }
 
   &--error {
-    border-color: var(--br-danger-600);
+    border-color: var(--auxiliaryRed6);
 
     &:focus {
-      border-color: var(--br-danger-600);
+      border-color: var(--auxiliaryRed6);
       box-shadow: 0 0 0 3px rgba(255, 46, 46, 0.1);
     }
   }
 
   &--disabled {
-    background: var(--br-light-200);
-    color: var(--br-dark-1100);
+    background: var(--neutralLightGrey6);
+    color: var(--neutralDarkGrey9);
     cursor: not-allowed;
   }
 }

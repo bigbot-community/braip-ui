@@ -101,11 +101,11 @@ const contentHeight = computed(() => {
     text-align: left;
     font-size: var(--br-text-md);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     transition: background-color var(--br-transition-fast);
 
     &:hover:not(:disabled) {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
 
     &:disabled {
@@ -118,7 +118,7 @@ const contentHeight = computed(() => {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
     transition: transform var(--br-transition-fast);
   }
 
@@ -137,7 +137,7 @@ const contentHeight = computed(() => {
 
   &__content {
     padding: 0 var(--br-space-4) var(--br-space-4);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     font-size: var(--br-text-sm);
     line-height: 1.6;
   }
@@ -162,7 +162,7 @@ const contentHeight = computed(() => {
 
   // Borders between items (for default variant)
   &:not(:last-child) {
-    border-bottom: 1px solid var(--br-light-300);
+    border-bottom: 1px solid var(--neutralLightGrey5);
   }
 }
 </style>
