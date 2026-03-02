@@ -1,6 +1,6 @@
-# Braip UI
+# BigBot UI
 
-Biblioteca de componentes Vue 3 baseada no Design System Braip.
+Biblioteca de componentes Vue 3.
 
 ## Requisitos
 
