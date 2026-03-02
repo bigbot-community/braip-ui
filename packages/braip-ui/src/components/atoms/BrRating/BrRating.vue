@@ -3,90 +3,94 @@ import type { RatingProps } from './types'
 
 const props = withDefaults(defineProps<RatingProps>(), {
   max: 5,
-  size: 'md',
+  size: "md",
   allowHalf: false,
   readonly: false,
   disabled: false,
   showValue: false,
-  icon: 'star',
+  icon: "star",
   clearable: false,
-})
+});
 
-const model = defineModel<number>({ default: 0 })
-const hoverValue = ref<number | null>(null)
+const model = defineModel<number>({ default: 0 });
+const hoverValue = ref<number | null>(null);
 
 const displayValue = computed(() => {
   if (hoverValue.value !== null && !props.readonly && !props.disabled) {
-    return hoverValue.value
+    return hoverValue.value;
   }
-  return model.value
-})
+  return model.value;
+});
 
 const classes = computed(() => [
-  'br-rating',
+  "br-rating",
   `br-rating--${props.size}`,
   {
-    'br-rating--readonly': props.readonly,
-    'br-rating--disabled': props.disabled,
+    "br-rating--readonly": props.readonly,
+    "br-rating--disabled": props.disabled,
   },
-])
+]);
 
 const stars = computed(() => {
-  const items = []
+  const items = [];
   for (let i = 1; i <= props.max; i++) {
-    const filled = displayValue.value >= i
-    const halfFilled = props.allowHalf && displayValue.value >= i - 0.5 && displayValue.value < i
+    const filled = displayValue.value >= i;
+    const halfFilled =
+      props.allowHalf &&
+      displayValue.value >= i - 0.5 &&
+      displayValue.value < i;
     items.push({
       index: i,
       filled,
       halfFilled,
-    })
+    });
   }
-  return items
-})
+  return items;
+});
 
 function handleMouseMove(index: number, event: MouseEvent) {
-  if (props.readonly || props.disabled) return
+  if (props.readonly || props.disabled) return;
 
   if (props.allowHalf) {
-    const target = event.currentTarget as HTMLElement
-    const rect = target.getBoundingClientRect()
-    const isHalf = event.clientX - rect.left < rect.width / 2
-    hoverValue.value = isHalf ? index - 0.5 : index
+    const target = event.currentTarget as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const isHalf = event.clientX - rect.left < rect.width / 2;
+    hoverValue.value = isHalf ? index - 0.5 : index;
   } else {
-    hoverValue.value = index
+    hoverValue.value = index;
   }
 }
 
 function handleMouseLeave() {
-  hoverValue.value = null
+  hoverValue.value = null;
 }
 
 function handleClick(index: number, event: MouseEvent) {
-  if (props.readonly || props.disabled) return
+  if (props.readonly || props.disabled) return;
 
-  let newValue: number
+  let newValue: number;
   if (props.allowHalf) {
-    const target = event.currentTarget as HTMLElement
-    const rect = target.getBoundingClientRect()
-    const isHalf = event.clientX - rect.left < rect.width / 2
-    newValue = isHalf ? index - 0.5 : index
+    const target = event.currentTarget as HTMLElement;
+    const rect = target.getBoundingClientRect();
+    const isHalf = event.clientX - rect.left < rect.width / 2;
+    newValue = isHalf ? index - 0.5 : index;
   } else {
-    newValue = index
+    newValue = index;
   }
 
   if (props.clearable && model.value === newValue) {
-    model.value = 0
+    model.value = 0;
   } else {
-    model.value = newValue
+    model.value = newValue;
   }
 }
 
 const iconPaths = {
-  star: 'M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z',
-  heart: 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z',
-  circle: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z',
-}
+  star: "M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z",
+  heart:
+    "M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z",
+  circle: "M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2z",
+};
 </script>
 
 <template>
@@ -113,12 +117,14 @@ const iconPaths = {
           <defs v-if="star.halfFilled">
             <linearGradient :id="`half-${star.index}`">
               <stop offset="50%" stop-color="currentColor" />
-              <stop offset="50%" stop-color="var(--br-light-400)" />
+              <stop offset="50%" stop-color="var(--neutralLightGrey5)" />
             </linearGradient>
           </defs>
           <path
             :d="iconPaths[icon]"
-            :fill="star.halfFilled ? `url(#half-${star.index})` : 'currentColor'"
+            :fill="
+              star.halfFilled ? `url(#half-${star.index})` : 'currentColor'
+            "
           />
         </svg>
       </button>
@@ -148,8 +154,10 @@ const iconPaths = {
     border: none;
     background: transparent;
     cursor: pointer;
-    color: var(--inactive-color, var(--br-light-400));
-    transition: transform var(--br-transition-fast), color var(--br-transition-fast);
+    color: var(--inactive-color, var(--neutralLightGrey5));
+    transition:
+      transform var(--br-transition-fast),
+      color var(--br-transition-fast);
 
     &:hover:not(:disabled) {
       transform: scale(1.1);
@@ -157,7 +165,7 @@ const iconPaths = {
 
     &--filled,
     &--half {
-      color: var(--active-color, var(--br-warning-500));
+      color: var(--active-color, var(--auxiliaryOrange5));
     }
 
     &:disabled {
@@ -172,7 +180,7 @@ const iconPaths = {
 
   &__value {
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
   }
 
   // Sizes

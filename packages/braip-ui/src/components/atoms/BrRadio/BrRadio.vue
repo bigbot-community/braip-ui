@@ -2,28 +2,28 @@
 import type { RadioProps } from './types'
 
 const props = withDefaults(defineProps<RadioProps>(), {
-  size: 'md',
+  size: "md",
   disabled: false,
   error: false,
-})
+});
 
-const model = defineModel<string | number | boolean>()
+const model = defineModel<string | number | boolean>();
 
 const classes = computed(() => [
-  'br-radio',
+  "br-radio",
   `br-radio--${props.size}`,
   {
-    'br-radio--disabled': props.disabled,
-    'br-radio--error': props.error,
-    'br-radio--checked': model.value === props.value,
+    "br-radio--disabled": props.disabled,
+    "br-radio--error": props.error,
+    "br-radio--checked": model.value === props.value,
   },
-])
+]);
 
-const inputId = computed(() => `radio-${props.name}-${props.value}`)
+const inputId = computed(() => `radio-${props.name}-${props.value}`);
 
 function handleChange() {
   if (!props.disabled) {
-    model.value = props.value
+    model.value = props.value;
   }
 }
 </script>
@@ -70,7 +70,7 @@ function handleChange() {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 2px solid var(--br-dark-300);
+    border: 2px solid var(--neutralDarkGrey3);
     border-radius: 50%;
     background: var(--br-white);
     transition: all var(--br-transition-fast);
@@ -83,7 +83,7 @@ function handleChange() {
   }
 
   &__label {
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.4;
   }
 
@@ -92,7 +92,7 @@ function handleChange() {
     width: 100%;
     margin-top: var(--br-space-1);
     font-size: var(--br-text-sm);
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
   }
 
   // Sizes
@@ -141,28 +141,28 @@ function handleChange() {
   // States
   &:hover:not(&--disabled) {
     .br-radio__control {
-      border-color: var(--br-primary-500);
+      border-color: var(--brandPrimary5);
     }
   }
 
   &--checked {
     .br-radio__control {
-      border-color: var(--br-primary-500);
+      border-color: var(--brandPrimary5);
     }
     .br-radio__dot {
-      background: var(--br-primary-500);
+      background: var(--brandPrimary5);
     }
   }
 
   &--error {
     .br-radio__control {
-      border-color: var(--br-danger-500);
+      border-color: var(--auxiliaryRed5);
     }
     &.br-radio--checked .br-radio__dot {
-      background: var(--br-danger-500);
+      background: var(--auxiliaryRed5);
     }
     .br-radio__helper {
-      color: var(--br-danger-500);
+      color: var(--auxiliaryRed5);
     }
   }
 

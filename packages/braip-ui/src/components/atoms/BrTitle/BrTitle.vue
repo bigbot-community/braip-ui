@@ -15,34 +15,34 @@ import type { TitleProps } from './types'
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<TitleProps>(), {
-  tag: 'h1',
-  level: '4',
-  weight: 'semibold',
-  color: 'var(--br-dark-0)',
-  align: 'left',
+  tag: "h1",
+  level: "4",
+  weight: "semibold",
+  color: "var(--neutralDarkGrey)",
+  align: "left",
   truncate: false,
   maxLines: undefined,
-})
+});
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-title',
+  "br-title",
   `br-title--level-${props.level}`,
   `br-title--${props.weight}`,
   `br-title--${props.align}`,
   {
-    'br-title--truncate': props.truncate,
-    'br-title--clamp': props.maxLines,
+    "br-title--truncate": props.truncate,
+    "br-title--clamp": props.maxLines,
   },
-])
+]);
 
 const styles = computed(() => ({
   color: props.color,
-  '--max-lines': props.maxLines,
-}))
+  "--max-lines": props.maxLines,
+}));
 </script>
 
 <template>

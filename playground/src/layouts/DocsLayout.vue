@@ -40,6 +40,8 @@ const menuItems: MenuItem[] = [
           { label: 'Icon', path: '/components/icon' },
           { label: 'Image', path: '/components/image' },
           { label: 'Input', path: '/components/input' },
+          { label: 'Input Range', path: '/components/input-range' },
+          { label: 'LineDivision', path: '/components/line-division' },
           { label: 'Progressbar', path: '/components/progressbar' },
           { label: 'Radio', path: '/components/radio' },
           { label: 'Rating', path: '/components/rating' },
@@ -203,7 +205,7 @@ function isGroupExpanded(label: string) {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  background: var(--br-light-100);
+  background: var(--neutralLightGrey7);
 }
 
 // =============================================================================
@@ -220,8 +222,8 @@ function isGroupExpanded(label: string) {
   align-items: center;
   justify-content: space-between;
   padding: 0 var(--br-space-6);
-  background: var(--br-light-0);
-  border-bottom: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border-bottom: 1px solid var(--neutralLightGrey5);
   z-index: var(--br-z-fixed);
 
   &__left {
@@ -239,12 +241,12 @@ function isGroupExpanded(label: string) {
     border: none;
     border-radius: var(--br-radius-md);
     background: transparent;
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
     &:hover {
-      background: var(--br-light-200);
+      background: var(--neutralLightGrey6);
     }
 
     @media (min-width: 1024px) {
@@ -262,11 +264,11 @@ function isGroupExpanded(label: string) {
   }
 
   &__logo-text {
-    color: var(--br-primary-600);
+    color: var(--brandPrimary6);
   }
 
   &__logo-ui {
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__right {
@@ -279,8 +281,8 @@ function isGroupExpanded(label: string) {
     padding: var(--br-space-1) var(--br-space-3);
     font-size: var(--br-text-xs);
     font-weight: var(--br-font-medium);
-    color: var(--br-primary-600);
-    background: var(--br-primary-100);
+    color: var(--brandPrimary6);
+    background: var(--brandPrimaryLightest);
     border-radius: var(--br-radius-full);
   }
 }
@@ -295,8 +297,8 @@ function isGroupExpanded(label: string) {
   left: 0;
   bottom: 0;
   width: 280px;
-  background: var(--br-light-0);
-  border-right: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border-right: 1px solid var(--neutralLightGrey5);
   overflow-y: auto;
   z-index: var(--br-z-fixed);
   transform: translateX(-100%);
@@ -350,12 +352,12 @@ function isGroupExpanded(label: string) {
     font-family: var(--br-font-primary);
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
     &:hover {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
   }
 
@@ -393,12 +395,12 @@ function isGroupExpanded(label: string) {
     font-family: var(--br-font-primary);
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
     &:hover {
-      background: var(--br-light-100);
+      background: var(--neutralLightGrey7);
     }
   }
 
@@ -419,19 +421,19 @@ function isGroupExpanded(label: string) {
   display: block;
   padding: var(--br-space-2) var(--br-space-4);
   font-size: var(--br-text-sm);
-  color: var(--br-dark-700);
+  color: var(--neutralDarkGrey7);
   text-decoration: none;
   border-radius: var(--br-radius-md);
   transition: all var(--br-transition-fast);
 
   &:hover {
-    background: var(--br-light-100);
-    color: var(--br-primary-600);
+    background: var(--neutralLightGrey7);
+    color: var(--brandPrimary6);
   }
 
   &--active {
-    background: var(--br-primary-100);
-    color: var(--br-primary-600);
+    background: var(--brandPrimaryLightest);
+    color: var(--brandPrimary6);
     font-weight: var(--br-font-medium);
   }
 

@@ -33,7 +33,7 @@ const props = [
         :code="`<BrCheckbox v-model='checked' label='Aceito os termos' />`"
       >
         <BrCheckbox v-model="checked" label="Aceito os termos" />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">Marcado: {{ checked }}</p>
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">Marcado: {{ checked }}</p>
       </CodeExample>
 
       <h2>Checkbox Group</h2>
@@ -49,7 +49,7 @@ const props = [
           label="Frameworks conhecidos"
           :options="options"
         />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">Selecionados: {{ selectedItems.join(', ') || 'nenhum' }}</p>
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">Selecionados: {{ selectedItems.join(', ') || 'nenhum' }}</p>
       </CodeExample>
 
       <h2>Estados</h2>

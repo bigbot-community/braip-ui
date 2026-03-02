@@ -60,28 +60,28 @@ function copyCode() {
 
 <style lang="scss" scoped>
 .code-example {
-  background: var(--br-light-0);
-  border: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-lg);
   overflow: hidden;
   margin-bottom: var(--br-space-6);
 
   &__header {
     padding: var(--br-space-4) var(--br-space-6);
-    border-bottom: 1px solid var(--br-light-200);
+    border-bottom: 1px solid var(--neutralLightGrey6);
   }
 
   &__title {
     margin: 0 0 var(--br-space-1);
     font-size: var(--br-text-base);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 
   &__description {
     margin: 0;
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__preview {
@@ -90,15 +90,15 @@ function copyCode() {
     flex-wrap: wrap;
     align-items: center;
     gap: var(--br-space-4);
-    background: var(--br-light-50);
+    background: var(--neutralLightGrey8);
   }
 
   &__actions {
     display: flex;
     gap: var(--br-space-2);
     padding: var(--br-space-3) var(--br-space-4);
-    border-top: 1px solid var(--br-light-200);
-    background: var(--br-light-100);
+    border-top: 1px solid var(--neutralLightGrey6);
+    background: var(--neutralLightGrey7);
   }
 
   &__btn {
@@ -112,24 +112,24 @@ function copyCode() {
     font-family: var(--br-font-primary);
     font-size: var(--br-text-xs);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     cursor: pointer;
     transition: all var(--br-transition-fast);
 
     &:hover {
-      background: var(--br-light-200);
-      color: var(--br-primary-600);
+      background: var(--neutralLightGrey6);
+      color: var(--brandPrimary6);
     }
 
     &--active {
-      background: var(--br-primary-100);
-      color: var(--br-primary-600);
+      background: var(--brandPrimaryLightest);
+      color: var(--brandPrimary6);
     }
   }
 
   &__code {
     padding: var(--br-space-4);
-    background: var(--br-dark-0);
+    background: var(--neutralDarkGrey);
     overflow-x: auto;
 
     pre {
@@ -140,7 +140,7 @@ function copyCode() {
     }
 
     code {
-      color: var(--br-light-200);
+      color: var(--neutralLightGrey6);
       white-space: pre;
     }
   }

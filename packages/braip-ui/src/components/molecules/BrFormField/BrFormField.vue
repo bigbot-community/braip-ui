@@ -2,39 +2,39 @@
 import type { FormFieldProps } from './types'
 
 const props = withDefaults(defineProps<FormFieldProps>(), {
-  labelPosition: 'top',
+  labelPosition: "top",
   required: false,
   error: false,
   success: false,
   disabled: false,
-})
+});
 
-const slots = useSlots()
+const slots = useSlots();
 
 const classes = computed(() => [
-  'br-form-field',
+  "br-form-field",
   `br-form-field--label-${props.labelPosition}`,
   {
-    'br-form-field--error': props.error,
-    'br-form-field--success': props.success,
-    'br-form-field--disabled': props.disabled,
-    'br-form-field--has-prefix': !!slots.prefix,
-    'br-form-field--has-suffix': !!slots.suffix,
+    "br-form-field--error": props.error,
+    "br-form-field--success": props.success,
+    "br-form-field--disabled": props.disabled,
+    "br-form-field--has-prefix": !!slots.prefix,
+    "br-form-field--has-suffix": !!slots.suffix,
   },
-])
+]);
 
 const messageType = computed(() => {
-  if (props.error && props.errorMessage) return 'error'
-  if (props.success && props.successMessage) return 'success'
-  if (props.helperText) return 'helper'
-  return null
-})
+  if (props.error && props.errorMessage) return "error";
+  if (props.success && props.successMessage) return "success";
+  if (props.helperText) return "helper";
+  return null;
+});
 
 const message = computed(() => {
-  if (props.error && props.errorMessage) return props.errorMessage
-  if (props.success && props.successMessage) return props.successMessage
-  return props.helperText
-})
+  if (props.error && props.errorMessage) return props.errorMessage;
+  if (props.success && props.successMessage) return props.successMessage;
+  return props.helperText;
+});
 </script>
 
 <template>
@@ -64,11 +64,25 @@ const message = computed(() => {
         class="br-form-field__message"
         :class="`br-form-field__message--${messageType}`"
       >
-        <svg v-if="messageType === 'error'" viewBox="0 0 24 24" class="br-form-field__icon">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor" />
+        <svg
+          v-if="messageType === 'error'"
+          viewBox="0 0 24 24"
+          class="br-form-field__icon"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            fill="currentColor"
+          />
         </svg>
-        <svg v-else-if="messageType === 'success'" viewBox="0 0 24 24" class="br-form-field__icon">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor" />
+        <svg
+          v-else-if="messageType === 'success'"
+          viewBox="0 0 24 24"
+          class="br-form-field__icon"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            fill="currentColor"
+          />
         </svg>
         {{ message }}
       </span>
@@ -111,11 +125,11 @@ const message = computed(() => {
     gap: var(--br-space-1);
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__required {
-    color: var(--br-danger-500);
+    color: var(--auxiliaryRed5);
   }
 
   &__control {
@@ -140,9 +154,9 @@ const message = computed(() => {
     display: flex;
     align-items: center;
     padding: 0 var(--br-space-3);
-    background: var(--br-light-100);
-    border: 1px solid var(--br-light-300);
-    color: var(--br-dark-500);
+    background: var(--neutralLightGrey7);
+    border: 1px solid var(--neutralLightGrey5);
+    color: var(--neutralDarkGrey5);
     font-size: var(--br-text-sm);
   }
 
@@ -182,15 +196,15 @@ const message = computed(() => {
     font-size: var(--br-text-sm);
 
     &--helper {
-      color: var(--br-dark-500);
+      color: var(--neutralDarkGrey5);
     }
 
     &--error {
-      color: var(--br-danger-500);
+      color: var(--auxiliaryRed5);
     }
 
     &--success {
-      color: var(--br-success-500);
+      color: var(--auxiliaryGreen5);
     }
   }
 
@@ -202,25 +216,25 @@ const message = computed(() => {
 
   &__char-count {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
   }
 
   &__hint {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
     font-style: italic;
   }
 
   // States
   &--error {
     .br-form-field__label {
-      color: var(--br-danger-600);
+      color: var(--auxiliaryRed6);
     }
 
     :deep(input),
     :deep(select),
     :deep(textarea) {
-      border-color: var(--br-danger-500);
+      border-color: var(--auxiliaryRed5);
     }
   }
 
@@ -228,7 +242,7 @@ const message = computed(() => {
     :deep(input),
     :deep(select),
     :deep(textarea) {
-      border-color: var(--br-success-500);
+      border-color: var(--auxiliaryGreen5);
     }
   }
 

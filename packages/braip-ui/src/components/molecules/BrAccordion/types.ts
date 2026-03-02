@@ -2,84 +2,84 @@ export interface AccordionItem {
   /**
    * Unique identifier
    */
-  id: string | number
+  id: string | number;
 
   /**
    * Item title
    */
-  title: string
+  title: string;
 
   /**
    * Item content (can be HTML string or used with slot)
    */
-  content?: string
+  content?: string;
 
   /**
    * Icon to display before title
    */
-  icon?: string
+  icon?: string;
 
   /**
    * Disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 export interface AccordionProps {
   /**
    * Accordion items
    */
-  items?: AccordionItem[]
+  items?: AccordionItem[];
 
   /**
    * Allow multiple items to be open
    * @default false
    */
-  multiple?: boolean
+  multiple?: boolean;
 
   /**
    * Variant style
    * @default 'default'
    */
-  variant?: 'default' | 'bordered' | 'separated'
+  variant?: "default" | "bordered" | "separated";
 
   /**
    * Icon position
    * @default 'right'
    */
-  iconPosition?: 'left' | 'right'
+  iconPosition?: "left" | "right";
 
   /**
    * Disable all items
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean;
 }
 
 export interface AccordionItemProps {
   /**
    * Item title
    */
-  title: string
+  title: string;
 
   /**
    * Unique identifier
    */
-  id?: string | number
+  id?: string | number;
 
   /**
    * Icon to display
    */
-  icon?: string
+  icon?: string;
 
   /**
    * Disabled state
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Open state (controlled)
    */
-  open?: boolean
+  open?: boolean;
 }

@@ -2,59 +2,59 @@
 import type { CheckboxProps } from './types'
 
 const props = withDefaults(defineProps<CheckboxProps>(), {
-  size: 'md',
+  size: "md",
   disabled: false,
   indeterminate: false,
   error: false,
   trueValue: true,
   falseValue: false,
-})
+});
 
-const model = defineModel<string | number | boolean | Array<string | number>>()
-const inputRef = ref<HTMLInputElement | null>(null)
+const model = defineModel<string | number | boolean | Array<string | number>>();
+const inputRef = ref<HTMLInputElement | null>(null);
 
 const isChecked = computed(() => {
   if (Array.isArray(model.value)) {
-    return model.value.includes(props.trueValue as never)
+    return model.value.includes(props.trueValue as never);
   }
-  return model.value === props.trueValue
-})
+  return model.value === props.trueValue;
+});
 
 const classes = computed(() => [
-  'br-checkbox',
+  "br-checkbox",
   `br-checkbox--${props.size}`,
   {
-    'br-checkbox--disabled': props.disabled,
-    'br-checkbox--error': props.error,
-    'br-checkbox--checked': isChecked.value,
-    'br-checkbox--indeterminate': props.indeterminate,
+    "br-checkbox--disabled": props.disabled,
+    "br-checkbox--error": props.error,
+    "br-checkbox--checked": isChecked.value,
+    "br-checkbox--indeterminate": props.indeterminate,
   },
-])
+]);
 
 watch(
   () => props.indeterminate,
   (val) => {
     if (inputRef.value) {
-      inputRef.value.indeterminate = val
+      inputRef.value.indeterminate = val;
     }
   },
-  { immediate: true }
-)
+  { immediate: true },
+);
 
 function handleChange() {
-  if (props.disabled) return
+  if (props.disabled) return;
 
   if (Array.isArray(model.value)) {
-    const newValue = [...model.value]
-    const index = newValue.indexOf(props.trueValue as never)
+    const newValue = [...model.value];
+    const index = newValue.indexOf(props.trueValue as never);
     if (index > -1) {
-      newValue.splice(index, 1)
+      newValue.splice(index, 1);
     } else {
-      newValue.push(props.trueValue as never)
+      newValue.push(props.trueValue as never);
     }
-    model.value = newValue
+    model.value = newValue;
   } else {
-    model.value = isChecked.value ? props.falseValue : props.trueValue
+    model.value = isChecked.value ? props.falseValue : props.trueValue;
   }
 }
 </script>
@@ -70,10 +70,21 @@ function handleChange() {
       @change="handleChange"
     />
     <span class="br-checkbox__control">
-      <svg v-if="isChecked && !indeterminate" viewBox="0 0 24 24" class="br-checkbox__icon">
-        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" fill="currentColor" />
+      <svg
+        v-if="isChecked && !indeterminate"
+        viewBox="0 0 24 24"
+        class="br-checkbox__icon"
+      >
+        <path
+          d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"
+          fill="currentColor"
+        />
       </svg>
-      <svg v-else-if="indeterminate" viewBox="0 0 24 24" class="br-checkbox__icon">
+      <svg
+        v-else-if="indeterminate"
+        viewBox="0 0 24 24"
+        class="br-checkbox__icon"
+      >
         <path d="M19 13H5v-2h14v2z" fill="currentColor" />
       </svg>
     </span>
@@ -104,7 +115,7 @@ function handleChange() {
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    border: 2px solid var(--br-dark-300);
+    border: 2px solid var(--neutralDarkGrey3);
     border-radius: var(--br-radius-sm);
     background: var(--br-white);
     transition: all var(--br-transition-fast);
@@ -117,7 +128,7 @@ function handleChange() {
   }
 
   &__label {
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.4;
   }
 
@@ -126,7 +137,7 @@ function handleChange() {
     width: 100%;
     margin-top: var(--br-space-1);
     font-size: var(--br-text-sm);
-    color: var(--br-dark-500);
+    color: var(--neutralDarkGrey5);
   }
 
   // Sizes
@@ -163,29 +174,29 @@ function handleChange() {
   // States
   &:hover:not(&--disabled) {
     .br-checkbox__control {
-      border-color: var(--br-primary-500);
+      border-color: var(--brandPrimary5);
     }
   }
 
   &--checked,
   &--indeterminate {
     .br-checkbox__control {
-      background: var(--br-primary-500);
-      border-color: var(--br-primary-500);
+      background: var(--brandPrimary5);
+      border-color: var(--brandPrimary5);
     }
   }
 
   &--error {
     .br-checkbox__control {
-      border-color: var(--br-danger-500);
+      border-color: var(--auxiliaryRed5);
     }
     &.br-checkbox--checked .br-checkbox__control,
     &.br-checkbox--indeterminate .br-checkbox__control {
-      background: var(--br-danger-500);
-      border-color: var(--br-danger-500);
+      background: var(--auxiliaryRed5);
+      border-color: var(--auxiliaryRed5);
     }
     .br-checkbox__helper {
-      color: var(--br-danger-500);
+      color: var(--auxiliaryRed5);
     }
   }
 

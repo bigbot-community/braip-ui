@@ -1,2 +1,2 @@
-export { default as BrAvatar } from './BrAvatar.vue'
-export * from './types'
+export { default as BrAvatar } from "./BrAvatar.vue";
+export * from "./types";

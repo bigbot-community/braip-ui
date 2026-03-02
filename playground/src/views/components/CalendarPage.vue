@@ -39,7 +39,7 @@ const props = [
         :code="`<BrCalendar v-model='selectedDate' />`"
       >
         <BrCalendar v-model="selectedDate" />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">
           Selecionado: {{ selectedDate?.toLocaleDateString('pt-BR') || 'Nenhuma' }}
         </p>
       </CodeExample>
@@ -57,7 +57,7 @@ const props = [
       <h2>Seleção múltipla</h2>
       <CodeExample :code="`<BrCalendar v-model='selectedDates' multiple />`">
         <BrCalendar v-model="selectedDates" multiple />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">
           Selecionados: {{ selectedDates.length }} data(s)
         </p>
       </CodeExample>
@@ -65,7 +65,7 @@ const props = [
       <h2>Seleção de período</h2>
       <CodeExample :code="`<BrCalendar v-model='dateRange' range />`">
         <BrCalendar v-model="dateRange" range />
-        <p style="margin-top: 12px; color: var(--br-dark-500);">
+        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">
           Período: {{ dateRange.start?.toLocaleDateString('pt-BR') || '-' }}
           até {{ dateRange.end?.toLocaleDateString('pt-BR') || '-' }}
         </p>
@@ -82,7 +82,7 @@ const props = [
           :minDate="new Date()"
           :maxDate="new Date(Date.now() + 30 * 86400000)"
         />
-        <p style="margin-top: 8px; color: var(--br-dark-500); font-size: 14px;">
+        <p style="margin-top: 8px; color: var(--neutralDarkGrey5); font-size: 14px;">
           Apenas próximos 30 dias disponíveis
         </p>
       </CodeExample>

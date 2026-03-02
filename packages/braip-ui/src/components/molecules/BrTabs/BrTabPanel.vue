@@ -3,24 +3,24 @@ import type { TabPanelProps } from './types'
 
 const props = withDefaults(defineProps<TabPanelProps>(), {
   lazy: true,
-})
+});
 
 const tabs = inject<{
-  activeTab: { value: string | number }
-  lazy: { value: boolean }
-}>('tabs')
+  activeTab: { value: string | number };
+  lazy: { value: boolean };
+}>("tabs");
 
-const hasBeenActive = ref(false)
-const isActive = computed(() => tabs?.activeTab.value === props.tabId)
+const hasBeenActive = ref(false);
+const isActive = computed(() => tabs?.activeTab.value === props.tabId);
 const shouldRender = computed(() => {
-  const isLazy = props.lazy ?? tabs?.lazy.value ?? true
-  if (!isLazy) return true
-  return isActive.value || hasBeenActive.value
-})
+  const isLazy = props.lazy ?? tabs?.lazy.value ?? true;
+  if (!isLazy) return true;
+  return isActive.value || hasBeenActive.value;
+});
 
 watch(isActive, (active) => {
-  if (active) hasBeenActive.value = true
-})
+  if (active) hasBeenActive.value = true;
+});
 </script>
 
 <template>

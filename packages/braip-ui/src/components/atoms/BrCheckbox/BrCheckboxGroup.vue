@@ -3,36 +3,44 @@ import type { CheckboxGroupProps } from './types'
 import BrCheckbox from './BrCheckbox.vue'
 
 const props = withDefaults(defineProps<CheckboxGroupProps>(), {
-  direction: 'vertical',
-  size: 'md',
+  direction: "vertical",
+  size: "md",
   disabled: false,
   error: false,
-})
+});
 
-const model = defineModel<Array<string | number>>({ default: () => [] })
+const model = defineModel<Array<string | number>>({ default: () => [] });
 
 const classes = computed(() => [
-  'br-checkbox-group',
+  "br-checkbox-group",
   `br-checkbox-group--${props.direction}`,
   {
-    'br-checkbox-group--error': props.error,
+    "br-checkbox-group--error": props.error,
   },
-])
+]);
 
 function isDisabled(option: (typeof props.options)[0]) {
-  if (props.disabled || option.disabled) return true
+  if (props.disabled || option.disabled) return true;
 
   // Check max limit
-  if (props.max && model.value.length >= props.max && !model.value.includes(option.value)) {
-    return true
+  if (
+    props.max &&
+    model.value.length >= props.max &&
+    !model.value.includes(option.value)
+  ) {
+    return true;
   }
 
   // Check min limit (prevent unchecking if at minimum)
-  if (props.min && model.value.length <= props.min && model.value.includes(option.value)) {
-    return true
+  if (
+    props.min &&
+    model.value.length <= props.min &&
+    model.value.includes(option.value)
+  ) {
+    return true;
   }
 
-  return false
+  return false;
 }
 </script>
 
@@ -66,7 +74,7 @@ function isDisabled(option: (typeof props.options)[0]) {
   &__label {
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__options {
@@ -85,7 +93,7 @@ function isDisabled(option: (typeof props.options)[0]) {
 
   &__error {
     font-size: var(--br-text-sm);
-    color: var(--br-danger-500);
+    color: var(--auxiliaryRed5);
   }
 }
 </style>

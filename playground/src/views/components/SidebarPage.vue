@@ -61,9 +61,9 @@ const props = [
       <CodeExample
         :code="`<BrSidebar brand='Minha App' :items='menuItems' />`"
       >
-        <div style="display: flex; border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 400px;">
+        <div style="display: flex; border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 400px;">
           <BrSidebar brand="Minha App" :items="menuItems" :showToggle="false" />
-          <div style="flex: 1; padding: 16px; background: var(--br-dark-50);">
+          <div style="flex: 1; padding: 16px; background: var(--neutralDarkGrey1);">
             <p>Conteúdo principal</p>
           </div>
         </div>
@@ -71,9 +71,9 @@ const props = [
 
       <h2>Colapsável</h2>
       <CodeExample :code="`<BrSidebar v-model:collapsed='collapsed' brand='App' :items='menuItems' />`">
-        <div style="display: flex; border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 400px;">
+        <div style="display: flex; border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 400px;">
           <BrSidebar v-model:collapsed="collapsed" brand="Minha App" :items="menuItems" />
-          <div style="flex: 1; padding: 16px; background: var(--br-dark-50);">
+          <div style="flex: 1; padding: 16px; background: var(--neutralDarkGrey1);">
             <p>Sidebar colapsada: {{ collapsed ? 'Sim' : 'Não' }}</p>
           </div>
         </div>
@@ -81,9 +81,9 @@ const props = [
 
       <h2>Com seções</h2>
       <CodeExample :code="`<BrSidebar :items='menuWithSections' />`">
-        <div style="display: flex; border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 400px;">
+        <div style="display: flex; border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 400px;">
           <BrSidebar brand="App" :items="menuWithSections" :showToggle="false" />
-          <div style="flex: 1; padding: 16px; background: var(--br-dark-50);">
+          <div style="flex: 1; padding: 16px; background: var(--neutralDarkGrey1);">
             <p>Sidebar com seções divididas</p>
           </div>
         </div>
@@ -91,9 +91,9 @@ const props = [
 
       <h2>Com itens aninhados</h2>
       <CodeExample :code="`<BrSidebar :items='menuWithNested' />`">
-        <div style="display: flex; border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 350px;">
+        <div style="display: flex; border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 350px;">
           <BrSidebar brand="App" :items="menuWithNested" :showToggle="false" />
-          <div style="flex: 1; padding: 16px; background: var(--br-dark-50);">
+          <div style="flex: 1; padding: 16px; background: var(--neutralDarkGrey1);">
             <p>Clique em Configurações para expandir</p>
           </div>
         </div>
@@ -102,13 +102,13 @@ const props = [
       <h2>Variantes</h2>
       <CodeExample :code="`<BrSidebar variant='default' />\n<BrSidebar variant='compact' />\n<BrSidebar variant='mini' />`">
         <div style="display: flex; gap: 16px; flex-wrap: wrap;">
-          <div style="border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 300px;">
+          <div style="border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 300px;">
             <BrSidebar variant="default" brand="Default" :items="menuItems.slice(0, 3)" :showToggle="false" />
           </div>
-          <div style="border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 300px;">
+          <div style="border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 300px;">
             <BrSidebar variant="compact" brand="Compact" :items="menuItems.slice(0, 3)" :showToggle="false" />
           </div>
-          <div style="border: 1px solid var(--br-dark-200); border-radius: 8px; overflow: hidden; height: 300px;">
+          <div style="border: 1px solid var(--neutralDarkGrey2); border-radius: 8px; overflow: hidden; height: 300px;">
             <BrSidebar variant="mini" :items="menuItems.slice(0, 3)" :showToggle="false" />
           </div>
         </div>

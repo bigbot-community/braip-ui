@@ -2,55 +2,55 @@ export interface VideoProps {
   /**
    * Video source URL
    */
-  src: string
+  src: string;
 
   /**
    * Poster image URL
    */
-  poster?: string
+  poster?: string;
 
   /**
    * Video width
    */
-  width?: string | number
+  width?: string | number;
 
   /**
    * Video height
    */
-  height?: string | number
+  height?: string | number;
 
   /**
    * Autoplay video
    * @default false
    */
-  autoplay?: boolean
+  autoplay?: boolean;
 
   /**
    * Loop video
    * @default false
    */
-  loop?: boolean
+  loop?: boolean;
 
   /**
    * Mute video
    * @default false
    */
-  muted?: boolean
+  muted?: boolean;
 
   /**
    * Show controls
    * @default true
    */
-  controls?: boolean
+  controls?: boolean;
 
   /**
    * Preload strategy
    * @default 'metadata'
    */
-  preload?: 'none' | 'metadata' | 'auto'
+  preload?: "none" | "metadata" | "auto";
 
   /**
    * Border radius
    */
-  rounded?: boolean | 'sm' | 'md' | 'lg' | 'xl'
+  rounded?: boolean | "sm" | "md" | "lg" | "xl";
 }
