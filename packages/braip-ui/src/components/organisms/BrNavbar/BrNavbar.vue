@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { NavbarProps } from './types'
+import { computed, ref } from "vue";
+import type { NavbarProps } from "./types";
 
 const props = withDefaults(defineProps<NavbarProps>(), {
-  variant: 'default',
-  position: 'static',
+  variant: "default",
+  position: "static",
   showMobileToggle: true,
   elevated: true,
   dense: false,
-})
+});
 
-const isMobileMenuOpen = ref(false)
+const isMobileMenuOpen = ref(false);
 
 const classes = computed(() => [
-  'br-navbar',
+  "br-navbar",
   `br-navbar--${props.variant}`,
   `br-navbar--${props.position}`,
   {
-    'br-navbar--elevated': props.elevated,
-    'br-navbar--dense': props.dense,
-    'br-navbar--mobile-open': isMobileMenuOpen.value,
+    "br-navbar--elevated": props.elevated,
+    "br-navbar--dense": props.dense,
+    "br-navbar--mobile-open": isMobileMenuOpen.value,
   },
-])
+]);
 
 const style = computed(() => {
-  if (props.color && props.variant === 'colored') {
-    return { '--navbar-color': props.color }
+  if (props.color && props.variant === "colored") {
+    return { "--navbar-color": props.color };
   }
-  return {}
-})
+  return {};
+});
 
 function toggleMobileMenu() {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
+  isMobileMenuOpen.value = !isMobileMenuOpen.value;
 }
 
 function closeMobileMenu() {
-  isMobileMenuOpen.value = false
+  isMobileMenuOpen.value = false;
 }
 </script>
 
@@ -55,15 +55,24 @@ function closeMobileMenu() {
         <slot name="nav">
           <template v-if="items && items.length">
             <template v-for="item in items" :key="item.id">
-              <div v-if="item.children && item.children.length" class="br-navbar__dropdown">
+              <div
+                v-if="item.children && item.children.length"
+                class="br-navbar__dropdown"
+              >
                 <button
                   type="button"
                   class="br-navbar__item br-navbar__dropdown-trigger"
                   :disabled="item.disabled"
                 >
-                  <span v-if="item.icon" class="br-navbar__item-icon">{{ item.icon }}</span>
+                  <span v-if="item.icon" class="br-navbar__item-icon">{{
+                    item.icon
+                  }}</span>
                   <span>{{ item.label }}</span>
-                  <svg class="br-navbar__dropdown-arrow" viewBox="0 0 24 24" fill="currentColor">
+                  <svg
+                    class="br-navbar__dropdown-arrow"
+                    viewBox="0 0 24 24"
+                    fill="currentColor"
+                  >
                     <path d="M7 10l5 5 5-5z" />
                   </svg>
                 </button>
@@ -78,23 +87,29 @@ function closeMobileMenu() {
                     :disabled="child.disabled"
                     @click="child.onClick"
                   >
-                    <span v-if="child.icon" class="br-navbar__item-icon">{{ child.icon }}</span>
+                    <span v-if="child.icon" class="br-navbar__item-icon">{{
+                      child.icon
+                    }}</span>
                     <span>{{ child.label }}</span>
                   </component>
                 </div>
               </div>
               <component
-                v-else
                 :is="item.to ? 'router-link' : item.href ? 'a' : 'button'"
+                v-else
                 class="br-navbar__item"
                 :to="item.to"
                 :href="item.href"
                 :disabled="item.disabled"
                 @click="item.onClick"
               >
-                <span v-if="item.icon" class="br-navbar__item-icon">{{ item.icon }}</span>
+                <span v-if="item.icon" class="br-navbar__item-icon">{{
+                  item.icon
+                }}</span>
                 <span>{{ item.label }}</span>
-                <span v-if="item.badge" class="br-navbar__item-badge">{{ item.badge }}</span>
+                <span v-if="item.badge" class="br-navbar__item-badge">{{
+                  item.badge
+                }}</span>
               </component>
             </template>
           </template>
@@ -132,9 +147,14 @@ function closeMobileMenu() {
             :to="item.to"
             :href="item.href"
             :disabled="item.disabled"
-            @click="closeMobileMenu(); item.onClick?.()"
+            @click="
+              closeMobileMenu();
+              item.onClick?.();
+            "
           >
-            <span v-if="item.icon" class="br-navbar__item-icon">{{ item.icon }}</span>
+            <span v-if="item.icon" class="br-navbar__item-icon">{{
+              item.icon
+            }}</span>
             <span>{{ item.label }}</span>
           </component>
         </template>

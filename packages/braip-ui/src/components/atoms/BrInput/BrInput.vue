@@ -1,5 +1,6 @@
 <script lang="ts">
 import { computed, defineComponent, ref, watch } from "vue";
+import { InputProps, InputRangeEmits } from "./types";
 
 export default defineComponent({
   name: "BrInput",
@@ -58,8 +59,8 @@ export default defineComponent({
     "keypress",
     "click",
   ],
-  setup(props: any, { emit }) {
-    const inputValue = props.value;
+  setup(props: InputProps, { emit }: { emit: InputRangeEmits }) {
+    const inputValue = ref(props.value);
     const isFocused = ref(false);
 
     const classes = computed(() => [
@@ -75,18 +76,18 @@ export default defineComponent({
 
     watch(
       () => props.value,
-      (newValue: any) => {
+      (newValue: string | number | boolean) => {
         inputValue.value = newValue;
       },
     );
 
-    const onInput = (ev: any) => {
+    const onInput = (ev: Event) => {
       const value = (ev.target as HTMLInputElement).value;
 
       if (props.type === "number") {
         const valueNumber = Number(value);
 
-        if (props.min !== null && valueNumber < props.min) {
+        if (props.min && valueNumber < props.min) {
           emit("input", null);
           return;
         }

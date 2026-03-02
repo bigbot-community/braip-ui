@@ -7,8 +7,8 @@
  * <BrSelect v-model="value" :options="items" placeholder="Selecione..." />
  */
 
-import { computed, ref, watch, onMounted, onUnmounted } from 'vue'
-import type { SelectProps, SelectOption } from './types'
+import { computed, ref, onMounted, onUnmounted } from "vue";
+import type { SelectProps, SelectOption } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
@@ -16,132 +16,139 @@ import type { SelectProps, SelectOption } from './types'
 
 const props = withDefaults(defineProps<SelectProps>(), {
   options: () => [],
-  placeholder: 'Selecione...',
+  placeholder: "Selecione...",
   disabled: false,
   error: false,
-  size: 'md',
+  size: "md",
   searchable: false,
   clearable: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // MODEL
 // ---------------------------------------------------------------------------
 
-const model = defineModel<string | number | null>()
+const model = defineModel<string | number | null>();
 
 // ---------------------------------------------------------------------------
 // EMITS
 // ---------------------------------------------------------------------------
 
 const emit = defineEmits<{
-  (e: 'change', value: string | number | null): void
-  (e: 'open'): void
-  (e: 'close'): void
-}>()
+  (e: "change", value: string | number | null): void;
+  (e: "open"): void;
+  (e: "close"): void;
+}>();
 
 // ---------------------------------------------------------------------------
 // REFS
 // ---------------------------------------------------------------------------
 
-const selectRef = ref<HTMLDivElement | null>(null)
-const isOpen = ref(false)
-const searchQuery = ref('')
-const highlightedIndex = ref(0)
+const selectRef = ref<HTMLDivElement | null>(null);
+const isOpen = ref(false);
+const searchQuery = ref("");
+const highlightedIndex = ref(0);
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const selectedOption = computed(() => {
-  return props.options.find((opt) => opt.id === model.value)
-})
+  return props.options.find((opt) => opt.id === model.value);
+});
 
 const filteredOptions = computed(() => {
   if (!props.searchable || !searchQuery.value) {
-    return props.options
+    return props.options;
   }
-  const query = searchQuery.value.toLowerCase()
-  return props.options.filter((opt) => opt.text.toLowerCase().includes(query))
-})
+  const query = searchQuery.value.toLowerCase();
+  return props.options.filter((opt) => opt.text.toLowerCase().includes(query));
+});
 
 const classes = computed(() => [
-  'br-select',
+  "br-select",
   `br-select--${props.size}`,
   {
-    'br-select--open': isOpen.value,
-    'br-select--error': props.error,
-    'br-select--disabled': props.disabled,
-    'br-select--has-value': model.value !== null && model.value !== undefined,
+    "br-select--open": isOpen.value,
+    "br-select--error": props.error,
+    "br-select--disabled": props.disabled,
+    "br-select--has-value": model.value !== null && model.value !== undefined,
   },
-])
+]);
 
 // ---------------------------------------------------------------------------
 // METHODS
 // ---------------------------------------------------------------------------
 
 function toggleDropdown() {
-  if (props.disabled) return
-  isOpen.value = !isOpen.value
+  if (props.disabled) return;
+  isOpen.value = !isOpen.value;
   if (isOpen.value) {
-    emit('open')
-    highlightedIndex.value = 0
+    emit("open");
+    highlightedIndex.value = 0;
   } else {
-    emit('close')
-    searchQuery.value = ''
+    emit("close");
+    searchQuery.value = "";
   }
 }
 
 function selectOption(option: SelectOption) {
-  model.value = option.id
-  emit('change', option.id)
-  closeDropdown()
+  model.value = option.id;
+  emit("change", option.id);
+  closeDropdown();
 }
 
 function closeDropdown() {
-  isOpen.value = false
-  searchQuery.value = ''
-  emit('close')
+  isOpen.value = false;
+  searchQuery.value = "";
+  emit("close");
 }
 
 function clearSelection() {
-  model.value = null
-  emit('change', null)
+  model.value = null;
+  emit("change", null);
 }
 
 function handleKeydown(event: KeyboardEvent) {
   if (!isOpen.value) {
-    if (event.key === 'Enter' || event.key === ' ' || event.key === 'ArrowDown') {
-      event.preventDefault()
-      toggleDropdown()
+    if (
+      event.key === "Enter" ||
+      event.key === " " ||
+      event.key === "ArrowDown"
+    ) {
+      event.preventDefault();
+      toggleDropdown();
     }
-    return
+    return;
   }
 
   switch (event.key) {
-    case 'ArrowDown':
-      event.preventDefault()
-      highlightedIndex.value = Math.min(highlightedIndex.value + 1, filteredOptions.value.length - 1)
-      break
-    case 'ArrowUp':
-      event.preventDefault()
-      highlightedIndex.value = Math.max(highlightedIndex.value - 1, 0)
-      break
-    case 'Enter':
-      event.preventDefault()
+    case "ArrowDown":
+      event.preventDefault();
+      highlightedIndex.value = Math.min(
+        highlightedIndex.value + 1,
+        filteredOptions.value.length - 1,
+      );
+      break;
+    case "ArrowUp":
+      event.preventDefault();
+      highlightedIndex.value = Math.max(highlightedIndex.value - 1, 0);
+      break;
+    case "Enter":
+      event.preventDefault();
       if (filteredOptions.value[highlightedIndex.value]) {
-        selectOption(filteredOptions.value[highlightedIndex.value])
+        selectOption(filteredOptions.value[highlightedIndex.value]);
       }
-      break
-    case 'Escape':
-      closeDropdown()
-      break
+      break;
+    case "Escape":
+      closeDropdown();
+      break;
   }
 }
 
 function handleClickOutside(event: MouseEvent) {
   if (selectRef.value && !selectRef.value.contains(event.target as Node)) {
-    closeDropdown()
+    closeDropdown();
   }
 }
 
@@ -150,12 +157,12 @@ function handleClickOutside(event: MouseEvent) {
 // ---------------------------------------------------------------------------
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside)
-})
+  document.addEventListener("click", handleClickOutside);
+});
 
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside)
-})
+  document.removeEventListener("click", handleClickOutside);
+});
 </script>
 
 <template>
@@ -176,7 +183,9 @@ onUnmounted(() => {
           @click.stop="clearSelection"
         >
           <svg viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
           </svg>
         </span>
         <span class="br-select__arrow">
@@ -397,7 +406,9 @@ onUnmounted(() => {
 
 .br-select-dropdown-enter-active,
 .br-select-dropdown-leave-active {
-  transition: opacity 0.15s ease, transform 0.15s ease;
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
 }
 
 .br-select-dropdown-enter-from,

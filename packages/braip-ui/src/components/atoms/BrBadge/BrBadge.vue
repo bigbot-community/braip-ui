@@ -8,31 +8,31 @@
  * <BrBadge variant="danger" size="lg">Erro</BrBadge>
  */
 
-import { computed } from 'vue'
-import type { BadgeProps } from './types'
+import { computed } from "vue";
+import type { BadgeProps } from "./types";
 
 // ---------------------------------------------------------------------------
 // PROPS
 // ---------------------------------------------------------------------------
 
 const props = withDefaults(defineProps<BadgeProps>(), {
-  variant: 'default',
-  size: 'md',
+  variant: "default",
+  size: "md",
   rounded: false,
-})
+});
 
 // ---------------------------------------------------------------------------
 // COMPUTED
 // ---------------------------------------------------------------------------
 
 const classes = computed(() => [
-  'br-badge',
+  "br-badge",
   `br-badge--${props.variant}`,
   `br-badge--${props.size}`,
   {
-    'br-badge--rounded': props.rounded,
+    "br-badge--rounded": props.rounded,
   },
-])
+]);
 </script>
 
 <template>

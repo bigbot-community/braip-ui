@@ -2,63 +2,63 @@ export interface FormFieldProps {
   /**
    * Field label
    */
-  label?: string
+  label?: string;
 
   /**
    * Label position
    * @default 'top'
    */
-  labelPosition?: 'top' | 'left' | 'floating'
+  labelPosition?: "top" | "left" | "floating";
 
   /**
    * Required field indicator
    * @default false
    */
-  required?: boolean
+  required?: boolean;
 
   /**
    * Helper text
    */
-  helperText?: string
+  helperText?: string;
 
   /**
    * Error message
    */
-  errorMessage?: string
+  errorMessage?: string;
 
   /**
    * Success message
    */
-  successMessage?: string
+  successMessage?: string;
 
   /**
    * Error state
    * @default false
    */
-  error?: boolean
+  error?: boolean;
 
   /**
    * Success state
    * @default false
    */
-  success?: boolean
+  success?: boolean;
 
   /**
    * Character count
    */
   charCount?: {
-    current: number
-    max: number
-  }
+    current: number;
+    max: number;
+  };
 
   /**
    * Hint text (shows on focus)
    */
-  hint?: string
+  hint?: string;
 
   /**
    * Disabled state
    * @default false
    */
-  disabled?: boolean
+  disabled?: boolean;
 }

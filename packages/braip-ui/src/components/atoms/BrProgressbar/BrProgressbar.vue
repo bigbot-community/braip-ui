@@ -1,56 +1,65 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { ProgressbarProps } from './types'
+import { computed } from "vue";
+import type { ProgressbarProps } from "./types";
 
 const props = withDefaults(defineProps<ProgressbarProps>(), {
   value: 0,
   max: 100,
-  size: 'md',
-  variant: 'primary',
+  size: "md",
+  variant: "primary",
   showLabel: false,
-  labelPosition: 'right',
+  labelPosition: "right",
   striped: false,
   animated: false,
   indeterminate: false,
   rounded: true,
-})
+});
 
 const percentage = computed(() => {
-  if (props.indeterminate) return 0
-  return Math.min(100, Math.max(0, (props.value / props.max) * 100))
-})
+  if (props.indeterminate) return 0;
+  return Math.min(100, Math.max(0, (props.value / props.max) * 100));
+});
 
 const classes = computed(() => [
-  'br-progressbar',
+  "br-progressbar",
   `br-progressbar--${props.size}`,
   `br-progressbar--${props.variant}`,
   {
-    'br-progressbar--striped': props.striped,
-    'br-progressbar--animated': props.animated,
-    'br-progressbar--indeterminate': props.indeterminate,
-    'br-progressbar--rounded': props.rounded,
+    "br-progressbar--striped": props.striped,
+    "br-progressbar--animated": props.animated,
+    "br-progressbar--indeterminate": props.indeterminate,
+    "br-progressbar--rounded": props.rounded,
     [`br-progressbar--label-${props.labelPosition}`]: props.showLabel,
   },
-])
+]);
 
 const barStyle = computed(() => ({
-  width: props.indeterminate ? '100%' : `${percentage.value}%`,
-}))
+  width: props.indeterminate ? "100%" : `${percentage.value}%`,
+}));
 </script>
 
 <template>
   <div :class="classes">
-    <span v-if="showLabel && labelPosition === 'top'" class="br-progressbar__label">
+    <span
+      v-if="showLabel && labelPosition === 'top'"
+      class="br-progressbar__label"
+    >
       {{ Math.round(percentage) }}%
     </span>
     <div class="br-progressbar__track">
       <div class="br-progressbar__bar" :style="barStyle">
-        <span v-if="showLabel && labelPosition === 'inside'" class="br-progressbar__label">
+        <span
+          v-if="showLabel && labelPosition === 'inside'"
+          class="br-progressbar__label"
+        >
           {{ Math.round(percentage) }}%
         </span>
       </div>
     </div>
-    <span v-if="showLabel && labelPosition === 'right'" class="br-progressbar__label">
+    <span
+      v-if="showLabel && labelPosition === 'right'"
+      class="br-progressbar__label"
+    >
       {{ Math.round(percentage) }}%
     </span>
   </div>

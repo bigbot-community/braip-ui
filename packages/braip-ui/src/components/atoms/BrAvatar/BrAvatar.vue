@@ -1,38 +1,38 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
-import type { AvatarProps } from './types'
+import { computed, ref } from "vue";
+import type { AvatarProps } from "./types";
 
 const props = withDefaults(defineProps<AvatarProps>(), {
-  size: 'md',
-  shape: 'circle',
+  size: "md",
+  shape: "circle",
   showStatus: false,
-  status: 'offline',
-})
+  status: "offline",
+});
 
-const imageError = ref(false)
+const imageError = ref(false);
 
 const classes = computed(() => [
-  'br-avatar',
+  "br-avatar",
   `br-avatar--${props.size}`,
   `br-avatar--${props.shape}`,
-])
+]);
 
 const displayInitials = computed(() => {
-  if (props.initials) return props.initials.slice(0, 2).toUpperCase()
+  if (props.initials) return props.initials.slice(0, 2).toUpperCase();
   if (props.alt) {
-    const words = props.alt.split(' ')
+    const words = props.alt.split(" ");
     if (words.length >= 2) {
-      return (words[0][0] + words[1][0]).toUpperCase()
+      return (words[0][0] + words[1][0]).toUpperCase();
     }
-    return props.alt.slice(0, 2).toUpperCase()
+    return props.alt.slice(0, 2).toUpperCase();
   }
-  return '?'
-})
+  return "?";
+});
 
-const showImage = computed(() => props.src && !imageError.value)
+const showImage = computed(() => props.src && !imageError.value);
 
 function handleImageError() {
-  imageError.value = true
+  imageError.value = true;
 }
 </script>
 

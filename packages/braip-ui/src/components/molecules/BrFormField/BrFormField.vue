@@ -1,41 +1,41 @@
 <script setup lang="ts">
-import { computed, useSlots } from 'vue'
-import type { FormFieldProps } from './types'
+import { computed, useSlots } from "vue";
+import type { FormFieldProps } from "./types";
 
 const props = withDefaults(defineProps<FormFieldProps>(), {
-  labelPosition: 'top',
+  labelPosition: "top",
   required: false,
   error: false,
   success: false,
   disabled: false,
-})
+});
 
-const slots = useSlots()
+const slots = useSlots();
 
 const classes = computed(() => [
-  'br-form-field',
+  "br-form-field",
   `br-form-field--label-${props.labelPosition}`,
   {
-    'br-form-field--error': props.error,
-    'br-form-field--success': props.success,
-    'br-form-field--disabled': props.disabled,
-    'br-form-field--has-prefix': !!slots.prefix,
-    'br-form-field--has-suffix': !!slots.suffix,
+    "br-form-field--error": props.error,
+    "br-form-field--success": props.success,
+    "br-form-field--disabled": props.disabled,
+    "br-form-field--has-prefix": !!slots.prefix,
+    "br-form-field--has-suffix": !!slots.suffix,
   },
-])
+]);
 
 const messageType = computed(() => {
-  if (props.error && props.errorMessage) return 'error'
-  if (props.success && props.successMessage) return 'success'
-  if (props.helperText) return 'helper'
-  return null
-})
+  if (props.error && props.errorMessage) return "error";
+  if (props.success && props.successMessage) return "success";
+  if (props.helperText) return "helper";
+  return null;
+});
 
 const message = computed(() => {
-  if (props.error && props.errorMessage) return props.errorMessage
-  if (props.success && props.successMessage) return props.successMessage
-  return props.helperText
-})
+  if (props.error && props.errorMessage) return props.errorMessage;
+  if (props.success && props.successMessage) return props.successMessage;
+  return props.helperText;
+});
 </script>
 
 <template>
@@ -65,11 +65,25 @@ const message = computed(() => {
         class="br-form-field__message"
         :class="`br-form-field__message--${messageType}`"
       >
-        <svg v-if="messageType === 'error'" viewBox="0 0 24 24" class="br-form-field__icon">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z" fill="currentColor" />
+        <svg
+          v-if="messageType === 'error'"
+          viewBox="0 0 24 24"
+          class="br-form-field__icon"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"
+            fill="currentColor"
+          />
         </svg>
-        <svg v-else-if="messageType === 'success'" viewBox="0 0 24 24" class="br-form-field__icon">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" fill="currentColor" />
+        <svg
+          v-else-if="messageType === 'success'"
+          viewBox="0 0 24 24"
+          class="br-form-field__icon"
+        >
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+            fill="currentColor"
+          />
         </svg>
         {{ message }}
       </span>

@@ -1,2 +1,2 @@
-export { default as BrInput } from './BrInput.vue'
-export * from './types'
+export { default as BrInput } from "./BrInput.vue";
+export * from "./types";

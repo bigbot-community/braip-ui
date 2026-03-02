@@ -1,30 +1,30 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { RadioProps } from './types'
+import { computed } from "vue";
+import type { RadioProps } from "./types";
 
 const props = withDefaults(defineProps<RadioProps>(), {
-  size: 'md',
+  size: "md",
   disabled: false,
   error: false,
-})
+});
 
-const model = defineModel<string | number | boolean>()
+const model = defineModel<string | number | boolean>();
 
 const classes = computed(() => [
-  'br-radio',
+  "br-radio",
   `br-radio--${props.size}`,
   {
-    'br-radio--disabled': props.disabled,
-    'br-radio--error': props.error,
-    'br-radio--checked': model.value === props.value,
+    "br-radio--disabled": props.disabled,
+    "br-radio--error": props.error,
+    "br-radio--checked": model.value === props.value,
   },
-])
+]);
 
-const inputId = computed(() => `radio-${props.name}-${props.value}`)
+const inputId = computed(() => `radio-${props.name}-${props.value}`);
 
 function handleChange() {
   if (!props.disabled) {
-    model.value = props.value
+    model.value = props.value;
   }
 }
 </script>

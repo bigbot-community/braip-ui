@@ -1,50 +1,50 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import type { StepperProps } from './types'
+import { computed } from "vue";
+import type { StepperProps } from "./types";
 
 const props = withDefaults(defineProps<StepperProps>(), {
-  orientation: 'horizontal',
-  variant: 'default',
+  orientation: "horizontal",
+  variant: "default",
   clickable: false,
   showNumbers: true,
   linear: true,
   alternativeLabel: false,
-})
+});
 
-const model = defineModel<number>({ default: 0 })
+const model = defineModel<number>({ default: 0 });
 
 const emit = defineEmits<{
-  (e: 'step-click', step: number): void
-}>()
+  (e: "step-click", step: number): void;
+}>();
 
 const classes = computed(() => [
-  'br-stepper',
+  "br-stepper",
   `br-stepper--${props.orientation}`,
   `br-stepper--${props.variant}`,
   {
-    'br-stepper--clickable': props.clickable,
-    'br-stepper--alternative-label': props.alternativeLabel,
+    "br-stepper--clickable": props.clickable,
+    "br-stepper--alternative-label": props.alternativeLabel,
   },
-])
+]);
 
 function getStepStatus(index: number) {
-  if (index < model.value) return 'completed'
-  if (index === model.value) return 'active'
-  return 'pending'
+  if (index < model.value) return "completed";
+  if (index === model.value) return "active";
+  return "pending";
 }
 
 function canNavigateTo(index: number) {
-  if (!props.clickable) return false
-  if (props.linear && index > model.value) return false
-  return true
+  if (!props.clickable) return false;
+  if (props.linear && index > model.value) return false;
+  return true;
 }
 
 function handleStepClick(index: number) {
-  if (!canNavigateTo(index)) return
-  if (props.steps[index].error) return
+  if (!canNavigateTo(index)) return;
+  if (props.steps[index].error) return;
 
-  model.value = index
-  emit('step-click', index)
+  model.value = index;
+  emit("step-click", index);
 }
 </script>
 
@@ -68,11 +68,17 @@ function handleStepClick(index: number) {
     >
       <div class="br-stepper__indicator">
         <span class="br-stepper__icon">
-          <svg v-if="getStepStatus(index) === 'completed' && !step.error" viewBox="0 0 24 24" fill="currentColor">
+          <svg
+            v-if="getStepStatus(index) === 'completed' && !step.error"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+          >
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
           </svg>
           <svg v-else-if="step.error" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z" />
+            <path
+              d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+            />
           </svg>
           <template v-else-if="showNumbers">
             {{ index + 1 }}
@@ -84,9 +90,14 @@ function handleStepClick(index: number) {
       <div class="br-stepper__content">
         <span class="br-stepper__title">
           {{ step.title }}
-          <span v-if="step.optional" class="br-stepper__optional">(Opcional)</span>
+          <span v-if="step.optional" class="br-stepper__optional"
+            >(Opcional)</span
+          >
         </span>
-        <span v-if="step.description || step.errorMessage" class="br-stepper__description">
+        <span
+          v-if="step.description || step.errorMessage"
+          class="br-stepper__description"
+        >
           {{ step.error ? step.errorMessage : step.description }}
         </span>
       </div>

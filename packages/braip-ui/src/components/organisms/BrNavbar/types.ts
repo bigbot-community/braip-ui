@@ -2,100 +2,100 @@ export interface NavbarItem {
   /**
    * Unique identifier
    */
-  id: string | number
+  id: string | number;
 
   /**
    * Item label
    */
-  label: string
+  label: string;
 
   /**
    * Item icon
    */
-  icon?: string
+  icon?: string;
 
   /**
    * Link href
    */
-  href?: string
+  href?: string;
 
   /**
    * Vue router to
    */
-  to?: string | object
+  to?: string | object;
 
   /**
    * Disabled state
    */
-  disabled?: boolean
+  disabled?: boolean;
 
   /**
    * Children items (for dropdown)
    */
-  children?: NavbarItem[]
+  children?: NavbarItem[];
 
   /**
    * Badge content
    */
-  badge?: string | number
+  badge?: string | number;
 
   /**
    * Click handler
    */
-  onClick?: () => void
+  onClick?: () => void;
 }
 
-export type NavbarVariant = 'default' | 'transparent' | 'colored'
-export type NavbarPosition = 'static' | 'fixed' | 'sticky'
+export type NavbarVariant = "default" | "transparent" | "colored";
+export type NavbarPosition = "static" | "fixed" | "sticky";
 
 export interface NavbarProps {
   /**
    * Navigation items
    */
-  items?: NavbarItem[]
+  items?: NavbarItem[];
 
   /**
    * Brand/logo text
    */
-  brand?: string
+  brand?: string;
 
   /**
    * Brand logo URL
    */
-  logo?: string
+  logo?: string;
 
   /**
    * Navbar variant
    * @default 'default'
    */
-  variant?: NavbarVariant
+  variant?: NavbarVariant;
 
   /**
    * Position
    * @default 'static'
    */
-  position?: NavbarPosition
+  position?: NavbarPosition;
 
   /**
    * Show mobile menu toggle
    * @default true
    */
-  showMobileToggle?: boolean
+  showMobileToggle?: boolean;
 
   /**
    * Elevated (shadow)
    * @default true
    */
-  elevated?: boolean
+  elevated?: boolean;
 
   /**
    * Dense mode (smaller height)
    * @default false
    */
-  dense?: boolean
+  dense?: boolean;
 
   /**
    * Primary color (for colored variant)
    */
-  color?: string
+  color?: string;
 }
