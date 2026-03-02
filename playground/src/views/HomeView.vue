@@ -246,16 +246,16 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   &__title-braip {
-    color: var(--br-primary-600);
+    color: var(--brandPrimary6);
   }
 
   &__title-ui {
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__subtitle {
     font-size: var(--br-text-xl);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     margin: 0 0 var(--br-space-8);
     max-width: 600px;
     margin-left: auto;
@@ -288,7 +288,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 .feature {
   text-align: center;
   padding: var(--br-space-8);
-  background: var(--br-light-0);
+  background: var(--neutralLightGrey9);
   border-radius: var(--br-radius-xl);
   box-shadow: var(--br-shadow-sm);
   transition: all var(--br-transition-normal);
@@ -307,13 +307,13 @@ export default defineNuxtPlugin((nuxtApp) => {
     margin: 0 0 var(--br-space-2);
     font-size: var(--br-text-lg);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 
   &__text {
     margin: 0;
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
     line-height: 1.6;
   }
 }
@@ -325,7 +325,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 .section-title {
   font-size: var(--br-text-h5);
   font-weight: var(--br-font-bold);
-  color: var(--br-dark-0);
+  color: var(--neutralDarkGrey);
   margin: 0 0 var(--br-space-6);
 }
 
@@ -342,14 +342,14 @@ export default defineNuxtPlugin((nuxtApp) => {
 .component-card {
   display: block;
   padding: var(--br-space-6);
-  background: var(--br-light-0);
-  border: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-lg);
   text-decoration: none;
   transition: all var(--br-transition-fast);
 
   &:hover {
-    border-color: var(--br-primary-400);
+    border-color: var(--brandPrimary4);
     box-shadow: var(--br-shadow-md);
     transform: translateY(-2px);
   }
@@ -364,13 +364,13 @@ export default defineNuxtPlugin((nuxtApp) => {
     margin: 0 0 var(--br-space-2);
     font-size: var(--br-text-base);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 
   &__description {
     margin: 0;
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 }
 
@@ -385,8 +385,8 @@ export default defineNuxtPlugin((nuxtApp) => {
 .install-section {
   margin-top: var(--br-space-8);
   padding: var(--br-space-6);
-  background: var(--br-light-0);
-  border: 1px solid var(--br-light-300);
+  background: var(--neutralLightGrey9);
+  border: 1px solid var(--neutralLightGrey5);
   border-radius: var(--br-radius-xl);
 
   &__title {
@@ -396,7 +396,7 @@ export default defineNuxtPlugin((nuxtApp) => {
     margin: 0 0 var(--br-space-4);
     font-size: var(--br-text-lg);
     font-weight: var(--br-font-semibold);
-    color: var(--br-dark-0);
+    color: var(--neutralDarkGrey);
   }
 
   &__icon {
@@ -406,10 +406,10 @@ export default defineNuxtPlugin((nuxtApp) => {
   &__description {
     margin: 0 0 var(--br-space-4);
     font-size: var(--br-text-sm);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
 
     code {
-      background: var(--br-light-200);
+      background: var(--neutralLightGrey6);
       padding: var(--br-space-1) var(--br-space-2);
       border-radius: var(--br-radius-sm);
       font-family: "Fira Code", "Monaco", monospace;
@@ -427,7 +427,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 }
 
 .code-block {
-  background: var(--br-dark-0);
+  background: var(--neutralDarkGrey);
   border-radius: var(--br-radius-lg);
   padding: var(--br-space-4) var(--br-space-6);
   margin-bottom: var(--br-space-4);
@@ -440,7 +440,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   code {
     font-family: "Fira Code", "Monaco", monospace;
     font-size: var(--br-text-sm);
-    color: var(--br-light-200);
+    color: var(--neutralLightGrey6);
     line-height: 1.6;
   }
 }

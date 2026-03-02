@@ -126,11 +126,11 @@ const message = computed(() => {
     gap: var(--br-space-1);
     font-size: var(--br-text-sm);
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-700);
+    color: var(--neutralDarkGrey7);
   }
 
   &__required {
-    color: var(--br-danger-500);
+    color: var(--auxiliaryRed5);
   }
 
   &__control {
@@ -155,9 +155,9 @@ const message = computed(() => {
     display: flex;
     align-items: center;
     padding: 0 var(--br-space-3);
-    background: var(--br-light-100);
-    border: 1px solid var(--br-light-300);
-    color: var(--br-dark-500);
+    background: var(--neutralLightGrey7);
+    border: 1px solid var(--neutralLightGrey5);
+    color: var(--neutralDarkGrey5);
     font-size: var(--br-text-sm);
   }
 
@@ -197,15 +197,15 @@ const message = computed(() => {
     font-size: var(--br-text-sm);
 
     &--helper {
-      color: var(--br-dark-500);
+      color: var(--neutralDarkGrey5);
     }
 
     &--error {
-      color: var(--br-danger-500);
+      color: var(--auxiliaryRed5);
     }
 
     &--success {
-      color: var(--br-success-500);
+      color: var(--auxiliaryGreen5);
     }
   }
 
@@ -217,25 +217,25 @@ const message = computed(() => {
 
   &__char-count {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
   }
 
   &__hint {
     font-size: var(--br-text-xs);
-    color: var(--br-dark-400);
+    color: var(--neutralDarkGrey4);
     font-style: italic;
   }
 
   // States
   &--error {
     .br-form-field__label {
-      color: var(--br-danger-600);
+      color: var(--auxiliaryRed6);
     }
 
     :deep(input),
     :deep(select),
     :deep(textarea) {
-      border-color: var(--br-danger-500);
+      border-color: var(--auxiliaryRed5);
     }
   }
 
@@ -243,7 +243,7 @@ const message = computed(() => {
     :deep(input),
     :deep(select),
     :deep(textarea) {
-      border-color: var(--br-success-500);
+      border-color: var(--auxiliaryGreen5);
     }
   }
 

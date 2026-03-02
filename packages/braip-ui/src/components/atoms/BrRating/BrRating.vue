@@ -118,7 +118,7 @@ const iconPaths = {
           <defs v-if="star.halfFilled">
             <linearGradient :id="`half-${star.index}`">
               <stop offset="50%" stop-color="currentColor" />
-              <stop offset="50%" stop-color="var(--br-light-400)" />
+              <stop offset="50%" stop-color="var(--neutralLightGrey5)" />
             </linearGradient>
           </defs>
           <path
@@ -155,7 +155,7 @@ const iconPaths = {
     border: none;
     background: transparent;
     cursor: pointer;
-    color: var(--inactive-color, var(--br-light-400));
+    color: var(--inactive-color, var(--neutralLightGrey5));
     transition:
       transform var(--br-transition-fast),
       color var(--br-transition-fast);
@@ -166,7 +166,7 @@ const iconPaths = {
 
     &--filled,
     &--half {
-      color: var(--active-color, var(--br-warning-500));
+      color: var(--active-color, var(--auxiliaryOrange5));
     }
 
     &:disabled {
@@ -181,7 +181,7 @@ const iconPaths = {
 
   &__value {
     font-weight: var(--br-font-medium);
-    color: var(--br-dark-600);
+    color: var(--neutralDarkGrey6);
   }
 
   // Sizes

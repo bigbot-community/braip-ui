@@ -82,7 +82,7 @@ onMounted(() => {
   position: relative;
   display: inline-block;
   overflow: hidden;
-  background: var(--br-light-200);
+  background: var(--neutralLightGrey6);
 
   &--rounded {
     border-radius: var(--br-radius-md);
@@ -114,8 +114,8 @@ onMounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--br-light-200);
-    color: var(--br-dark-500);
+    background: var(--neutralLightGrey6);
+    color: var(--neutralDarkGrey5);
 
     svg {
       width: 40%;
