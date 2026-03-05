@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const props = [
   { name: 'src', type: 'string', default: '-', description: 'URL da imagem do avatar' },

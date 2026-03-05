@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const titleProps = [
   { name: 'level', type: "'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p'", default: "'h2'", description: 'Nível semântico do título' },

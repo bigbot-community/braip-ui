@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const badgeProps = [
   { name: 'variant', type: "'default' | 'primary' | 'secondary' | 'success' | 'danger' | 'warning' | 'info'", default: "'default'", description: 'Estilo visual do badge' },
