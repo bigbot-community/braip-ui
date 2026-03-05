@@ -1,109 +1,121 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed } from "vue";
+import { useRoute } from "vue-router";
 
-const route = useRoute()
-const sidebarCollapsed = ref(false)
-const mobileMenuOpen = ref(false)
+const route = useRoute();
+const sidebarCollapsed = ref(false);
+const mobileMenuOpen = ref(false);
 
 interface MenuItem {
-  label: string
-  path?: string
-  icon?: string
-  children?: MenuItem[]
+  label: string;
+  path?: string;
+  icon?: string;
+  children?: MenuItem[];
 }
 
 const menuItems: MenuItem[] = [
   {
-    label: 'Início',
-    path: '/',
-    icon: 'home',
+    label: "Início",
+    path: "/",
+    icon: "home",
   },
   {
-    label: 'Design Tokens',
-    icon: 'palette',
+    label: "Design Tokens",
+    icon: "palette",
     children: [
-      { label: 'Cores', path: '/tokens/colors' },
-      { label: 'Tipografia', path: '/tokens/typography' },
-      { label: 'Espaçamentos', path: '/tokens/spacing' },
+      { label: "Cores", path: "/tokens/colors" },
+      { label: "Tipografia", path: "/tokens/typography" },
+      { label: "Espaçamentos", path: "/tokens/spacing" },
     ],
   },
   {
-    label: 'Componentes',
-    icon: 'components',
+    label: "Componentes",
+    icon: "components",
     children: [
       {
-        label: 'Atoms',
+        label: "Atoms",
         children: [
-          { label: 'Avatar', path: '/components/avatar' },
-          { label: 'Badge', path: '/components/badge' },
-          { label: 'Button', path: '/components/button' },
-          { label: 'Checkbox', path: '/components/checkbox' },
-          { label: 'Icon', path: '/components/icon' },
-          { label: 'Image', path: '/components/image' },
-          { label: 'Input', path: '/components/input' },
-          { label: 'Input Range', path: '/components/input-range' },
-          { label: 'LineDivision', path: '/components/line-division' },
-          { label: 'Progressbar', path: '/components/progressbar' },
-          { label: 'Radio', path: '/components/radio' },
-          { label: 'Rating', path: '/components/rating' },
-          { label: 'Select', path: '/components/select' },
-          { label: 'Spinner', path: '/components/spinner' },
-          { label: 'Switch', path: '/components/switch' },
-          { label: 'Textarea', path: '/components/textarea' },
-          { label: 'Title', path: '/components/title' },
-          { label: 'Video', path: '/components/video' },
+          { label: "Avatar", path: "/components/avatar" },
+          { label: "Badge", path: "/components/badge" },
+          { label: "Button", path: "/components/button" },
+          { label: "Checkbox", path: "/components/checkbox" },
+          { label: "Icon", path: "/components/icon" },
+          { label: "Image", path: "/components/image" },
+          { label: "Input", path: "/components/input" },
+          { label: "Input Range", path: "/components/input-range" },
+          { label: "LineDivision", path: "/components/line-division" },
+          { label: "Progressbar", path: "/components/progressbar" },
+          { label: "Radio", path: "/components/radio" },
+          { label: "Rating", path: "/components/rating" },
+          { label: "Select", path: "/components/select" },
+          { label: "Spinner", path: "/components/spinner" },
+          { label: "Switch", path: "/components/switch" },
+          { label: "Textarea", path: "/components/textarea" },
+          { label: "Text", path: "/components/text" },
+          { label: "Video", path: "/components/video" },
         ],
       },
       {
-        label: 'Molecules',
+        label: "Molecules",
         children: [
-          { label: 'Accordion', path: '/components/accordion' },
-          { label: 'Calendar', path: '/components/calendar' },
-          { label: 'Card', path: '/components/card' },
-          { label: 'FormField', path: '/components/form-field' },
-          { label: 'Modal', path: '/components/modal' },
-          { label: 'Stepper', path: '/components/stepper' },
-          { label: 'Tabs', path: '/components/tabs' },
+          { label: "Accordion", path: "/components/accordion" },
+          { label: "Calendar", path: "/components/calendar" },
+          { label: "Card", path: "/components/card" },
+          { label: "FormField", path: "/components/form-field" },
+          { label: "Modal", path: "/components/modal" },
+          { label: "Stepper", path: "/components/stepper" },
+          { label: "Tabs", path: "/components/tabs" },
         ],
       },
       {
-        label: 'Organisms',
+        label: "Organisms",
         children: [
-          { label: 'Navbar', path: '/components/navbar' },
-          { label: 'Sidebar', path: '/components/sidebar' },
+          { label: "Navbar", path: "/components/navbar" },
+          { label: "Sidebar", path: "/components/sidebar" },
         ],
       },
     ],
   },
-]
+];
 
-const expandedGroups = ref<string[]>(['Componentes', 'Atoms', 'Molecules', 'Organisms', 'Design Tokens'])
+const expandedGroups = ref<string[]>([
+  "Componentes",
+  "Atoms",
+  "Molecules",
+  "Organisms",
+  "Design Tokens",
+]);
 
 function toggleGroup(label: string) {
-  const index = expandedGroups.value.indexOf(label)
+  const index = expandedGroups.value.indexOf(label);
   if (index > -1) {
-    expandedGroups.value.splice(index, 1)
+    expandedGroups.value.splice(index, 1);
   } else {
-    expandedGroups.value.push(label)
+    expandedGroups.value.push(label);
   }
 }
 
 function isActive(path: string) {
-  return route.path === path
+  return route.path === path;
 }
 
 function isGroupExpanded(label: string) {
-  return expandedGroups.value.includes(label)
+  return expandedGroups.value.includes(label);
 }
 </script>
 
 <template>
-  <div class="docs-layout" :class="{ 'docs-layout--collapsed': sidebarCollapsed }">
+  <div
+    class="docs-layout"
+    :class="{ 'docs-layout--collapsed': sidebarCollapsed }"
+  >
     <!-- Header -->
     <header class="docs-header">
       <div class="docs-header__left">
-        <button class="docs-header__menu-btn" @click="mobileMenuOpen = !mobileMenuOpen">
+        <button
+          class="docs-header__menu-btn"
+          @click="mobileMenuOpen = !mobileMenuOpen"
+        >
           <BrIcon name="menu" size="md" />
         </button>
         <router-link to="/" class="docs-header__logo">
@@ -117,7 +129,10 @@ function isGroupExpanded(label: string) {
     </header>
 
     <!-- Sidebar -->
-    <aside class="docs-sidebar" :class="{ 'docs-sidebar--open': mobileMenuOpen }">
+    <aside
+      class="docs-sidebar"
+      :class="{ 'docs-sidebar--open': mobileMenuOpen }"
+    >
       <div class="docs-sidebar__overlay" @click="mobileMenuOpen = false" />
       <nav class="docs-sidebar__nav">
         <template v-for="item in menuItems" :key="item.label">
@@ -125,7 +140,9 @@ function isGroupExpanded(label: string) {
           <div v-if="item.children" class="docs-nav-group">
             <button
               class="docs-nav-group__header"
-              :class="{ 'docs-nav-group__header--expanded': isGroupExpanded(item.label) }"
+              :class="{
+                'docs-nav-group__header--expanded': isGroupExpanded(item.label),
+              }"
               @click="toggleGroup(item.label)"
             >
               <span class="docs-nav-group__label">{{ item.label }}</span>
@@ -133,16 +150,25 @@ function isGroupExpanded(label: string) {
                 name="chevron-down"
                 size="sm"
                 class="docs-nav-group__icon"
-                :class="{ 'docs-nav-group__icon--rotated': isGroupExpanded(item.label) }"
+                :class="{
+                  'docs-nav-group__icon--rotated': isGroupExpanded(item.label),
+                }"
               />
             </button>
-            <div v-show="isGroupExpanded(item.label)" class="docs-nav-group__content">
+            <div
+              v-show="isGroupExpanded(item.label)"
+              class="docs-nav-group__content"
+            >
               <template v-for="child in item.children" :key="child.label">
                 <!-- Nested group -->
                 <div v-if="child.children" class="docs-nav-subgroup">
                   <button
                     class="docs-nav-subgroup__header"
-                    :class="{ 'docs-nav-subgroup__header--expanded': isGroupExpanded(child.label) }"
+                    :class="{
+                      'docs-nav-subgroup__header--expanded': isGroupExpanded(
+                        child.label,
+                      ),
+                    }"
                     @click="toggleGroup(child.label)"
                   >
                     <span>{{ child.label }}</span>
@@ -150,16 +176,25 @@ function isGroupExpanded(label: string) {
                       name="chevron-down"
                       size="sm"
                       class="docs-nav-subgroup__icon"
-                      :class="{ 'docs-nav-subgroup__icon--rotated': isGroupExpanded(child.label) }"
+                      :class="{
+                        'docs-nav-subgroup__icon--rotated': isGroupExpanded(
+                          child.label,
+                        ),
+                      }"
                     />
                   </button>
-                  <div v-show="isGroupExpanded(child.label)" class="docs-nav-subgroup__content">
+                  <div
+                    v-show="isGroupExpanded(child.label)"
+                    class="docs-nav-subgroup__content"
+                  >
                     <router-link
                       v-for="subChild in child.children"
                       :key="subChild.path"
                       :to="subChild.path!"
                       class="docs-nav-link docs-nav-link--nested"
-                      :class="{ 'docs-nav-link--active': isActive(subChild.path!) }"
+                      :class="{
+                        'docs-nav-link--active': isActive(subChild.path!),
+                      }"
                       @click="mobileMenuOpen = false"
                     >
                       {{ subChild.label }}
