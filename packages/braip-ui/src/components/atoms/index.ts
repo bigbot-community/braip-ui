@@ -19,4 +19,5 @@ export * from "./BrProgressbar";
 export * from "./BrRating";
 export * from "./BrCheckbox";
 export * from "./BrInputRange";
+export * from "./BrInfoPopper";
 export * from "./BrLineDivision";

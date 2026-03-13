@@ -23,9 +23,14 @@ const routes = [
     component: () => import("../views/components/InputRangePage.vue"),
   },
   {
-    path: "/components/line-division",
-    name: "line-division",
-    component: () => import("../views/components/LineDivisionPage.vue"),
+    path: '/components/info-popper',
+    name: 'info-popper',
+    component: () => import('../views/components/InfoPopperPage.vue'),
+  },
+  {
+    path: '/components/line-division',
+    name: 'line-division',
+    component: () => import('../views/components/LineDivisionPage.vue'),
   },
   {
     path: "/components/select",
