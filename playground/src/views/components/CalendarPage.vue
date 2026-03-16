@@ -1,94 +1,295 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
+import CodeExample from "../../components/CodeExample.vue";
+import PropsTable from "../../components/PropsTable.vue";
 
-const selectedDate = ref<Date | null>(new Date())
-const selectedDates = ref<Date[]>([])
-const dateRange = ref<{ start: Date | null, end: Date | null }>({ start: null, end: null })
+const calendarProps = [
+  {
+    name: "bgHeader",
+    type: "string",
+    default: "var(--neutralLightGrey9)",
+    description: "Cor de fundo do header",
+  },
+  {
+    name: "bgCalendar",
+    type: "string",
+    default: "var(--neutralLightGrey9)",
+    description: "Cor de fundo do calendário",
+  },
+  {
+    name: "colorCalendar",
+    type: "string",
+    default: "var(--neutralLightGrey5)",
+    description: "Cor do texto no calendário",
+  },
+  {
+    name: "borderColorCalendar",
+    type: "string",
+    default: "var(--neutralLightGrey6)",
+    description: "Cor da borda do calendário",
+  },
+  {
+    name: "bgNotCurrentMonth",
+    type: "string",
+    default: "var(--neutralLightGrey5)",
+    description: "Cor de fundo dos dias fora do mês",
+  },
+  {
+    name: "bgItem",
+    type: "string",
+    default: "linear-gradient(...)",
+    description: "Background do item",
+  },
+  {
+    name: "fontSizeItem",
+    type: "string",
+    default: "var(--br-text-base)",
+    description: "Tamanho da fonte do item",
+  },
+  {
+    name: "colorItem",
+    type: "string",
+    default: "var(--brandPrimaryLightest)",
+    description: "Cor do texto do item",
+  },
+  {
+    name: "dateSelectorColorRoot",
+    type: "string",
+    default: "var(--neutralLightGrey1)",
+    description: "Cor base do seletor de data",
+  },
+  {
+    name: "dateSelectorColorIndicator",
+    type: "string",
+    default: "var(--neutralDarkGrey1)",
+    description: "Cor do texto do indicador",
+  },
+  {
+    name: "dateSelectorColorIcon",
+    type: "string",
+    default: "var(--neutralLightGrey1)",
+    description: "Cor do ícone do seletor",
+  },
+  {
+    name: "dateSelectorFontSize",
+    type: "string",
+    default: "var(--fontSizeTextP2)",
+    description: "Tamanho da fonte do indicador",
+  },
+  {
+    name: "dateSelectorFontSizeMobile",
+    type: "string",
+    default: "var(--fontSizeTextP3)",
+    description: "Tamanho da fonte no mobile",
+  },
+  {
+    name: "dateSelectorFontWeight",
+    type: "string",
+    default: "500",
+    description: "Peso da fonte do indicador",
+  },
+  {
+    name: "bgFilter",
+    type: "string",
+    default: "var(--brandPrimaryLightest)",
+    description: "Cor de fundo do filtro",
+  },
+  {
+    name: "fontSizeFilter",
+    type: "string",
+    default: "var(--br-text-base)",
+    description: "Tamanho da fonte do filtro",
+  },
+  {
+    name: "fontWeightFilter",
+    type: "string",
+    default: "var(--br-font-medium)",
+    description: "Peso da fonte do filtro",
+  },
+  {
+    name: "bgActiveFilter",
+    type: "string",
+    default: "var(--neutralLightGrey9)",
+    description: "Cor do filtro ativo",
+  },
+  {
+    name: "initialIsDay",
+    type: "boolean",
+    default: "false",
+    description: "Inicia no modo dia",
+  },
+  {
+    name: "initialIsWeek",
+    type: "boolean",
+    default: "true",
+    description: "Inicia no modo semana",
+  },
+  {
+    name: "initialFilter",
+    type: "'month' | 'week' | 'day'",
+    default: "'month'",
+    description: "Filtro inicial do calendário",
+  },
+  {
+    name: "items",
+    type: "string[]",
+    default: "[]",
+    description: "Itens exibidos em cada dia/horário",
+  },
+];
 
-const highlightedDates = [
-  { date: new Date(), color: '#4caf50', label: 'Hoje' },
-  { date: new Date(Date.now() + 86400000 * 3), color: '#ff9800', label: 'Evento' },
-]
-
-const props = [
-  { name: 'minDate', type: 'Date | string', default: '-', description: 'Data mínima selecionável' },
-  { name: 'maxDate', type: 'Date | string', default: '-', description: 'Data máxima selecionável' },
-  { name: 'disabledDates', type: 'Array<Date | string>', default: '[]', description: 'Datas desabilitadas' },
-  { name: 'view', type: "'day' | 'month' | 'year'", default: "'day'", description: 'Visualização inicial' },
-  { name: 'firstDayOfWeek', type: '0 | 1 | 2 | 3 | 4 | 5 | 6', default: '0', description: 'Primeiro dia da semana (0=Dom)' },
-  { name: 'showWeekNumbers', type: 'boolean', default: 'false', description: 'Mostrar números das semanas' },
-  { name: 'multiple', type: 'boolean', default: 'false', description: 'Seleção múltipla' },
-  { name: 'range', type: 'boolean', default: 'false', description: 'Seleção de período' },
-  { name: 'locale', type: 'string', default: "'pt-BR'", description: 'Localidade para formatação' },
-  { name: 'readonly', type: 'boolean', default: 'false', description: 'Modo somente leitura' },
-  { name: 'disabled', type: 'boolean', default: 'false', description: 'Estado desabilitado' },
-  { name: 'highlightedDates', type: 'Array<{ date, color?, label? }>', default: '[]', description: 'Datas destacadas' },
-]
+const basicExample = "<BrCalendarMonth />";
+const dayExample = `<BrCalendarMonth
+  initial-filter="day"
+  :initial-is-day="true"
+  :initial-is-week="false"
+  :items="['Reunião', 'Entrega', 'Call']"
+/>`;
+const calendarBgExample = `<BrCalendarMonth
+  bg-header="var(--neutralLightGrey10)"
+  bg-calendar="var(--neutralLightGrey10)"
+  color-calendar="var(--neutralDarkGrey5)"
+  border-color-calendar="var(--neutralLightGrey6)"
+  bg-not-current-month="var(--neutralLightGrey7)"
+/>`;
+const calendarBgAltExample = `<BrCalendarMonth
+  bg-header="#0b0913"
+  bg-calendar="#000"
+  color-calendar="#c7b6ff"
+  border-color-calendar="#2a2140"
+  bg-not-current-month="#0a0810"
+  bg-item="#1f1c2a"
+  color-item="#e3d8ff"
+  bg-filter="#090812"
+  bg-active-filter="#141027"
+  font-size-filter="14px"
+  font-weight-filter="600"
+  date-selector-color-root="#b9a6ff"
+  date-selector-color-indicator="#e3d8ff"
+  date-selector-color-icon="#865dfb"
+  date-selector-font-size="18px"
+  date-selector-font-size-mobile="14px"
+  date-selector-font-weight="600"
+/>`;
 </script>
 
 <template>
-  <div class="docs-page">
-      <h1>Calendar</h1>
-      <p class="docs-page__description">
-        Componente de calendário para seleção de datas.
+  <div class="component-page">
+    <header class="component-page__header">
+      <h1 class="component-page__title">Calendar</h1>
+      <p class="component-page__description">
+        Organismo de calendário mensal com filtros.
       </p>
+    </header>
 
+    <section class="component-page__section">
       <h2>Uso básico</h2>
-      <CodeExample
-        :code="`<BrCalendar v-model='selectedDate' />`"
-      >
-        <BrCalendar v-model="selectedDate" />
-        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">
-          Selecionado: {{ selectedDate?.toLocaleDateString('pt-BR') || 'Nenhuma' }}
-        </p>
+      <CodeExample :code="basicExample">
+        <BrCalendarMonth />
       </CodeExample>
+    </section>
 
-      <h2>Semana começando na segunda</h2>
-      <CodeExample :code="`<BrCalendar :firstDayOfWeek='1' />`">
-        <BrCalendar :firstDayOfWeek="1" />
-      </CodeExample>
-
-      <h2>Com números das semanas</h2>
-      <CodeExample :code="`<BrCalendar showWeekNumbers />`">
-        <BrCalendar showWeekNumbers />
-      </CodeExample>
-
-      <h2>Seleção múltipla</h2>
-      <CodeExample :code="`<BrCalendar v-model='selectedDates' multiple />`">
-        <BrCalendar v-model="selectedDates" multiple />
-        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">
-          Selecionados: {{ selectedDates.length }} data(s)
-        </p>
-      </CodeExample>
-
-      <h2>Seleção de período</h2>
-      <CodeExample :code="`<BrCalendar v-model='dateRange' range />`">
-        <BrCalendar v-model="dateRange" range />
-        <p style="margin-top: 12px; color: var(--neutralDarkGrey5);">
-          Período: {{ dateRange.start?.toLocaleDateString('pt-BR') || '-' }}
-          até {{ dateRange.end?.toLocaleDateString('pt-BR') || '-' }}
-        </p>
-      </CodeExample>
-
-      <h2>Datas destacadas</h2>
-      <CodeExample :code="`<BrCalendar :highlightedDates='highlightedDates' />`">
-        <BrCalendar :highlightedDates="highlightedDates" />
-      </CodeExample>
-
-      <h2>Limites de data</h2>
-      <CodeExample :code="`<BrCalendar :minDate='new Date()' :maxDate='new Date(Date.now() + 30 * 86400000)' />`">
-        <BrCalendar
-          :minDate="new Date()"
-          :maxDate="new Date(Date.now() + 30 * 86400000)"
+    <section class="component-page__section">
+      <h2>Modo dia</h2>
+      <CodeExample title="Filtro dia e itens customizados" :code="dayExample">
+        <BrCalendarMonth
+          initial-filter="day"
+          :initial-is-day="true"
+          :initial-is-week="false"
+          :items="['Reunião', 'Entrega', 'Call']"
         />
-        <p style="margin-top: 8px; color: var(--neutralDarkGrey5); font-size: 14px;">
-          Apenas próximos 30 dias disponíveis
-        </p>
       </CodeExample>
+    </section>
 
-      <h2>Props</h2>
-    <PropsTable :props="props" />
+    <section class="component-page__section">
+      <h2>Cores do calendário</h2>
+      <CodeExample title="Background do calendário" :code="calendarBgExample">
+        <BrCalendarMonth
+          bg-header="var(--neutralLightGrey10)"
+          bg-calendar="var(--neutralLightGrey10)"
+          color-calendar="var(--neutralDarkGrey5)"
+          border-color-calendar="var(--neutralLightGrey6)"
+          bg-not-current-month="var(--neutralLightGrey7)"
+        />
+      </CodeExample>
+    </section>
+
+    <section class="component-page__section">
+      <h2>Paleta noturna</h2>
+      <CodeExample title="Cores alternativas" :code="calendarBgAltExample">
+        <BrCalendarMonth
+          bg-header="#0b0913"
+          bg-calendar="#000"
+          color-calendar="#c7b6ff"
+          border-color-calendar="#2a2140"
+          bg-not-current-month="#0a0810"
+          bg-item="#1f1c2a"
+          color-item="#e3d8ff"
+          bg-filter="#090812"
+          bg-active-filter="#141027"
+          font-size-filter="14px"
+          font-weight-filter="600"
+          date-selector-color-root="#b9a6ff"
+          date-selector-color-indicator="#e3d8ff"
+          date-selector-color-icon="#865dfb"
+          date-selector-font-size="18px"
+          date-selector-font-size-mobile="14px"
+          date-selector-font-weight="600"
+        />
+      </CodeExample>
+    </section>
+
+    <section class="component-page__section">
+      <h2>API</h2>
+      <h3>Props</h3>
+      <PropsTable :props="calendarProps" />
+    </section>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.component-page {
+  &__header {
+    margin-bottom: var(--br-space-10);
+  }
+
+  &__title {
+    font-size: var(--br-text-h3);
+    font-weight: var(--br-font-bold);
+    color: var(--neutralDarkGrey);
+    margin: var(--br-space-4) 0;
+  }
+
+  &__description {
+    font-size: var(--br-text-lg);
+    color: var(--neutralDarkGrey7);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  &__section {
+    margin-bottom: var(--br-space-12);
+
+    h2 {
+      font-size: var(--br-text-h5);
+      font-weight: var(--br-font-semibold);
+      color: var(--neutralDarkGrey);
+      margin: 0 0 var(--br-space-4);
+      padding-bottom: var(--br-space-3);
+      border-bottom: 1px solid var(--neutralLightGrey5);
+    }
+
+    h3 {
+      font-size: var(--br-text-lg);
+      font-weight: var(--br-font-semibold);
+      color: var(--neutralDarkGrey);
+      margin: var(--br-space-6) 0 var(--br-space-3);
+    }
+
+    p {
+      color: var(--neutralDarkGrey7);
+      margin: 0 0 var(--br-space-4);
+      line-height: 1.6;
+    }
+  }
+}
+</style>

@@ -8,4 +8,5 @@ export * from "./BrCard";
 export * from "./BrFormField";
 export * from "./BrStepper";
 export * from "./BrCalendar";
+export * from "./BrCalendarDateSelector";
 export * from "./BrTabs";

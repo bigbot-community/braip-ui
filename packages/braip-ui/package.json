@@ -43,7 +43,8 @@
     "vue": "^3.4.0"
   },
   "dependencies": {
-    "@vueuse/core": "^10.7.0"
+    "@vueuse/core": "^10.7.0",
+    "dayjs": "^1.11.20"
   },
   "devDependencies": {
     "@eslint/js": "^8.57.1",

@@ -12,7 +12,3 @@ export interface InputRangeProps {
   textFontSize: string;
   textValueFontSize: string;
 }
-
-export interface InputRangeEmits {
-  (event: "input", value: [number, number]): void;
-}
