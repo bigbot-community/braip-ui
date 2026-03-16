@@ -1,7 +1,12 @@
-<svg preserveAspectRatio="none" width="100%" height="100%" overflow="visible"
-    style="display: block;" viewBox="0 0 17.4158 11.3137" fill="none"
-    xmlns="http://www.w3.org/2000/svg">
-    <path
-        d="M11.7457 0L10.3348 1.41752L13.605 4.67249L0 4.68618L0.00201277 6.68618L13.5698 6.67252L10.3546 9.90275L11.7721 11.3137L17.4158 5.6436L11.7457 0Z"
-        fill="currentColor" />
+<svg
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M15.0378 6.34317L13.6269 7.76069L16.8972 11.0157L3.29211 11.0293L3.29413 13.0293L16.8619 13.0157L13.6467 16.2459L15.0643 17.6568L20.7079 11.9868L15.0378 6.34317Z"
+    fill="currentColor"
+  />
 </svg>
