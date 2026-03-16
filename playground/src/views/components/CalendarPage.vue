@@ -144,13 +144,6 @@ const dayExample = `<BrCalendarMonth
   :initial-is-week="false"
   :items="['Reunião', 'Entrega', 'Call']"
 />`;
-const visualExample = `<BrCalendarMonth
-  bg-filter="var(--neutralLightGrey9)"
-  bg-active-filter="var(--brandPrimaryLightest)"
-  font-size-filter="14px"
-  font-weight-filter="600"
-  date-selector-color-icon="var(--brandPrimary6)"
-/>`;
 const calendarBgExample = `<BrCalendarMonth
   bg-header="var(--neutralLightGrey10)"
   bg-calendar="var(--neutralLightGrey10)"
@@ -203,19 +196,6 @@ const calendarBgAltExample = `<BrCalendarMonth
           :initial-is-day="true"
           :initial-is-week="false"
           :items="['Reunião', 'Entrega', 'Call']"
-        />
-      </CodeExample>
-    </section>
-
-    <section class="component-page__section">
-      <h2>Customização visual</h2>
-      <CodeExample title="Cores e tipografia" :code="visualExample">
-        <BrCalendarMonth
-          bg-filter="var(--neutralLightGrey9)"
-          bg-active-filter="var(--brandPrimaryLightest)"
-          font-size-filter="14px"
-          font-weight-filter="600"
-          date-selector-color-icon="var(--brandPrimary6)"
         />
       </CodeExample>
     </section>
