@@ -1,19 +1,80 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed } from "vue";
 
 const components = [
-  { name: 'Button', description: 'Botões interativos com múltiplas variantes', path: '/components/button', icon: '🔘' },
-  { name: 'Input', description: 'Campos de entrada de texto', path: '/components/input', icon: '📝' },
-  { name: 'Input Range', description: 'Seleção de intervalo mínimo e máximo', path: '/components/input-range', icon: '🎚️' },
-  { name: 'Select', description: 'Dropdown para seleção de opções', path: '/components/select', icon: '📋' },
-  { name: 'Textarea', description: 'Área de texto multilinha', path: '/components/textarea', icon: '📄' },
-  { name: 'Badge', description: 'Badges e tags de status', path: '/components/badge', icon: '🏷️' },
-  { name: 'Icon', description: 'Biblioteca de ícones SVG', path: '/components/icon', icon: '⭐' },
-  { name: 'Spinner', description: 'Indicadores de carregamento', path: '/components/spinner', icon: '⏳' },
-  { name: 'Title', description: 'Tipografia de títulos', path: '/components/title', icon: '📰' },
-  { name: 'Switch', description: 'Toggle on/off', path: '/components/switch', icon: '🔀' },
-  { name: 'Modal', description: 'Diálogos e painéis laterais', path: '/components/modal', icon: '🪟' },
-]
+  {
+    name: "Button",
+    description: "Botões interativos com múltiplas variantes",
+    path: "/components/button",
+    icon: "🔘",
+  },
+  {
+    name: "Input",
+    description: "Campos de entrada de texto",
+    path: "/components/input",
+    icon: "📝",
+  },
+  {
+    name: "Input Range",
+    description: "Seleção de intervalo mínimo e máximo",
+    path: "/components/input-range",
+    icon: "🎚️",
+  },
+  {
+    name: "Select",
+    description: "Dropdown para seleção de opções",
+    path: "/components/select",
+    icon: "📋",
+  },
+  {
+    name: "Textarea",
+    description: "Área de texto multilinha",
+    path: "/components/textarea",
+    icon: "📄",
+  },
+  {
+    name: "Badge",
+    description: "Badges e tags de status",
+    path: "/components/badge",
+    icon: "🏷️",
+  },
+  {
+    name: "Icon",
+    description: "Biblioteca de ícones SVG",
+    path: "/components/icon",
+    icon: "⭐",
+  },
+  {
+    name: "Spinner",
+    description: "Indicadores de carregamento",
+    path: "/components/spinner",
+    icon: "⏳",
+  },
+  {
+    name: "Title",
+    description: "Tipografia de títulos",
+    path: "/components/title",
+    icon: "📰",
+  },
+  {
+    name: "Switch",
+    description: "Toggle on/off",
+    path: "/components/switch",
+    icon: "🔀",
+  },
+  {
+    name: "Modal",
+    description: "Diálogos e painéis laterais",
+    path: "/components/modal",
+    icon: "🪟",
+  },
+  {
+    name: "Calendário",
+    description: "Visualização mensal com seleção de dias",
+    path: "/components/calendar",
+    icon: "📅",
+  },
+];
 </script>
 
 <template>
@@ -28,7 +89,8 @@ const components = [
         <span class="hero__title-ui">UI</span>
       </h1>
       <p class="hero__subtitle">
-        Biblioteca de componentes Vue 3 para construir interfaces modernas e acessíveis
+        Biblioteca de componentes Vue 3 para construir interfaces modernas e
+        acessíveis
       </p>
       <div class="hero__actions">
         <router-link to="/components/button">
@@ -45,22 +107,30 @@ const components = [
       <div class="feature">
         <div class="feature__icon">🎨</div>
         <h3 class="feature__title">Design System</h3>
-        <p class="feature__text">Tokens de design consistentes para cores, tipografia e espaçamentos</p>
+        <p class="feature__text">
+          Tokens de design consistentes para cores, tipografia e espaçamentos
+        </p>
       </div>
       <div class="feature">
         <div class="feature__icon">⚡</div>
         <h3 class="feature__title">Vue 3 + TypeScript</h3>
-        <p class="feature__text">Desenvolvido com Composition API e tipagem completa</p>
+        <p class="feature__text">
+          Desenvolvido com Composition API e tipagem completa
+        </p>
       </div>
       <div class="feature">
         <div class="feature__icon">📦</div>
         <h3 class="feature__title">Tree-shaking</h3>
-        <p class="feature__text">Importe apenas os componentes que você precisa</p>
+        <p class="feature__text">
+          Importe apenas os componentes que você precisa
+        </p>
       </div>
       <div class="feature">
         <div class="feature__icon">♿</div>
         <h3 class="feature__title">Acessível</h3>
-        <p class="feature__text">Componentes seguem as melhores práticas de acessibilidade</p>
+        <p class="feature__text">
+          Componentes seguem as melhores práticas de acessibilidade
+        </p>
       </div>
     </section>
 
@@ -348,7 +418,7 @@ export default defineNuxtPlugin((nuxtApp) => {
       background: var(--neutralLightGrey6);
       padding: var(--br-space-1) var(--br-space-2);
       border-radius: var(--br-radius-sm);
-      font-family: 'Fira Code', 'Monaco', monospace;
+      font-family: "Fira Code", "Monaco", monospace;
       font-size: var(--br-text-xs);
     }
   }
@@ -374,7 +444,7 @@ export default defineNuxtPlugin((nuxtApp) => {
   }
 
   code {
-    font-family: 'Fira Code', 'Monaco', monospace;
+    font-family: "Fira Code", "Monaco", monospace;
     font-size: var(--br-text-sm);
     color: var(--neutralLightGrey6);
     line-height: 1.6;
