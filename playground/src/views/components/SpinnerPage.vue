@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CodeExample from '../../components/CodeExample.vue'
-import PropsTable from '../../components/PropsTable.vue'
 
 const spinnerProps = [
   { name: 'size', type: "'sm' | 'md' | 'lg' | 'xl'", default: "'md'", description: 'Tamanho do spinner' },

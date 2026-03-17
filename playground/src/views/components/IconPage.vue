@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import CodeExample from "../../components/CodeExample.vue";
-import PropsTable from "../../components/PropsTable.vue";
 
 const icons = [
   "airplane",
@@ -125,12 +123,9 @@ const iconProps = [
     <!-- Usage -->
     <section class="component-page__section">
       <h2>Uso Básico</h2>
-      <CodeExample
-        title="Ícone Simples"
-        code='<BrIcon name="check" />
+      <CodeExample title="Ícone Simples" code='<BrIcon name="check" />
 <BrIcon name="arrow-right" />
-<BrIcon name="pix" />'
-      >
+<BrIcon name="pix" />'>
         <BrIcon name="check" />
         <BrIcon name="arrow-right" />
         <BrIcon name="pix" />
@@ -140,13 +135,10 @@ const iconProps = [
     <!-- Sizes -->
     <section class="component-page__section">
       <h2>Tamanhos</h2>
-      <CodeExample
-        title="Todos os Tamanhos"
-        code='<BrIcon name="edit" size="sm" />
+      <CodeExample title="Todos os Tamanhos" code='<BrIcon name="edit" size="sm" />
 <BrIcon name="edit" size="md" />
 <BrIcon name="edit" size="lg" />
-<BrIcon name="edit" size="xl" />'
-      >
+<BrIcon name="edit" size="xl" />'>
         <BrIcon name="edit" size="sm" />
         <BrIcon name="edit" size="md" />
         <BrIcon name="edit" size="lg" />
@@ -158,9 +150,7 @@ const iconProps = [
     <section class="component-page__section">
       <h2>Cores</h2>
       <p>O ícone herda a cor do texto do elemento pai por padrão.</p>
-      <CodeExample
-        title="Ícones Coloridos"
-        code='<span style="color: var(--brandPrimary6)">
+      <CodeExample title="Ícones Coloridos" code='<span style="color: var(--brandPrimary6)">
   <BrIcon name="check" />
 </span>
 <span style="color: var(--auxiliaryGreen6)">
@@ -168,8 +158,7 @@ const iconProps = [
 </span>
 <span style="color: var(--auxiliaryRed6)">
   <BrIcon name="error" />
-</span>'
-      >
+</span>'>
         <span style="color: var(--brandPrimary6)">
           <BrIcon name="check" size="lg" />
         </span>
